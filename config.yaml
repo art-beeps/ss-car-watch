@@ -26,8 +26,8 @@ filters:
   max_price_eur: 500
   min_price_eur: 0
   min_year: null
-  min_inspection_months: 3
-  require_inspection: true
+  min_inspection_months: 0
+  require_inspection: false
   exclude_exchange_only: false
   keywords_exclude:
     - pērkam
@@ -36,7 +36,7 @@ filters:
 
 scan:
   max_pages_per_source: 1
-  detail_fetch_limit: 60
+  detail_fetch_limit: 120
   request_delay_seconds: 1.5
 
 report:
