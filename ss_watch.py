@@ -168,25 +168,35 @@ def classify_cells(cells: list[str]) -> dict:
 # Listing page parsing
 # --------------------------------------------------------------------------
 def parse_listing(html_text: str) -> list[dict]:
-    """Extract ad rows from a listing page."""
+    """Extract ad rows from a listing page.
+
+    We find ads by their detail-page links (/msg/.../*.html) rather than
+    relying on a specific row-id scheme, so this keeps working even if ss.lv
+    tweaks its table markup. Each ad has two such links (thumbnail + title);
+    we keep the one that carries the title text and dedupe by URL."""
     soup = BeautifulSoup(html_text, "lxml")
-    ads = []
-    for tr in soup.select("tr[id^=tr_]"):
-        link = tr.select_one("a.am") or tr.select_one('a[href*="/msg/"]')
-        if not link:
-            continue
+    ads: list[dict] = []
+    seen: set[str] = set()
+    for link in soup.select('a[href*="/msg/"]'):
         href = link.get("href", "")
-        if "/msg/" not in href:
+        if "/transport/cars/" not in href or not href.endswith(".html"):
+            continue
+        title = link.get_text(" ", strip=True)
+        if not title:                       # thumbnail (image) link -> skip
             continue
         url = href if href.startswith("http") else BASE + href
-        title = link.get_text(" ", strip=True)
+        if url in seen:
+            continue
+        seen.add(url)
 
-        # value cells: ss.lv uses td.msga2-o for the data columns
-        value_cells = [td.get_text(" ", strip=True)
-                       for td in tr.select("td.msga2-o")]
-        if not value_cells:  # fallback: any td after the title cell
+        row = link.find_parent("tr")
+        value_cells: list[str] = []
+        if row is not None:
             value_cells = [td.get_text(" ", strip=True)
-                           for td in tr.find_all("td")]
+                           for td in row.select("td.msga2-o")]
+            if not value_cells:
+                value_cells = [td.get_text(" ", strip=True)
+                               for td in row.find_all("td")]
         info = classify_cells(value_cells)
         info.update({"url": url, "title": title})
         ads.append(info)
