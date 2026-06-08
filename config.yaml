@@ -1,0 +1,22 @@
+sources:
+  - https://www.ss.lv/lv/transport/cars/
+
+filters:
+  max_price_eur: 3000
+  min_price_eur: 0
+  min_year: null
+  min_inspection_months: 3
+  require_inspection: true
+  exclude_exchange_only: false
+  keywords_exclude:
+    - pērkam
+    - pērku
+    - rezerves
+
+scan:
+  max_pages_per_source: 3
+  detail_fetch_limit: 60
+  request_delay_seconds: 1.5
+
+report:
+  top_n: 40
