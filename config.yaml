@@ -23,7 +23,7 @@ sources:
   - https://www.ss.lv/lv/transport/cars/others/
 
 filters:
-  max_price_eur: 3000
+  max_price_eur: 500
   min_price_eur: 0
   min_year: null
   min_inspection_months: 3
