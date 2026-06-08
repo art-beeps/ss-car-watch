@@ -1,0 +1,50 @@
+name: SS Car Watch
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ss-car-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run watcher
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+        run: python ss_watch.py
+
+      - name: Commit updated state and report
+        run: |
+          git config user.name  "ss-car-watch-bot"
+          git config user.email "actions@github.com"
+          git add state/ docs/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update listings $(date -u +%Y-%m-%d) [skip ci]"
+            git push
+          fi
