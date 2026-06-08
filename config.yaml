@@ -35,9 +35,9 @@ filters:
     - rezerves
 
 scan:
-  max_pages_per_source: 1
-  detail_fetch_limit: 120
-  request_delay_seconds: 1.5
+  max_pages_per_source: 8
+  detail_fetch_limit: 200
+  request_delay_seconds: 1.0
 
 report:
-  top_n: 40
+  top_n: 60
