@@ -1,5 +1,26 @@
 sources:
-  - https://www.ss.lv/lv/transport/cars/
+  - https://www.ss.lv/lv/transport/cars/audi/
+  - https://www.ss.lv/lv/transport/cars/bmw/
+  - https://www.ss.lv/lv/transport/cars/volkswagen/
+  - https://www.ss.lv/lv/transport/cars/opel/
+  - https://www.ss.lv/lv/transport/cars/ford/
+  - https://www.ss.lv/lv/transport/cars/toyota/
+  - https://www.ss.lv/lv/transport/cars/renault/
+  - https://www.ss.lv/lv/transport/cars/peugeot/
+  - https://www.ss.lv/lv/transport/cars/citroen/
+  - https://www.ss.lv/lv/transport/cars/nissan/
+  - https://www.ss.lv/lv/transport/cars/mazda/
+  - https://www.ss.lv/lv/transport/cars/honda/
+  - https://www.ss.lv/lv/transport/cars/skoda/
+  - https://www.ss.lv/lv/transport/cars/mercedes/
+  - https://www.ss.lv/lv/transport/cars/mitsubishi/
+  - https://www.ss.lv/lv/transport/cars/volvo/
+  - https://www.ss.lv/lv/transport/cars/hyundai/
+  - https://www.ss.lv/lv/transport/cars/kia/
+  - https://www.ss.lv/lv/transport/cars/seat/
+  - https://www.ss.lv/lv/transport/cars/fiat/
+  - https://www.ss.lv/lv/transport/cars/vaz/
+  - https://www.ss.lv/lv/transport/cars/others/
 
 filters:
   max_price_eur: 3000
@@ -14,7 +35,7 @@ filters:
     - rezerves
 
 scan:
-  max_pages_per_source: 3
+  max_pages_per_source: 1
   detail_fetch_limit: 60
   request_delay_seconds: 1.5
 
