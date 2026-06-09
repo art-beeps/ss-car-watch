@@ -24,6 +24,18 @@
     "first_seen": "2026-06-08T23:33:16.024612+00:00"
   },
   {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/bmw/330/ccpxgi.html",
+    "title": "BMW 330i E90 angļa pārpalikumi, tas kas bildēs redzams. \n\nReduktora, karda",
+    "price": 290,
+    "year": 2006,
+    "engine": "3.0",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Cits",
+    "first_seen": "2026-06-09T08:57:42.671443+00:00"
+  },
+  {
     "url": "https://www.ss.lv/msg/lv/transport/cars/mazda/323/aniej.html",
     "title": "Defekts rūsa var metināt un braukt vai krūmu gonkām.",
     "price": 300,
@@ -178,6 +190,18 @@
     "months_left": null,
     "place": "Cēsis un raj.",
     "first_seen": "2026-06-08T23:33:16.024612+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/renault/kangoo/eoxxc.html",
+    "title": "Pārdodu ejošu Renault Kangoo, par šo gadu nodoklis samaksāts pilnā apmērā. N",
+    "price": 450,
+    "year": 2006,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Ogre un raj.",
+    "first_seen": "2026-06-09T08:57:42.671443+00:00"
   },
   {
     "url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/amarok/cejcjc.html",
@@ -466,5 +490,17 @@
     "months_left": null,
     "place": "Jēkabpils un raj.",
     "first_seen": "2026-06-08T23:33:16.024612+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/volvo/v40/bcogxb.html",
+    "title": "Pārdodu Volvo V40 ar vizuāliem defektiem. Pārdodu, jo iegādāts jauns auto. L",
+    "price": 500,
+    "year": 2003,
+    "engine": "1.9D",
+    "mileage": null,
+    "inspection_until": "2026-08-31",
+    "months_left": 2,
+    "place": "Cēsis un raj.",
+    "first_seen": "2026-06-09T08:57:42.671443+00:00"
   }
 ]
