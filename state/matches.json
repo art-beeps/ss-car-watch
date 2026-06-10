@@ -72,6 +72,18 @@
     "first_seen": "2026-06-08T23:33:16.024612+00:00"
   },
   {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/ford/focus/ddxce.html",
+    "title": "Īpašnieks pārdod automašīnu bez tehniskās apskates. Automašīna ir braucošā.",
+    "price": 300,
+    "year": 2006,
+    "engine": "1.6D",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Rīgas rajons",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
+  },
+  {
     "url": "https://www.ss.lv/msg/lv/transport/cars/citroen/berlingo/dhnfj.html",
     "title": "Pārdodas, jo auto netiek izmantots. Ar orģinālo, pierādāmu Latvijā veiktu no",
     "price": 350,
@@ -82,6 +94,42 @@
     "months_left": null,
     "place": "Rīgas rajons",
     "first_seen": "2026-06-08T23:33:16.024612+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/opel/astra/chohm.html",
+    "title": "Продаётся Opel Astra 1.7 дизель\n\nЦена обсуждается \n\nЗвонить на второй но",
+    "price": 350,
+    "year": 2006,
+    "engine": "1.7D",
+    "mileage": null,
+    "inspection_until": "2026-06-30",
+    "months_left": 0,
+    "place": "Rīgas rajons",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/peugeot/308/cchflg.html",
+    "title": "Pārdodu automašīnu bez tehniskās apskates. Pēc ilgākas stāvēšanas vairs neie",
+    "price": 350,
+    "year": 2007,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Rīga",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/vaz/2103/cgjcg.html",
+    "title": "Pardod Vaz 2103 ar originalu motoru un latvijas numuriem. Paradu nav. Kadam",
+    "price": 350,
+    "year": 1975,
+    "engine": "1.5",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Gulbene un raj.",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
   },
   {
     "url": "https://www.ss.lv/msg/lv/transport/cars/mazda/mazda2/hlxhm.html",
@@ -106,6 +154,18 @@
     "months_left": null,
     "place": "Rīga",
     "first_seen": "2026-06-08T23:33:16.024612+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/ford/ka/dmlbg.html",
+    "title": "Lv/ru. Продаётся Форд Ка, больничный лист до 25 июня, требуется ремонт порог",
+    "price": 390,
+    "year": 2001,
+    "engine": "1.3",
+    "mileage": null,
+    "inspection_until": "2026-06-30",
+    "months_left": 0,
+    "place": "Rīga",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
   },
   {
     "url": "https://www.ss.lv/msg/lv/transport/cars/audi/a6/bjgdle.html",
@@ -142,6 +202,18 @@
     "months_left": null,
     "place": "Limbaži un raj.",
     "first_seen": "2026-06-08T23:33:16.024612+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/ford/escort/bggcd.html",
+    "title": "Donors\n1.6Benzins\n16 varsti",
+    "price": 400,
+    "year": 1994,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Rīgas rajons",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
   },
   {
     "url": "https://www.ss.lv/msg/lv/transport/cars/audi/80/cxjcn.html",
@@ -202,6 +274,18 @@
     "months_left": null,
     "place": "Ogre un raj.",
     "first_seen": "2026-06-09T08:57:42.671443+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/polo/bbcdeg.html",
+    "title": "Atdošu pret 450€ Polo Variant. Rūc, brauc, bremzē. Ir dažādi sīkumi kas brau",
+    "price": 450,
+    "year": 1999,
+    "engine": "1.9D",
+    "mileage": null,
+    "inspection_until": "2026-06-30",
+    "months_left": 0,
+    "place": "Tukums un raj.",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
   },
   {
     "url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/amarok/cejcjc.html",
@@ -502,5 +586,29 @@
     "months_left": 2,
     "place": "Cēsis un raj.",
     "first_seen": "2026-06-09T08:57:42.671443+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/opel/combo/bphxf.html",
+    "title": "Kravas furgons. Pārdodu bez pārrakstīšanas un numuriem. Dzinējā tika ūdens.",
+    "price": 500,
+    "year": 2007,
+    "engine": "1.3D",
+    "mileage": null,
+    "inspection_until": "2026-11-30",
+    "months_left": 5,
+    "place": "Aizkraukle un raj.",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/mazda/323/hbgob.html",
+    "title": "Pārdodu Mazda 323, 2001 gads, 1, 6 benzīns. Bez TA. Noņemts no uzskaites. No",
+    "price": 500,
+    "year": 2001,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Rīga",
+    "first_seen": "2026-06-10T09:38:29.381469+00:00"
   }
 ]
