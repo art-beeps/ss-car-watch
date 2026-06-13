@@ -228,6 +228,18 @@
     "first_seen": "2026-06-12T09:54:43.959769+00:00"
   },
   {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/renault/kangoo/bglkpi.html",
+    "title": "Pārdod bez skates, ejošs. Rūc brauc , bremzē. Nav aklumatora. Rij eļļu un dū",
+    "price": 350,
+    "year": 2003,
+    "engine": "1.5D",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Jēkabpils un raj.",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
     "url": "https://www.ss.lv/msg/lv/transport/cars/mazda/mazda2/hlxhm.html",
     "title": "Pārdodas mazda2",
     "price": 390,
@@ -384,6 +396,18 @@
     "first_seen": "2026-06-12T09:54:43.959769+00:00"
   },
   {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/honda/accord/abljb.html",
+    "title": "Pārdod Hondu priekš trases . Ar parakstīšanu.",
+    "price": 400,
+    "year": 2004,
+    "engine": "2.0",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Kuldīga un raj.",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
     "url": "https://www.ss.lv/msg/lv/transport/cars/audi/80/cxjcn.html",
     "title": "Varbūt kādam interesē, pirms aiziet naglās. Divas durvis, dokumenti kārtībā.",
     "price": 420,
@@ -480,6 +504,54 @@
     "first_seen": "2026-06-11T10:02:42.502276+00:00"
   },
   {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/golf-3/aodxc.html",
+    "title": "Pārdodu golfu. Sīkāk pa telefonu.",
+    "price": 450,
+    "year": 1996,
+    "engine": "1.9D",
+    "mileage": null,
+    "inspection_until": "2026-07-31",
+    "months_left": 1,
+    "place": "Bauska un raj.",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/polo/hhpni.html",
+    "title": "Pārdod ejošs, viss strādā, tik dēļ atgāzēm nevar skati iziet. e pastu nelasu",
+    "price": 450,
+    "year": 2006,
+    "engine": "1.4",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Jēkabpils un raj.",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/ford/focus/dklie.html",
+    "title": "Pardot Ford Focus 1, 6 b. Авто. в рабочем состоянии, после небольшой аварии.",
+    "price": 460,
+    "year": 2001,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": "2027-05-31",
+    "months_left": 11,
+    "place": "Rīga",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/polo/bjikmd.html",
+    "title": "Labs dzinējs, jauna eļļa dzinējā. Jauns akumulators. Labas vissezonas riepas",
+    "price": 470,
+    "year": 2006,
+    "engine": "1.4D",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Rīgas rajons",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
     "url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/amarok/cejcjc.html",
     "title": "Pārdodu kravas kastes būdu, stiprinājumi komplektā. Būda labā stāvoklī. Jumt",
     "price": 480,
@@ -550,6 +622,30 @@
     "months_left": null,
     "place": "Rīga",
     "first_seen": "2026-06-12T09:54:43.959769+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/ford/focus/beejmp.html",
+    "title": "Pārdod Ford Focus 1, 6 Benzīns 74Kw\n\nAuto var apskatīt jebkurā laikā iepri",
+    "price": 490,
+    "year": 2007,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Cēsis un raj.",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/hyundai/sonata/hephd.html",
+    "title": "Pārdodu savu uzticamu auto, jo vairs netiek izmantots, Krūmu gonkām. Viss st",
+    "price": 499,
+    "year": 2006,
+    "engine": "2.4",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Ogre un raj.",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
   },
   {
     "url": "https://www.ss.lv/msg/lv/transport/cars/opel/zafira/bjebnh.html",
@@ -910,5 +1006,17 @@
     "months_left": 1,
     "place": "Valmiera un raj.",
     "first_seen": "2026-06-12T09:54:43.959769+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/audi/a3/beixnp.html",
+    "title": "Braucams auto. Rūsa redzama tikai uz priekšējām k. durvīm. Dzinējs labs. Rie",
+    "price": 500,
+    "year": 2000,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": "2026-07-31",
+    "months_left": 1,
+    "place": "Jūrmala",
+    "first_seen": "2026-06-13T08:45:07.737826+00:00"
   }
 ]
