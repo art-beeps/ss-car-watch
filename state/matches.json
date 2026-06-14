@@ -48,6 +48,18 @@
     "first_seen": "2026-06-12T09:54:43.959769+00:00"
   },
   {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/renault/clio/bknibn.html",
+    "title": "Pārdodu Renault Clio 1.5 dīzelis. Mazs nodoklis ekspluatācijas nodoklis – 60",
+    "price": 290,
+    "year": 2006,
+    "engine": "1.5D",
+    "mileage": null,
+    "inspection_until": null,
+    "months_left": null,
+    "place": "Talsi un raj.",
+    "first_seen": "2026-06-14T08:59:54.933552+00:00"
+  },
+  {
     "url": "https://www.ss.lv/msg/lv/transport/cars/mazda/323/aniej.html",
     "title": "Defekts rūsa var metināt un braukt vai krūmu gonkām.",
     "price": 300,
@@ -408,6 +420,18 @@
     "first_seen": "2026-06-13T08:45:07.737826+00:00"
   },
   {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/opel/astra/fcjxf.html",
+    "title": "Pārdod Opelīti kurš godam nokalpojis vienai ģimenei 17gadus. Laiks un mūsu c",
+    "price": 400,
+    "year": 2005,
+    "engine": "1.4",
+    "mileage": null,
+    "inspection_until": "2026-06-30",
+    "months_left": 0,
+    "place": "Rīgas rajons",
+    "first_seen": "2026-06-14T08:59:54.933552+00:00"
+  },
+  {
     "url": "https://www.ss.lv/msg/lv/transport/cars/audi/80/cxjcn.html",
     "title": "Varbūt kādam interesē, pirms aiziet naglās. Divas durvis, dokumenti kārtībā.",
     "price": 420,
@@ -526,6 +550,18 @@
     "months_left": null,
     "place": "Jēkabpils un raj.",
     "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/hyundai/getz/accjg.html",
+    "title": "Pārdošanā Hyundai Getz. Viens īpašnieks. Skate derīga līdz 16.06, nodoklis n",
+    "price": 450,
+    "year": 2008,
+    "engine": "1.4",
+    "mileage": null,
+    "inspection_until": "2026-06-30",
+    "months_left": 0,
+    "place": "Rīgas rajons",
+    "first_seen": "2026-06-14T08:59:54.933552+00:00"
   },
   {
     "url": "https://www.ss.lv/msg/lv/transport/cars/ford/focus/dklie.html",
@@ -1018,5 +1054,17 @@
     "months_left": 1,
     "place": "Jūrmala",
     "first_seen": "2026-06-13T08:45:07.737826+00:00"
+  },
+  {
+    "url": "https://www.ss.lv/msg/lv/transport/cars/seat/leon/cdhijx.html",
+    "title": "Pārdodu Seat Leon 500, -Eur. Sīkāk pa tālruni.",
+    "price": 500,
+    "year": 2004,
+    "engine": "1.6",
+    "mileage": null,
+    "inspection_until": "2026-07-31",
+    "months_left": 1,
+    "place": "Krāslava un raj.",
+    "first_seen": "2026-06-14T08:59:54.933552+00:00"
   }
 ]
