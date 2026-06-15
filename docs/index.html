@@ -4,105 +4,145 @@
 <title>SS.LV auto novērošana</title>
 <style>
   body{font-family:system-ui,Segoe UI,Roboto,sans-serif;margin:0;background:#f6f7f9;color:#111}
-  .wrap{max-width:1000px;margin:0 auto;padding:24px 16px 64px}
-  h1{font-size:22px;margin:0 0 4px}
-  .meta{color:#666;font-size:13px;margin-bottom:24px}
-  h2{font-size:17px;margin:28px 0 10px}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px 14px 64px}
+  h1{font-size:21px;margin:0 0 4px}
+  .meta{color:#666;font-size:13px;margin-bottom:14px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:14px;
+    background:#fff;border:1px solid #e6e6e6;border-radius:10px;padding:12px}
+  .controls input[type=text],.controls input[type=number]{border:1px solid #ccc;border-radius:7px;
+    padding:6px 8px;font-size:14px}
+  .controls label{font-size:13px;color:#333;display:flex;align-items:center;gap:5px}
+  .stat{margin-left:auto;color:#666;font-size:12px}
   table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;
-        box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:14px}
-  th{text-align:left;background:#111;color:#fff;padding:9px 12px;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
-  td{padding:9px 12px;border-top:1px solid #eee;vertical-align:top}
+    box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:14px}
+  th{text-align:left;background:#111;color:#fff;padding:9px 10px;font-weight:600;font-size:11px;
+    text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;user-select:none}
+  th[data-k]:not([data-k=fav]){cursor:pointer}
+  th .arr{opacity:.5;font-size:10px}
+  td{padding:8px 10px;border-top:1px solid #eee;vertical-align:top}
   tr:hover td{background:#fafafa}
-  a{color:#1d4ed8;text-decoration:none} a:hover{text-decoration:underline}
+  .favrow td{background:#fffbea}
+  .favrow:hover td{background:#fff6d6}
+  a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+  .num{white-space:nowrap;font-weight:600}
+  .badge{background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px}
+  .star{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:#e0b400;padding:0}
+  .ins small{color:#666}
+  .ins.ok{color:#15803d;font-weight:600}
+  .ins.warn{color:#b45309}
+  .ins.bad{color:#b91c1c}
+  .ins.none{color:#999}
+  .ins.unk{color:#bbb}
 </style></head>
 <body><div class="wrap">
   <h1>SS.LV vieglo auto novērošana</h1>
-  <div class="meta">Atjaunināts: 2026-06-14 09:04 UTC &middot; kārtots pēc cenas (lētākie augšā)</div>
-  <h2>Jaunie sludinājumi (4)</h2><table><thead><tr><th>Sludinājums</th><th>Cena</th><th>Gads</th><th>Dzinējs</th><th>Nobraukums</th><th>Tehniskā apskate</th><th>Vieta</th></tr></thead><tbody><tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/renault/clio/bknibn.html'>Pārdodu Renault Clio 1.5 dīzelis. Mazs nodoklis ekspluatācijas nodoklis – 60</a> <span style="background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;">JAUNS</span></td><td style='white-space:nowrap;font-weight:600'>290 €</td><td>2006</td><td>1.5D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Talsi un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/opel/astra/fcjxf.html'>Pārdod Opelīti kurš godam nokalpojis vienai ģimenei 17gadus. Laiks un mūsu c</a> <span style="background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;">JAUNS</span></td><td style='white-space:nowrap;font-weight:600'>400 €</td><td>2005</td><td>1.4</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/hyundai/getz/accjg.html'>Pārdošanā Hyundai Getz. Viens īpašnieks. Skate derīga līdz 16.06, nodoklis n</a> <span style="background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;">JAUNS</span></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>2008</td><td>1.4</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/seat/leon/cdhijx.html'>Pārdodu Seat Leon 500, -Eur. Sīkāk pa tālruni.</a> <span style="background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;">JAUNS</span></td><td style='white-space:nowrap;font-weight:600'>500 €</td><td>2004</td><td>1.6</td><td></td><td style='white-space:nowrap'>2026-07-31 <span style='color:#666'>1 mēn.</span></td><td>Krāslava un raj.</td></tr></tbody></table>
-  <h2>Nesenās atbilstības (60)</h2><table><thead><tr><th>Sludinājums</th><th>Cena</th><th>Gads</th><th>Dzinējs</th><th>Nobraukums</th><th>Tehniskā apskate</th><th>Vieta</th></tr></thead><tbody><tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/others/bpedpk.html'>Uzperkam nolietotas auto metalluzniem, stradajam bez brivdienam. markaj,</a></td><td style='white-space:nowrap;font-weight:600'>1 €</td><td></td><td></td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/zaz/968/hdpgj.html'>Zaz-968, 1975g. , 1.2b 40zs, 50 gadus nostāvējis garažā, pirms nolikšana</a></td><td style='white-space:nowrap;font-weight:600'>270 €</td><td>1975</td><td>1.2</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Cēsis un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/bmw/330/ccpxgi.html'>BMW 330i E90 angļa pārpalikumi, tas kas bildēs redzams. 
+  <div class="meta">Atjaunināts: 2026-06-15 10:22 UTC &middot; piesprausto izlasi glabā šajā pārlūkā</div>
+  <div class="controls">
+    <input id="q" type="text" placeholder="Meklēt nosaukumā...">
+    <label>Maks. cena <input id="maxp" type="number" style="width:80px"></label>
+    <label>Min. TA mēn. <input id="minm" type="number" style="width:60px"></label>
+    <label><input id="onlyvalid" type="checkbox"> Tikai ar derīgu TA</label>
+    <label><input id="onlynew" type="checkbox"> Tikai jaunie</label>
+    <span id="stat" class="stat"></span>
+  </div>
+  <table id="tbl"><thead><tr>
+    <th data-k="fav">★</th>
+    <th data-k="title">Sludinājums <span class="arr"></span></th>
+    <th data-k="price">Cena <span class="arr"></span></th>
+    <th data-k="year">Gads <span class="arr"></span></th>
+    <th data-k="engine">Dzinējs <span class="arr"></span></th>
+    <th data-k="mileage">Nobraukums <span class="arr"></span></th>
+    <th data-k="months_left">Tehniskā apskate <span class="arr"></span></th>
+    <th data-k="place">Vieta <span class="arr"></span></th>
+  </tr></thead><tbody id="body"></tbody></table>
+</div>
+<script>
+const DATA = [{"url": "https://www.ss.lv/msg/lv/transport/cars/others/bpedpk.html", "title": "Uzperkam nolietotas auto metalluzniem, stradajam bez brivdienam. markaj,", "price": 1, "year": null, "engine": null, "mileage": null, "inspection_until": null, "inspection_raw": "", "insp_status": "unknown", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/zaz/968/hdpgj.html", "title": "Zaz-968, 1975g. , 1.2b 40zs, 50 gadus nostāvējis garažā, pirms nolikšana", "price": 270, "year": 1975, "engine": "1.2", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Cēsis un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/renault/clio/gcboi.html", "title": "Pārdodu Renault Clio braucošā kārtībā. 1.2benzīns - 55kw", "price": 290, "year": 2005, "engine": "1.2", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/323/aniej.html", "title": "Defekts rūsa var metināt un braukt vai krūmu gonkām.", "price": 300, "year": 1993, "engine": "1.3", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Ogre un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/626/cxoon.html", "title": "Pārdodas vecs modelis , kārba motors kad nolika viss gāja ka pulkstenis , di", "price": 300, "year": 1985, "engine": "2.0", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Gulbene un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/rover/75/bphgd.html", "title": "Машина продаётся с дефектом автоматической коробки. задняя скорость вклю", "price": 300, "year": 2002, "engine": "2.0D", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Liepāja un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/citroen/berlingo/dhnfj.html", "title": "Pārdodas, jo auto netiek izmantots. Ar orģinālo, pierādāmu Latvijā veiktu no", "price": 350, "year": 2007, "engine": "1.4", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/626/eiedh.html", "title": "Pardod uz detalam. Motors ruc\nnezinu cik liels motors. 2.0\nVai\n2.3\n16.varstu", "price": 350, "year": 1999, "engine": "2.0", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mitsubishi/colt/aepfk.html", "title": "Продаётся. Не ржавая. Оригинальные диски. \nTО не прошла, лист до 7.07.2026.", "price": 350, "year": 2006, "engine": "1.1", "mileage": null, "inspection_until": "2026-07-31", "inspection_raw": "07.2026", "insp_status": "valid", "months_left": 1, "days_left": 46, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/rover/45/bimmb.html", "title": "Degvielas sūkņa defekts.", "price": 350, "year": 2000, "engine": "2.0D", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Jelgava un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/citroen/c3/bkigfp.html", "title": "Pārdodu Citroen C3 braucošā kārtībā. 1.2benzīns - 44kw.", "price": 390, "year": 2008, "engine": "1.2", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/citroen/c3/dkbpc.html", "title": "Pārdodu Citroen C3 braucošā kārtībā. 1.3benzīns - 44kw.", "price": 390, "year": 2005, "engine": "1.3", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/mazda2/hlxhm.html", "title": "Pārdodas mazda2", "price": 390, "year": 2004, "engine": "1.6", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/vaz/2103/gfnbm.html", "title": "Pārdodās bez dokumentiem.", "price": 390, "year": 1986, "engine": "1.6", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/passat-b5/nkepe.html", "title": "Mašīna ir braucama, tikai jāpieliek rokas lai izietu apskati, bet pa lielam", "price": 400, "year": 1999, "engine": "1.9D", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Valka un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/opel/astra/fcjxf.html", "title": "Pārdod Opelīti kurš godam nokalpojis vienai ģimenei 17gadus. Laiks un mūsu c", "price": 400, "year": 2005, "engine": "1.4", "mileage": null, "inspection_until": "2026-06-30", "inspection_raw": "06.2026", "insp_status": "valid", "months_left": 0, "days_left": 15, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/mazda6/gxcgc.html", "title": "Auto braucams, bet nepieciešams remonts. \nNav skate- negribu ņemties ar rem", "price": 400, "year": 2006, "engine": "2.0", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/honda/accord/abljb.html", "title": "Pārdod Hondu priekš trases . Ar parakstīšanu.", "price": 400, "year": 2004, "engine": "2.0", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Kuldīga un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/vaz/2121/jjlox.html", "title": "Pardodu nivu ruc brauc bremze dokumentu nav. Cena noradita.", "price": 400, "year": 1988, "engine": "1.6", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Ogre un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/626/cpkgg.html", "title": "Atrodas pašāDaugavpilī. Katalizatora jau nebija.", "price": 450, "year": 1994, "engine": "2.0", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Daugavpils un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/hyundai/getz/accjg.html", "title": "Pārdošanā Hyundai Getz. Viens īpašnieks. Skate derīga līdz 16.06, nodoklis n", "price": 450, "year": 2008, "engine": "1.4", "mileage": null, "inspection_until": "2026-06-30", "inspection_raw": "06.2026", "insp_status": "valid", "months_left": 0, "days_left": 15, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/seat/leon/cxbiko.html", "title": "Tiek pārdots Seat Leon. Pirkts jauns Latvijā un bijis tikai vienas saimniece", "price": 450, "year": 2006, "engine": "1.9D", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/vaz/2111/cohpc.html", "title": "Auto ejoš bez dokumentiem.", "price": 450, "year": 1985, "engine": "1.6", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/fox/bnnje.html", "title": "Pārdod auto bez tehniskas apskates. Nerada odometra radijums, jasalabo panel", "price": 460, "year": 2006, "engine": "1.2", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/opel/zafira/bbochp.html", "title": "Opel Zafira 2.0 дизель, На ходу, техосмотр не пройден. Находится в Баложи, Ķ", "price": 485, "year": 2001, "engine": "2.0D", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/ford/focus/beejmp.html", "title": "Pārdod Ford Focus 1, 6 Benzīns 74Kw\n\nAuto var apskatīt jebkurā laikā iepri", "price": 490, "year": 2007, "engine": "1.6", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Cēsis un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/toyota/corolla-verso/ocokp.html", "title": "Toyota Corolla Verso, 2.0 dīzelis D4D\n\nAuto braucamā stāvoklī, ar jaudu vi", "price": 490, "year": 2005, "engine": "2.0D", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/ford/focus/pjcog.html", "title": "Vidējais patēriņš 4, 5l/100km\nIr vizuāli defekti\nPavasarī atjaunota, resta", "price": 499, "year": 2006, "engine": "1.6D", "mileage": null, "inspection_until": "2026-09-30", "inspection_raw": "09.2026", "insp_status": "valid", "months_left": 3, "days_left": 107, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/hyundai/sonata/hephd.html", "title": "Pārdodu savu uzticamu auto, jo vairs netiek izmantots, Krūmu gonkām. Viss st", "price": 499, "year": 2006, "engine": "2.4", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Ogre un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/volkswagen/passat-b5/ohike.html", "title": "Volkswagen passat b5 . 1.9tdi .\nTehniskā apskate vēl 3 mēnešus 15.09.2026", "price": 500, "year": 1998, "engine": "1.9D", "mileage": null, "inspection_until": "2026-10-31", "inspection_raw": "10.2026", "insp_status": "valid", "months_left": 4, "days_left": 138, "place": "Kuldīga un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/citroen/c2/aikgg.html", "title": "Tiek tirgots\nRūc brauc bremzē\nPiekare viss ideali daudz kas mainits\nStāv", "price": 500, "year": 2006, "engine": "1.4", "mileage": null, "inspection_until": "2026-07-31", "inspection_raw": "07.2026", "insp_status": "valid", "months_left": 1, "days_left": 46, "place": "Rīgas rajons", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/323/hbgob.html", "title": "Pārdodu Mazda 323, 2001 gads, 1, 6 benzīns. Bez TA. Noņemts no uzskaites. No", "price": 500, "year": 2001, "engine": "1.6", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mazda/mazda6/fkghl.html", "title": "Продаётся Mazda6, 2003 года выпуска. \nЕсть визуальные дефекты. Двигатель в", "price": 500, "year": 2003, "engine": "2.0", "mileage": null, "inspection_until": "2026-06-30", "inspection_raw": "06.2026", "insp_status": "valid", "months_left": 0, "days_left": 15, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/honda/civic/gmmcx.html", "title": "Ir rūsa, braucams", "price": 500, "year": 2003, "engine": "1.6", "mileage": null, "inspection_until": "2026-07-31", "inspection_raw": "07.2026", "insp_status": "valid", "months_left": 1, "days_left": 46, "place": "Ogre un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/honda/cr-v/aeofm.html", "title": "Pārdod Honda cr-v, 1998 gada 2.0 benzīns+gāze jaunā paaudze, grīda pārmetinā", "price": 500, "year": 1998, "engine": "2.0", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Preiļi un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/mitsubishi/grandis/plbbf.html", "title": "Mašīna labošanai vai detaļām. Ir skārusi rūsa, vakar nobruka izpūtējs. \nVas", "price": 500, "year": 2005, "engine": "2.4", "mileage": null, "inspection_until": "2026-07-31", "inspection_raw": "07.2026", "insp_status": "valid", "months_left": 1, "days_left": 46, "place": "Valmiera un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/seat/leon/cdhijx.html", "title": "Pārdodu Seat Leon 500, -Eur. Sīkāk pa tālruni.", "price": 500, "year": 2004, "engine": "1.6", "mileage": null, "inspection_until": "2026-07-31", "inspection_raw": "07.2026", "insp_status": "valid", "months_left": 1, "days_left": 46, "place": "Krāslava un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/seat/toledo/bkdmd.html", "title": "Tirgojas labs darba auto. Ir vizuāli defekti.", "price": 500, "year": 2001, "engine": "1.9D", "mileage": null, "inspection_until": "2026-08-31", "inspection_raw": "08.2026", "insp_status": "valid", "months_left": 2, "days_left": 77, "place": "Ludza un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/seat/ibiza/fnkfm.html", "title": "Braucama mašīna, ir vizuali defekti, tehniski.", "price": 500, "year": 2008, "engine": "1.2", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/vaz/21063/iepii.html", "title": "Tiek pārdots laika kapsulas kandidāts – Žigulis, kurš pēdējos 20 gadus nav r", "price": 500, "year": 1985, "engine": "1.3", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Rīga", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}, {"url": "https://www.ss.lv/msg/lv/transport/cars/uaz/3303/ijfhg.html", "title": "Pārdodu, nav braukšanas stāvoklī. \nRiepas atsevišķi 350eur", "price": 500, "year": 1987, "engine": "2.4", "mileage": null, "inspection_until": null, "inspection_raw": "Bez apskates", "insp_status": "none", "months_left": null, "days_left": null, "place": "Jēkabpils un raj.", "first_seen": "2026-06-15T10:16:21.705015+00:00", "is_new": true}];
+const FAVKEY = "sscw_favs";
+let favs = (()=>{try{return JSON.parse(localStorage.getItem(FAVKEY))||{};}catch(e){return {};}})();
+function saveFavs(){localStorage.setItem(FAVKEY, JSON.stringify(favs));}
+let sortK="price", sortDir=1;
 
-Reduktora, karda</a></td><td style='white-space:nowrap;font-weight:600'>290 €</td><td>2006</td><td>3.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Cits</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/renault/clio/gcboi.html'>Pārdodu Renault Clio braucošā kārtībā. 1.2benzīns - 55kw</a></td><td style='white-space:nowrap;font-weight:600'>290 €</td><td>2005</td><td>1.2</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/renault/clio/bknibn.html'>Pārdodu Renault Clio 1.5 dīzelis. Mazs nodoklis ekspluatācijas nodoklis – 60</a></td><td style='white-space:nowrap;font-weight:600'>290 €</td><td>2006</td><td>1.5D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Talsi un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mazda/323/aniej.html'>Defekts rūsa var metināt un braukt vai krūmu gonkām.</a></td><td style='white-space:nowrap;font-weight:600'>300 €</td><td>1993</td><td>1.3</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Ogre un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mazda/626/cxoon.html'>Pārdodas vecs modelis , kārba motors kad nolika viss gāja ka pulkstenis , di</a></td><td style='white-space:nowrap;font-weight:600'>300 €</td><td>1985</td><td>2.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Gulbene un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/rover/75/bphgd.html'>Машина продаётся с дефектом автоматической коробки. задняя скорость вклю</a></td><td style='white-space:nowrap;font-weight:600'>300 €</td><td>2002</td><td>2.0D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Liepāja un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/focus/ddxce.html'>Īpašnieks pārdod automašīnu bez tehniskās apskates. Automašīna ir braucošā.</a></td><td style='white-space:nowrap;font-weight:600'>300 €</td><td>2006</td><td>1.6D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/citroen/berlingo/dhnfj.html'>Pārdodas, jo auto netiek izmantots. Ar orģinālo, pierādāmu Latvijā veiktu no</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>2007</td><td>1.4</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/opel/astra/chohm.html'>Продаётся Opel Astra 1.7 дизель
-
-Цена обсуждается 
-
-Звонить на второй но</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>2006</td><td>1.7D</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/peugeot/308/cchflg.html'>Pārdodu automašīnu bez tehniskās apskates. Pēc ilgākas stāvēšanas vairs neie</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>2007</td><td>1.6</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/vaz/2103/cgjcg.html'>Pardod Vaz 2103 ar originalu motoru un latvijas numuriem. Paradu nav. Kadam</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>1975</td><td>1.5</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Gulbene un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/audi/80/ebggg.html'>Atrodas pašāDaugavpilī. Katalizatora jau nebija.</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>1990</td><td>1.8</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Daugavpils un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/audi/80/cmxln.html'>Atrodas pašāDaugavpilī. Katalizatora jau nebija.</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>1994</td><td>2.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Daugavpils un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/golf-4/ixfjd.html'>1.9tdi 66kw motora defekts- līks klanis, pagaidām rūc un brauc, skate līdz S</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>1998</td><td>1.9D</td><td></td><td style='white-space:nowrap'>2027-09-30 <span style='color:#666'>15 mēn.</span></td><td>Jelgava un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/focus/abjhb.html'>Auto braucams. Nav skates. Vizuāli defekti. Labs rez. daļām.</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>2006</td><td>1.6D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Gulbene un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mitsubishi/colt/aepfk.html'>Продаётся. Не ржавая. Оригинальные диски. 
-TО не прошла, лист до 7.07.2026.</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>2006</td><td>1.1</td><td></td><td style='white-space:nowrap'>2026-07-31 <span style='color:#666'>1 mēn.</span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/rover/45/bimmb.html'>Degvielas sūkņa defekts.</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>2000</td><td>2.0D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Jelgava un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mazda/626/eiedh.html'>Pardod uz detalam. Motors ruc
-nezinu cik liels motors. 2.0
-Vai
-2.3
-16.varstu</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>1999</td><td>2.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/renault/kangoo/bglkpi.html'>Pārdod bez skates, ejošs. Rūc brauc , bremzē. Nav aklumatora. Rij eļļu un dū</a></td><td style='white-space:nowrap;font-weight:600'>350 €</td><td>2003</td><td>1.5D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Jēkabpils un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mazda/mazda2/hlxhm.html'>Pārdodas mazda2</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>2004</td><td>1.6</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/vaz/2103/gfnbm.html'>Pārdodās bez dokumentiem.</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>1986</td><td>1.6</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/ka/dmlbg.html'>Lv/ru. Продаётся Форд Ка, больничный лист до 25 июня, требуется ремонт порог</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>2001</td><td>1.3</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/polo/bihhol.html'>Pārdodu VW Polo braucošā kārtībā. 1.4benzīns - 55kw</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>2006</td><td>1.4</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/golf-4/ixmbh.html'>Pārdodu VW Golf braucošā kārtībā. 1.4benzīns - 55kw.</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>1998</td><td>1.4</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/fiesta/bicceg.html'>Pārdodu Ford Fiesta braucošā kārtībā. 1.3benzīns - 51kw ss. lv</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>2006</td><td>1.3</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/citroen/c3/bkigfp.html'>Pārdodu Citroen C3 braucošā kārtībā. 1.2benzīns - 44kw.</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>2008</td><td>1.2</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/citroen/c3/dkbpc.html'>Pārdodu Citroen C3 braucošā kārtībā. 1.3benzīns - 44kw.</a></td><td style='white-space:nowrap;font-weight:600'>390 €</td><td>2005</td><td>1.3</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/audi/a6/bjgdle.html'>Pārdodu Audi A6 2004.gada ar sadales vārpstas defektu. Auto ejošā stāvoklī,</a></td><td style='white-space:nowrap;font-weight:600'>399 €</td><td>2004</td><td>1.9D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Madona un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mazda/mazda6/gxcgc.html'>Auto braucams, bet nepieciešams remonts. 
-Nav skate- negribu ņemties ar rem</a></td><td style='white-space:nowrap;font-weight:600'>400 €</td><td>2006</td><td>2.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/skoda/praktik/bfkepj.html'>Pārdod Kravas transporta furgonu Škoda Praktik bez tehniskās apkates.</a></td><td style='white-space:nowrap;font-weight:600'>400 €</td><td>2008</td><td>1.4D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Limbaži un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/escort/bggcd.html'>Donors
-1.6Benzins
-16 varsti</a></td><td style='white-space:nowrap;font-weight:600'>400 €</td><td>1994</td><td>1.6</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/vaz/2121/jjlox.html'>Pardodu nivu ruc brauc bremze dokumentu nav. Cena noradita.</a></td><td style='white-space:nowrap;font-weight:600'>400 €</td><td>1988</td><td>1.6</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Ogre un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/honda/accord/abljb.html'>Pārdod Hondu priekš trases . Ar parakstīšanu.</a></td><td style='white-space:nowrap;font-weight:600'>400 €</td><td>2004</td><td>2.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Kuldīga un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/opel/astra/fcjxf.html'>Pārdod Opelīti kurš godam nokalpojis vienai ģimenei 17gadus. Laiks un mūsu c</a></td><td style='white-space:nowrap;font-weight:600'>400 €</td><td>2005</td><td>1.4</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/audi/80/cxjcn.html'>Varbūt kādam interesē, pirms aiziet naglās. Divas durvis, dokumenti kārtībā.</a></td><td style='white-space:nowrap;font-weight:600'>420 €</td><td>1983</td><td>1.4</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/renault/scenic/pjjcb.html'>Pārdodu Renault Scenic, nodokļi nomaksāti, no defektiem jāmaina sajūgs.</a></td><td style='white-space:nowrap;font-weight:600'>420 €</td><td>2005</td><td>1.9D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Preiļi un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/toyota/yaris/cgcbef.html'>Pārdošanā Toyota Yaris 1.3 benzins 63kw “Sarkanā Raķete”
-2002. gads /manuālā</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>2002</td><td>1.3</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/honda/cr-v/bkcng.html'>Rūc, brauc, bremzē. 4x4 strāda bez problēmām. 
-Norakstīts. 
-Par papildus s</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>1997</td><td>2.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Cēsis un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/renault/kangoo/eoxxc.html'>Pārdodu ejošu Renault Kangoo, par šo gadu nodoklis samaksāts pilnā apmērā. N</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>2006</td><td>1.6</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Ogre un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/polo/bbcdeg.html'>Atdošu pret 450€ Polo Variant. Rūc, brauc, bremzē. Ir dažādi sīkumi kas brau</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>1999</td><td>1.9D</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Tukums un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mazda/626/cpkgg.html'>Atrodas pašāDaugavpilī. Katalizatora jau nebija.</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>1994</td><td>2.0</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Daugavpils un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/seat/ibiza/cepkgl.html'>Pārdodu 2004.gada Seat Ibiza 1.4 Tdi ar manuālo 5 ātrumu kārbu, divas durvis</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>2004</td><td>1.4D</td><td></td><td style='white-space:nowrap'>2026-07-31 <span style='color:#666'>1 mēn.</span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/golf-3/aodxc.html'>Pārdodu golfu. Sīkāk pa telefonu.</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>1996</td><td>1.9D</td><td></td><td style='white-space:nowrap'>2026-07-31 <span style='color:#666'>1 mēn.</span></td><td>Bauska un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/polo/hhpni.html'>Pārdod ejošs, viss strādā, tik dēļ atgāzēm nevar skati iziet. e pastu nelasu</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>2006</td><td>1.4</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Jēkabpils un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/hyundai/getz/accjg.html'>Pārdošanā Hyundai Getz. Viens īpašnieks. Skate derīga līdz 16.06, nodoklis n</a></td><td style='white-space:nowrap;font-weight:600'>450 €</td><td>2008</td><td>1.4</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/focus/dklie.html'>Pardot Ford Focus 1, 6 b. Авто. в рабочем состоянии, после небольшой аварии.</a></td><td style='white-space:nowrap;font-weight:600'>460 €</td><td>2001</td><td>1.6</td><td></td><td style='white-space:nowrap'>2027-05-31 <span style='color:#666'>11 mēn.</span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/polo/bjikmd.html'>Labs dzinējs, jauna eļļa dzinējā. Jauns akumulators. Labas vissezonas riepas</a></td><td style='white-space:nowrap;font-weight:600'>470 €</td><td>2006</td><td>1.4D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīgas rajons</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/volkswagen/amarok/cejcjc.html'>Pārdodu kravas kastes būdu, stiprinājumi komplektā. Būda labā stāvoklī. Jumt</a></td><td style='white-space:nowrap;font-weight:600'>480 €</td><td>2020</td><td>3.0D</td><td></td><td style='white-space:nowrap'>2027-01-31 <span style='color:#666'>7 mēn.</span></td><td>Valmiera un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/citroen/xsarapicasso/jible.html'>Pardod ipašnieks, nodoklis apmaksašu, var apskatīt Bauska vai Riga berğos, m</a></td><td style='white-space:nowrap;font-weight:600'>480 €</td><td>2005</td><td>1.6D</td><td></td><td style='white-space:nowrap'>2026-12-31 <span style='color:#666'>6 mēn.</span></td><td>Bauska un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/audi/a6/aekpi.html'>Больничный лист до 25.06.2026
-Налог оплачен полностью. Все дефекты видно на</a></td><td style='white-space:nowrap;font-weight:600'>480 €</td><td>1999</td><td>1.9D</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/opel/zafira/bbochp.html'>Opel Zafira 2.0 дизель, На ходу, техосмотр не пройден. Находится в Баложи, Ķ</a></td><td style='white-space:nowrap;font-weight:600'>485 €</td><td>2001</td><td>2.0D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/mitsubishi/colt/geikp.html'>Ta-Slimības lapa. 1.3 benzīns. 
-Labā tehniskā stāvoklī. 
-Iet ideāli. 
-Bra</a></td><td style='white-space:nowrap;font-weight:600'>490 €</td><td>2006</td><td>1.3</td><td></td><td style='white-space:nowrap'>2026-06-30 <span style='color:#666'>0 mēn.</span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/fiesta/bijidg.html'>Pārdodu Ford Fiesta braucošā kārtībā. 1.3benzīns - 51kw</a></td><td style='white-space:nowrap;font-weight:600'>490 €</td><td>2005</td><td>1.3</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīga</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/focus/beejmp.html'>Pārdod Ford Focus 1, 6 Benzīns 74Kw
-
-Auto var apskatīt jebkurā laikā iepri</a></td><td style='white-space:nowrap;font-weight:600'>490 €</td><td>2007</td><td>1.6</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Cēsis un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/hyundai/sonata/hephd.html'>Pārdodu savu uzticamu auto, jo vairs netiek izmantots, Krūmu gonkām. Viss st</a></td><td style='white-space:nowrap;font-weight:600'>499 €</td><td>2006</td><td>2.4</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Ogre un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/opel/zafira/bjebnh.html'>Vairāk info pa telefonu</a></td><td style='white-space:nowrap;font-weight:600'>500 €</td><td>2005</td><td>2.0D</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Alūksne un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/opel/zafira/dbjxl.html'>Pārdodu Opel Zafira. Tikko nomainīta eļļa, turbīne, bremžu kluči. Klāt nāk l</a></td><td style='white-space:nowrap;font-weight:600'>500 €</td><td>2003</td><td>2.1D</td><td></td><td style='white-space:nowrap'>2026-12-31 <span style='color:#666'>6 mēn.</span></td><td>Jēkabpils un raj.</td></tr>
-<tr><td><a href='https://www.ss.lv/msg/lv/transport/cars/ford/fiesta/biehef.html'>Pārdod Ford fiesta 1.25 55kwNesen mainīts sajūgs, jauns zobsiksnas komplekts</a></td><td style='white-space:nowrap;font-weight:600'>500 €</td><td>2003</td><td>1.2</td><td></td><td style='white-space:nowrap'>? <span style='color:#666'></span></td><td>Rīgas rajons</td></tr></tbody></table>
-</div></body></html>
+function esc(s){return (s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function rowsAll(){
+  const map={};
+  DATA.forEach(r=>map[r.url]=r);
+  Object.values(favs).forEach(r=>{if(!map[r.url])map[r.url]=r;});
+  return Object.values(map);
+}
+function inspCell(r){
+  if(r.insp_status==="valid"&&r.inspection_until){
+    const m=r.months_left,d=r.days_left;
+    const left=(m&&m>=1)?(m+" mēn."):(d!=null?d+" d.":"");
+    const cls=(m!=null&&m>=3)?"ok":(((m!=null&&m>=1)||(d!=null&&d>=30))?"warn":"bad");
+    return '<span class="ins '+cls+'">'+r.inspection_until+' <small>'+left+'</small></span>';
+  }
+  if(r.inspection_raw)return '<span class="ins none">'+esc(r.inspection_raw)+'</span>';
+  return '<span class="ins unk">?</span>';
+}
+function cmp(a,b,k){
+  if(k==="title"||k==="engine"||k==="place"||k==="mileage"){
+    const x=(a[k]||"").toString().toLowerCase(),y=(b[k]||"").toString().toLowerCase();
+    return x<y?-1:x>y?1:0;
+  }
+  let x=a[k],y=b[k];
+  x=(x==null)?Infinity:x; y=(y==null)?Infinity:y;
+  return x<y?-1:x>y?1:0;
+}
+function passFilter(r){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  if(q&&!((r.title||"").toLowerCase().includes(q)))return false;
+  const maxp=parseFloat(document.getElementById("maxp").value);
+  if(!isNaN(maxp)&&(r.price==null||r.price>maxp))return false;
+  const minm=parseFloat(document.getElementById("minm").value);
+  if(!isNaN(minm)){if(r.insp_status!=="valid"||r.months_left==null||r.months_left<minm)return false;}
+  if(document.getElementById("onlyvalid").checked&&r.insp_status!=="valid")return false;
+  if(document.getElementById("onlynew").checked&&!r.is_new)return false;
+  return true;
+}
+function rowHtml(r,fav){
+  const price=r.price!=null?(r.price.toLocaleString("lv-LV")+" €"):"?";
+  const badge=r.is_new?' <span class="badge">JAUNS</span>':"";
+  const star=fav?"★":"☆";
+  return '<tr class="'+(fav?"favrow":"")+'">'
+    +'<td><button class="star" data-u="'+encodeURIComponent(r.url)+'">'+star+'</button></td>'
+    +'<td><a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.title)+'</a>'+badge+'</td>'
+    +'<td class="num">'+price+'</td>'
+    +'<td>'+esc(r.year||"")+'</td>'
+    +'<td>'+esc(r.engine||"")+'</td>'
+    +'<td>'+esc(r.mileage||"")+'</td>'
+    +'<td>'+inspCell(r)+'</td>'
+    +'<td>'+esc(r.place||"")+'</td></tr>';
+}
+function render(){
+  const all=rowsAll();
+  const favRows=all.filter(r=>favs[r.url]);
+  const rest=all.filter(r=>!favs[r.url]&&passFilter(r));
+  favRows.sort((a,b)=>sortDir*cmp(a,b,sortK));
+  rest.sort((a,b)=>sortDir*cmp(a,b,sortK));
+  let html="";
+  favRows.forEach(r=>html+=rowHtml(r,true));
+  rest.forEach(r=>html+=rowHtml(r,false));
+  document.getElementById("body").innerHTML=html||'<tr><td colspan="8" style="padding:20px;color:#888">Nav rezultātu</td></tr>';
+  document.getElementById("stat").textContent=favRows.length+" piesprausti · "+rest.length+" rādīti";
+  document.querySelectorAll(".star").forEach(b=>b.onclick=()=>{
+    const u=decodeURIComponent(b.dataset.u);
+    if(favs[u])delete favs[u]; else{const r=rowsAll().find(x=>x.url===u); if(r)favs[u]=r;}
+    saveFavs(); render();
+  });
+  document.querySelectorAll("th[data-k]").forEach(th=>{
+    const a=th.querySelector(".arr"); if(!a)return;
+    a.textContent=(th.dataset.k===sortK)?(sortDir>0?"▲":"▼"):"";
+  });
+}
+document.querySelectorAll("th[data-k]").forEach(th=>{
+  if(th.dataset.k==="fav")return;
+  th.onclick=()=>{const k=th.dataset.k; if(sortK===k)sortDir*=-1; else{sortK=k; sortDir=1;} render();};
+});
+["q","maxp","minm","onlyvalid","onlynew"].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener(el.type==="checkbox"?"change":"input", render);
+});
+render();
+</script>
+</body></html>
