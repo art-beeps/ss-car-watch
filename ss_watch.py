@@ -24,7 +24,7 @@ import smtplib
 import sys
 import time
 import html as htmllib
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timezone, timedelta
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -228,7 +228,8 @@ def parse_inspection_date(value: str) -> date | None:
     if not value:
         return None
     v = value.strip().lower()
-    if v in ("nav", "-", "", "nav ta", "bez ta"):
+    # "Nav", "Bez apskates", "Bez tehniskās apskates", "Nav apskates" -> no TA
+    if not v or v == "-" or "nav" in v or "bez" in v:
         return None
     m = DATE_DMY.search(value)
     if m:
@@ -341,6 +342,25 @@ def passes_inspection(detail: dict, f: dict) -> tuple[bool, int | None]:
     return (until_d >= cutoff, months_left)
 
 
+def inspection_left(until_iso: str) -> tuple[int, int]:
+    """Return (months_left, days_left) until the inspection expires."""
+    d = date.fromisoformat(until_iso)
+    rd = relativedelta(d, today())
+    months = rd.years * 12 + rd.months
+    days = (d - today()).days
+    return months, days
+
+
+def inspection_status(until_iso: str | None, raw: str) -> str:
+    """valid = has a future date; none = explicitly no TA; unknown = couldn't read."""
+    if until_iso:
+        return "valid"
+    low = (raw or "").lower()
+    if "nav" in low or "bez" in low:
+        return "none"
+    return "unknown"
+
+
 # --------------------------------------------------------------------------
 # Report / email rendering
 # --------------------------------------------------------------------------
@@ -348,66 +368,203 @@ def esc(x) -> str:
     return htmllib.escape(str(x if x is not None else ""))
 
 
-def render_rows(matches: list[dict]) -> str:
+def insp_text(m: dict) -> str:
+    """Plain-text-ish inspection summary for the email table."""
+    if m.get("insp_status") == "valid" and m.get("inspection_until"):
+        mo, d = m.get("months_left"), m.get("days_left")
+        if mo and mo >= 1:
+            left = f"{mo} mēn."
+        elif d is not None:
+            left = f"{d} d."
+        else:
+            left = ""
+        return f"{m['inspection_until']} ({left})".strip()
+    if m.get("inspection_raw"):
+        return m["inspection_raw"]
+    return "?"
+
+
+def render_email_html(matches: list[dict]) -> str:
+    """Simple static table for email (no JS)."""
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     rows = []
     for m in matches:
         price = f"{m['price']:,} \u20ac".replace(",", " ") if m.get("price") else "?"
-        insp = m.get("inspection_until") or "?"
-        months = m.get("months_left")
-        months_txt = f"{months} mēn." if months is not None else ""
-        new_badge = ' <span style="background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;">JAUNS</span>' if m.get("is_new") else ""
         rows.append(
-            f"<tr>"
-            f"<td><a href='{esc(m['url'])}'>{esc(m['title'])}</a>{new_badge}</td>"
+            "<tr>"
+            f"<td><a href='{esc(m['url'])}'>{esc(m['title'])}</a></td>"
             f"<td style='white-space:nowrap;font-weight:600'>{esc(price)}</td>"
             f"<td>{esc(m.get('year') or '')}</td>"
             f"<td>{esc(m.get('engine') or '')}</td>"
-            f"<td>{esc(m.get('mileage') or '')}</td>"
-            f"<td style='white-space:nowrap'>{esc(insp)} <span style='color:#666'>{esc(months_txt)}</span></td>"
+            f"<td style='white-space:nowrap'>{esc(insp_text(m))}</td>"
             f"<td>{esc(m.get('place') or '')}</td>"
-            f"</tr>"
+            "</tr>"
         )
-    return "\n".join(rows)
+    body = "\n".join(rows) or "<tr><td colspan=6>Nav rezultātu.</td></tr>"
+    return f"""<!doctype html><html lang="lv"><head><meta charset="utf-8"></head>
+<body style="font-family:system-ui,Segoe UI,Roboto,sans-serif;color:#111">
+<h2 style="font-size:17px">Jaunie sludinājumi ({len(matches)})</h2>
+<div style="color:#666;font-size:12px;margin-bottom:10px">{ts} &middot; lētākie augšā</div>
+<table style="border-collapse:collapse;font-size:14px" border="0" cellpadding="6">
+<thead><tr style="background:#111;color:#fff;text-align:left">
+<th>Sludinājums</th><th>Cena</th><th>Gads</th><th>Dzinējs</th>
+<th>Tehniskā apskate</th><th>Vieta</th></tr></thead>
+<tbody>{body}</tbody></table>
+</body></html>"""
 
 
-def render_html(new_matches: list[dict], recent_matches: list[dict]) -> str:
-    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    head = (
-        "<th>Sludinājums</th><th>Cena</th><th>Gads</th><th>Dzinējs</th>"
-        "<th>Nobraukums</th><th>Tehniskā apskate</th><th>Vieta</th>"
-    )
-    new_section = (
-        f"<h2>Jaunie sludinājumi ({len(new_matches)})</h2>"
-        f"<table><thead><tr>{head}</tr></thead><tbody>{render_rows(new_matches)}</tbody></table>"
-        if new_matches else "<h2>Šorīt jaunu sludinājumu nav</h2>"
-    )
-    recent_section = (
-        f"<h2>Nesenās atbilstības ({len(recent_matches)})</h2>"
-        f"<table><thead><tr>{head}</tr></thead><tbody>{render_rows(recent_matches)}</tbody></table>"
-    )
-    return f"""<!doctype html>
+def render_page_html(rows: list[dict], ts: str) -> str:
+    """Interactive page: sortable, filterable, with pinned favourites
+    (favourites persist in the browser via localStorage)."""
+    data_json = json.dumps(rows, ensure_ascii=False)
+    return """<!doctype html>
 <html lang="lv"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SS.LV auto novērošana</title>
 <style>
-  body{{font-family:system-ui,Segoe UI,Roboto,sans-serif;margin:0;background:#f6f7f9;color:#111}}
-  .wrap{{max-width:1000px;margin:0 auto;padding:24px 16px 64px}}
-  h1{{font-size:22px;margin:0 0 4px}}
-  .meta{{color:#666;font-size:13px;margin-bottom:24px}}
-  h2{{font-size:17px;margin:28px 0 10px}}
-  table{{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;
-        box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:14px}}
-  th{{text-align:left;background:#111;color:#fff;padding:9px 12px;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}}
-  td{{padding:9px 12px;border-top:1px solid #eee;vertical-align:top}}
-  tr:hover td{{background:#fafafa}}
-  a{{color:#1d4ed8;text-decoration:none}} a:hover{{text-decoration:underline}}
+  body{font-family:system-ui,Segoe UI,Roboto,sans-serif;margin:0;background:#f6f7f9;color:#111}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px 14px 64px}
+  h1{font-size:21px;margin:0 0 4px}
+  .meta{color:#666;font-size:13px;margin-bottom:14px}
+  .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:14px;
+    background:#fff;border:1px solid #e6e6e6;border-radius:10px;padding:12px}
+  .controls input[type=text],.controls input[type=number]{border:1px solid #ccc;border-radius:7px;
+    padding:6px 8px;font-size:14px}
+  .controls label{font-size:13px;color:#333;display:flex;align-items:center;gap:5px}
+  .stat{margin-left:auto;color:#666;font-size:12px}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:14px}
+  th{text-align:left;background:#111;color:#fff;padding:9px 10px;font-weight:600;font-size:11px;
+    text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;user-select:none}
+  th[data-k]:not([data-k=fav]){cursor:pointer}
+  th .arr{opacity:.5;font-size:10px}
+  td{padding:8px 10px;border-top:1px solid #eee;vertical-align:top}
+  tr:hover td{background:#fafafa}
+  .favrow td{background:#fffbea}
+  .favrow:hover td{background:#fff6d6}
+  a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+  .num{white-space:nowrap;font-weight:600}
+  .badge{background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px}
+  .star{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:#e0b400;padding:0}
+  .ins small{color:#666}
+  .ins.ok{color:#15803d;font-weight:600}
+  .ins.warn{color:#b45309}
+  .ins.bad{color:#b91c1c}
+  .ins.none{color:#999}
+  .ins.unk{color:#bbb}
 </style></head>
 <body><div class="wrap">
-  <h1>SS.LV vieglo auto novērošana</h1>
-  <div class="meta">Atjaunināts: {ts} &middot; kārtots pēc cenas (lētākie augšā)</div>
-  {new_section}
-  {recent_section}
-</div></body></html>"""
+  <h1>SS.LV vieglo auto nov\u0113ro\u0161ana</h1>
+  <div class="meta">Atjaunin\u0101ts: __TS__ &middot; piesprausto izlasi glab\u0101 \u0161aj\u0101 p\u0101rl\u016bk\u0101</div>
+  <div class="controls">
+    <input id="q" type="text" placeholder="Mekl\u0113t nosaukum\u0101...">
+    <label>Maks. cena <input id="maxp" type="number" style="width:80px"></label>
+    <label>Min. TA m\u0113n. <input id="minm" type="number" style="width:60px"></label>
+    <label><input id="onlyvalid" type="checkbox"> Tikai ar der\u012bgu TA</label>
+    <label><input id="onlynew" type="checkbox"> Tikai jaunie</label>
+    <span id="stat" class="stat"></span>
+  </div>
+  <table id="tbl"><thead><tr>
+    <th data-k="fav">\u2605</th>
+    <th data-k="title">Sludin\u0101jums <span class="arr"></span></th>
+    <th data-k="price">Cena <span class="arr"></span></th>
+    <th data-k="year">Gads <span class="arr"></span></th>
+    <th data-k="engine">Dzin\u0113js <span class="arr"></span></th>
+    <th data-k="mileage">Nobraukums <span class="arr"></span></th>
+    <th data-k="months_left">Tehnisk\u0101 apskate <span class="arr"></span></th>
+    <th data-k="place">Vieta <span class="arr"></span></th>
+  </tr></thead><tbody id="body"></tbody></table>
+</div>
+<script>
+const DATA = __DATA__;
+const FAVKEY = "sscw_favs";
+let favs = (()=>{try{return JSON.parse(localStorage.getItem(FAVKEY))||{};}catch(e){return {};}})();
+function saveFavs(){localStorage.setItem(FAVKEY, JSON.stringify(favs));}
+let sortK="price", sortDir=1;
+
+function esc(s){return (s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function rowsAll(){
+  const map={};
+  DATA.forEach(r=>map[r.url]=r);
+  Object.values(favs).forEach(r=>{if(!map[r.url])map[r.url]=r;});
+  return Object.values(map);
+}
+function inspCell(r){
+  if(r.insp_status==="valid"&&r.inspection_until){
+    const m=r.months_left,d=r.days_left;
+    const left=(m&&m>=1)?(m+" m\u0113n."):(d!=null?d+" d.":"");
+    const cls=(m!=null&&m>=3)?"ok":(((m!=null&&m>=1)||(d!=null&&d>=30))?"warn":"bad");
+    return '<span class="ins '+cls+'">'+r.inspection_until+' <small>'+left+'</small></span>';
+  }
+  if(r.inspection_raw)return '<span class="ins none">'+esc(r.inspection_raw)+'</span>';
+  return '<span class="ins unk">?</span>';
+}
+function cmp(a,b,k){
+  if(k==="title"||k==="engine"||k==="place"||k==="mileage"){
+    const x=(a[k]||"").toString().toLowerCase(),y=(b[k]||"").toString().toLowerCase();
+    return x<y?-1:x>y?1:0;
+  }
+  let x=a[k],y=b[k];
+  x=(x==null)?Infinity:x; y=(y==null)?Infinity:y;
+  return x<y?-1:x>y?1:0;
+}
+function passFilter(r){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  if(q&&!((r.title||"").toLowerCase().includes(q)))return false;
+  const maxp=parseFloat(document.getElementById("maxp").value);
+  if(!isNaN(maxp)&&(r.price==null||r.price>maxp))return false;
+  const minm=parseFloat(document.getElementById("minm").value);
+  if(!isNaN(minm)){if(r.insp_status!=="valid"||r.months_left==null||r.months_left<minm)return false;}
+  if(document.getElementById("onlyvalid").checked&&r.insp_status!=="valid")return false;
+  if(document.getElementById("onlynew").checked&&!r.is_new)return false;
+  return true;
+}
+function rowHtml(r,fav){
+  const price=r.price!=null?(r.price.toLocaleString("lv-LV")+" \u20ac"):"?";
+  const badge=r.is_new?' <span class="badge">JAUNS</span>':"";
+  const star=fav?"\u2605":"\u2606";
+  return '<tr class="'+(fav?"favrow":"")+'">'
+    +'<td><button class="star" data-u="'+encodeURIComponent(r.url)+'">'+star+'</button></td>'
+    +'<td><a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.title)+'</a>'+badge+'</td>'
+    +'<td class="num">'+price+'</td>'
+    +'<td>'+esc(r.year||"")+'</td>'
+    +'<td>'+esc(r.engine||"")+'</td>'
+    +'<td>'+esc(r.mileage||"")+'</td>'
+    +'<td>'+inspCell(r)+'</td>'
+    +'<td>'+esc(r.place||"")+'</td></tr>';
+}
+function render(){
+  const all=rowsAll();
+  const favRows=all.filter(r=>favs[r.url]);
+  const rest=all.filter(r=>!favs[r.url]&&passFilter(r));
+  favRows.sort((a,b)=>sortDir*cmp(a,b,sortK));
+  rest.sort((a,b)=>sortDir*cmp(a,b,sortK));
+  let html="";
+  favRows.forEach(r=>html+=rowHtml(r,true));
+  rest.forEach(r=>html+=rowHtml(r,false));
+  document.getElementById("body").innerHTML=html||'<tr><td colspan="8" style="padding:20px;color:#888">Nav rezult\u0101tu</td></tr>';
+  document.getElementById("stat").textContent=favRows.length+" piesprausti \u00b7 "+rest.length+" r\u0101d\u012bti";
+  document.querySelectorAll(".star").forEach(b=>b.onclick=()=>{
+    const u=decodeURIComponent(b.dataset.u);
+    if(favs[u])delete favs[u]; else{const r=rowsAll().find(x=>x.url===u); if(r)favs[u]=r;}
+    saveFavs(); render();
+  });
+  document.querySelectorAll("th[data-k]").forEach(th=>{
+    const a=th.querySelector(".arr"); if(!a)return;
+    a.textContent=(th.dataset.k===sortK)?(sortDir>0?"\u25b2":"\u25bc"):"";
+  });
+}
+document.querySelectorAll("th[data-k]").forEach(th=>{
+  if(th.dataset.k==="fav")return;
+  th.onclick=()=>{const k=th.dataset.k; if(sortK===k)sortDir*=-1; else{sortK=k; sortDir=1;} render();};
+});
+["q","maxp","minm","onlyvalid","onlynew"].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener(el.type==="checkbox"?"change":"input", render);
+});
+render();
+</script>
+</body></html>""".replace("__TS__", esc(ts)).replace("__DATA__", data_json)
 
 
 def send_email(subject: str, html_body: str) -> None:
@@ -521,15 +678,23 @@ def main() -> int:
             break
         detail = parse_detail(fetch(ad["url"], delay) or "")
         fetched += 1
-        ok, months_left = passes_inspection(detail, f)
+        ok, _ = passes_inspection(detail, f)
         if not ok:
             continue
         if detail.get("detail_price"):
             ad["price"] = detail["detail_price"]
+        until = detail.get("inspection_until")
+        raw = detail.get("inspection_raw") or ""
+        if until:
+            months_left, days_left = inspection_left(until)
+        else:
+            months_left = days_left = None
         ad.update({
-            "inspection_until": detail.get("inspection_until"),
-            "inspection_raw": detail.get("inspection_raw"),
+            "inspection_until": until,
+            "inspection_raw": raw,
+            "insp_status": inspection_status(until, raw),
             "months_left": months_left,
+            "days_left": days_left,
             "place": detail.get("place"),
             "posted": detail.get("posted"),
             "first_seen": now_iso,
@@ -541,26 +706,36 @@ def main() -> int:
     log(f"New matches (passed inspection filter): {len(new_matches)}")
 
     # 4) update rolling match list for the webpage
+    keep_fields = ("url", "title", "price", "year", "engine", "mileage",
+                   "inspection_until", "inspection_raw", "insp_status",
+                   "months_left", "days_left", "place", "first_seen")
     for m in new_matches:
         if m["url"] not in known_match_urls:
-            stored_matches.append({k: m.get(k) for k in
-                                   ("url", "title", "price", "year", "engine",
-                                    "mileage", "inspection_until", "months_left",
-                                    "place", "first_seen")})
+            stored_matches.append({k: m.get(k) for k in keep_fields})
     stored_matches = prune_matches(stored_matches)
     stored_matches.sort(key=lambda a: a.get("price") or 1_000_000)
-    recent_for_page = stored_matches[:top_n]
 
-    # 5) write webpage
-    html_out = render_html(new_matches[:top_n], recent_for_page)
+    # mark which stored records are "new" (first seen in the last 24h) for the page
+    cutoff_new = datetime.now(timezone.utc) - timedelta(hours=24)
+    page_rows = []
+    for r in stored_matches[:300]:
+        rr = dict(r)
+        try:
+            rr["is_new"] = datetime.fromisoformat(r["first_seen"]) >= cutoff_new
+        except Exception:
+            rr["is_new"] = False
+        page_rows.append(rr)
+
+    # 5) write webpage (interactive: sort / filter / pinned favourites)
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    REPORT_PATH.write_text(html_out, encoding="utf-8")
-    log(f"Wrote {REPORT_PATH}")
+    REPORT_PATH.write_text(render_page_html(page_rows, ts), encoding="utf-8")
+    log(f"Wrote {REPORT_PATH} ({len(page_rows)} rows)")
 
     # 6) email (only when there is something new and not on the seeding run)
     if new_matches and not first_run:
         subject = f"SS.LV auto: {len(new_matches)} jauns(-i) atbilstošs(-i) sludinājums(-i)"
-        send_email(subject, render_html(new_matches[:top_n], []))
+        send_email(subject, render_email_html(new_matches[:top_n]))
     elif first_run:
         log("First run: seeded state, no email sent (avoids a huge initial blast).")
 
