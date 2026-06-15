@@ -1,43 +1,54 @@
-sources:
-  - https://www.ss.lv/lv/transport/cars/audi/
-  - https://www.ss.lv/lv/transport/cars/bmw/
-  - https://www.ss.lv/lv/transport/cars/volkswagen/
-  - https://www.ss.lv/lv/transport/cars/opel/
-  - https://www.ss.lv/lv/transport/cars/ford/
-  - https://www.ss.lv/lv/transport/cars/toyota/
-  - https://www.ss.lv/lv/transport/cars/renault/
-  - https://www.ss.lv/lv/transport/cars/peugeot/
-  - https://www.ss.lv/lv/transport/cars/citroen/
-  - https://www.ss.lv/lv/transport/cars/nissan/
-  - https://www.ss.lv/lv/transport/cars/mazda/
-  - https://www.ss.lv/lv/transport/cars/honda/
-  - https://www.ss.lv/lv/transport/cars/skoda/
-  - https://www.ss.lv/lv/transport/cars/mercedes/
-  - https://www.ss.lv/lv/transport/cars/mitsubishi/
-  - https://www.ss.lv/lv/transport/cars/volvo/
-  - https://www.ss.lv/lv/transport/cars/hyundai/
-  - https://www.ss.lv/lv/transport/cars/kia/
-  - https://www.ss.lv/lv/transport/cars/seat/
-  - https://www.ss.lv/lv/transport/cars/fiat/
-  - https://www.ss.lv/lv/transport/cars/vaz/
-  - https://www.ss.lv/lv/transport/cars/others/
+searches:
+  - label: "Šrots"
+    max_price_eur: 600
+    min_inspection_months: 0
+    require_inspection: false
+    keywords_exclude: [pērkam, pērku, rezerves]
+    max_pages: 8
+    detail_fetch_limit: 350
+    sources:
+      - https://www.ss.lv/lv/transport/cars/audi/
+      - https://www.ss.lv/lv/transport/cars/bmw/
+      - https://www.ss.lv/lv/transport/cars/volkswagen/
+      - https://www.ss.lv/lv/transport/cars/opel/
+      - https://www.ss.lv/lv/transport/cars/ford/
+      - https://www.ss.lv/lv/transport/cars/toyota/
+      - https://www.ss.lv/lv/transport/cars/renault/
+      - https://www.ss.lv/lv/transport/cars/nissan/
+      - https://www.ss.lv/lv/transport/cars/others/
 
-filters:
-  max_price_eur: 500
-  min_price_eur: 0
-  min_year: null
-  min_inspection_months: 0
-  require_inspection: false
-  exclude_exchange_only: false
-  keywords_exclude:
-    - pērkam
-    - pērku
-    - rezerves
+  - label: "Plug-in"
+    max_price_eur: 45000
+    require_phev: true
+    prescreen_min_year: 2025
+    prescreen_max_mileage_k: 6
+    min_inspection_months: 0
+    require_inspection: false
+    max_pages: 5
+    detail_fetch_limit: 100
+    sources:
+      - https://www.ss.lv/lv/transport/cars/volkswagen/
+      - https://www.ss.lv/lv/transport/cars/volvo/
+      - https://www.ss.lv/lv/transport/cars/mitsubishi/
+      - https://www.ss.lv/lv/transport/cars/toyota/
+      - https://www.ss.lv/lv/transport/cars/kia/
+      - https://www.ss.lv/lv/transport/cars/hyundai/
+      - https://www.ss.lv/lv/transport/cars/bmw/
+      - https://www.ss.lv/lv/transport/cars/mercedes/
+      - https://www.ss.lv/lv/transport/cars/peugeot/
+      - https://www.ss.lv/lv/transport/cars/ford/
+      - https://www.ss.lv/lv/transport/cars/nissan/
+
+  - label: "EV Elektro"
+    max_price_eur: 30000
+    min_inspection_months: 0
+    require_inspection: false
+    max_pages: 25
+    detail_fetch_limit: 400
+    sources:
+      - https://www.ss.lv/lv/transport/cars/electric-cars/
 
 scan:
-  max_pages_per_source: 8
-  detail_fetch_limit: 200
+  max_pages_per_source: 5
+  detail_fetch_limit: 80
   request_delay_seconds: 1.0
-
-report:
-  top_n: 60
