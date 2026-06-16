@@ -193,14 +193,24 @@ def parse_listing(html_text: str) -> list[dict]:
 
         row = link.find_parent("tr")
         value_cells: list[str] = []
+        thumb = ""
         if row is not None:
             value_cells = [td.get_text(" ", strip=True)
                            for td in row.select("td.msga2-o")]
             if not value_cells:
                 value_cells = [td.get_text(" ", strip=True)
                                for td in row.find_all("td")]
+            img = row.find("img")
+            if img is not None:
+                for attr in ("src", "data-original", "data-src"):
+                    v = img.get(attr) or ""
+                    if v and ("ss.lv" in v or v.lower().endswith(".jpg")):
+                        thumb = (v if v.startswith("http")
+                                 else "https:" + v if v.startswith("//")
+                                 else BASE + v)
+                        break
         info = classify_cells(value_cells)
-        info.update({"url": url, "title": title})
+        info.update({"url": url, "title": title, "thumb": thumb})
         ads.append(info)
     return ads
 
@@ -459,6 +469,24 @@ def field_get(fields: dict, needle: str) -> str | None:
     return None
 
 
+def split_make_model(url: str, fields: dict) -> tuple[str, str]:
+    """Make + model. Prefer the detail 'Marka' field ('Volkswagen Tayron'),
+    fall back to the URL path. Multi-word makes split imperfectly (rare)."""
+    marka = (fields.get("marka") or "").strip()
+    if marka:
+        toks = marka.split()
+        return (toks[0], " ".join(toks[1:]))
+    parts = [p for p in url.split("?")[0].split("/") if p]
+    if "cars" in parts:
+        i = parts.index("cars")
+        seg = parts[i + 1:i + 3]
+        if seg and seg[0] != "electric-cars":
+            mk = seg[0].replace("-", " ").title()
+            md = seg[1].replace("-", " ").title() if len(seg) > 1 else ""
+            return (mk, md)
+    return ("", "")
+
+
 def slug_from_url(url: str) -> str:
     base = url.split("?")[0].rstrip("/").split("/")[-1]
     if base.endswith(".html"):
@@ -576,10 +604,11 @@ def render_email_html(matches: list[dict]) -> str:
 </body></html>"""
 
 
-def render_page_html(rows: list[dict], ts: str) -> str:
+def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     """Interactive page: sortable, filterable, with pinned favourites
     (favourites persist in the browser via localStorage)."""
     data_json = json.dumps(rows, ensure_ascii=False)
+    tabs_json = json.dumps(tab_labels, ensure_ascii=False)
     return """<!doctype html>
 <html lang="lv"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -622,6 +651,10 @@ def render_page_html(rows: list[dict], ts: str) -> str:
   .cused{background:#9ca3af;color:#fff}
   .star{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:#e0b400;padding:0}
   .cpy{font-size:11px;color:#6b7280;margin-left:6px;white-space:nowrap}
+  .thumb{height:38px;width:58px;object-fit:cover;border-radius:4px;display:block;background:#eee}
+  tr.viewed td{opacity:.45}
+  .vbtn{background:none;border:none;cursor:pointer;font-size:13px;color:#c0c0c0;padding:0 0 0 3px}
+  .vbtn.on{color:#16a34a}
   .ins small{color:#666}
   .ins.ok{color:#15803d;font-weight:600}
   .ins.warn{color:#b45309}
@@ -644,12 +677,17 @@ def render_page_html(rows: list[dict], ts: str) -> str:
     <label><input id="onlyvalid" type="checkbox"> Tikai ar der\u012bgu TA</label>
     <label><input id="onlynew" type="checkbox"> Tikai jaunie</label>
     <label><input id="hiderep" type="checkbox"> Pasl\u0113pt atk\u0101rtotos</label>
+    <label><input id="hideviewed" type="checkbox"> Pasl\u0113pt redz\u0113tos</label>
     <label><input id="onlyekii" type="checkbox"> Tikai EKII</label>
+    <button id="clrviewed" type="button" style="border:1px solid #ccc;border-radius:7px;padding:6px 10px;background:#fff;cursor:pointer;font-size:13px">Not\u012br\u012bt redz\u0113tos</button>
     <span id="stat" class="stat"></span>
   </div>
   <table id="tbl"><thead><tr>
     <th data-k="fav">\u2605</th>
+    <th>Foto</th>
     <th data-k="title">Sludin\u0101jums <span class="arr"></span></th>
+    <th data-k="make">Marka <span class="arr"></span></th>
+    <th data-k="model">Modelis <span class="arr"></span></th>
     <th data-k="price">Cena <span class="arr"></span></th>
     <th data-k="year">Gads <span class="arr"></span></th>
     <th data-k="engine">Dzin\u0113js <span class="arr"></span></th>
@@ -661,9 +699,13 @@ def render_page_html(rows: list[dict], ts: str) -> str:
 </div>
 <script>
 const DATA = __DATA__;
+const TABS = __TABS__;
 const FAVKEY = "sscw_favs";
 let favs = (()=>{try{return JSON.parse(localStorage.getItem(FAVKEY))||{};}catch(e){return {};}})();
 function saveFavs(){localStorage.setItem(FAVKEY, JSON.stringify(favs));}
+const VIEWKEY="sscw_viewed";
+let viewed=(()=>{try{return JSON.parse(localStorage.getItem(VIEWKEY))||{};}catch(e){return {};}})();
+function saveViewed(){localStorage.setItem(VIEWKEY, JSON.stringify(viewed));}
 let sortK="price", sortDir=1;
 
 function esc(s){return (s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
@@ -684,7 +726,7 @@ function inspCell(r){
   return '<span class="ins unk">?</span>';
 }
 function cmp(a,b,k){
-  if(k==="title"||k==="engine"||k==="place"||k==="mileage"||k==="posted_iso"){
+  if(k==="title"||k==="make"||k==="model"||k==="engine"||k==="place"||k==="mileage"||k==="posted_iso"){
     const x=(a[k]||"").toString().toLowerCase(),y=(b[k]||"").toString().toLowerCase();
     return x<y?-1:x>y?1:0;
   }
@@ -710,6 +752,7 @@ function passFilter(r){
   if(document.getElementById("onlyvalid").checked&&r.insp_status!=="valid")return false;
   if(document.getElementById("onlynew").checked&&!r.is_new)return false;
   if(document.getElementById("hiderep").checked&&r.is_repeat)return false;
+  if(document.getElementById("hideviewed").checked&&viewed[r.url])return false;
   const fv=document.getElementById("fuelf").value;
   if(fv&&(r.fuel_cat||"")!==fv)return false;
   const sv=activeTab;
@@ -732,10 +775,16 @@ function rowHtml(r,fav){
   if(r.is_repeat)badge+=' <span class="b2 rep">ATK\u0100RTOTS'+(r.seen_count>1?(" \u00d7"+r.seen_count):"")+'</span>';
   const star=fav?"\u2605":"\u2606";
   const eng=esc(r.engine|| (r.fuel_cat?r.fuel_cat:""));
-  return '<tr class="'+(fav?"favrow":"")+'">'
-    +'<td><button class="star" data-u="'+encodeURIComponent(r.url)+'">'+star+'</button></td>'
-    +'<td><a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.title)+'</a>'+badge
+  const eu=encodeURIComponent(r.url);
+  const vw=!!viewed[r.url];
+  return '<tr class="'+(fav?"favrow":"")+(vw?" viewed":"")+'">'
+    +'<td style="white-space:nowrap"><button class="star" data-u="'+eu+'">'+star+'</button>'
+      +'<button class="vbtn'+(vw?" on":"")+'" data-vu="'+eu+'" title="Atz\u012bm\u0113t k\u0101 redz\u0113tu">'+(vw?"\u2713":"\u25cb")+'</button></td>'
+    +'<td>'+(r.thumb?('<a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener"><img class="thumb" src="'+esc(r.thumb)+'" loading="lazy" alt=""></a>'):'')+'</td>'
+    +'<td><a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.title)+'</a>'+badge
       +(r.archive?(' <a class="cpy" href="'+esc(r.archive)+'" target="_blank" rel="noopener">kopija</a>'):'')+'</td>'
+    +'<td>'+esc(r.make||"")+'</td>'
+    +'<td>'+esc(r.model||"")+'</td>'
     +'<td class="num">'+price+'</td>'
     +'<td>'+esc(r.year||"")+'</td>'
     +'<td>'+eng+'</td>'
@@ -753,13 +802,23 @@ function render(){
   let html="";
   favRows.forEach(r=>html+=rowHtml(r,true));
   rest.forEach(r=>html+=rowHtml(r,false));
-  document.getElementById("body").innerHTML=html||'<tr><td colspan="9" style="padding:20px;color:#888">Nav rezult\u0101tu</td></tr>';
+  document.getElementById("body").innerHTML=html||'<tr><td colspan="12" style="padding:20px;color:#888">Nav rezult\u0101tu</td></tr>';
   document.getElementById("stat").textContent=favRows.length+" piesprausti \u00b7 "+rest.length+" r\u0101d\u012bti";
   document.querySelectorAll(".star").forEach(b=>b.onclick=()=>{
     const u=decodeURIComponent(b.dataset.u);
     if(favs[u])delete favs[u]; else{const r=rowsAll().find(x=>x.url===u); if(r)favs[u]=r;}
     saveFavs(); render();
   });
+  document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>{
+    const u=decodeURIComponent(b.dataset.vu);
+    if(viewed[u])delete viewed[u]; else viewed[u]=true;
+    saveViewed(); render();
+  });
+  document.querySelectorAll(".adlink").forEach(a=>a.addEventListener("click",()=>{
+    const u=decodeURIComponent(a.dataset.u);
+    if(!viewed[u]){viewed[u]=true; saveViewed();}
+    const tr=a.closest("tr"); if(tr)tr.classList.add("viewed");
+  }));
   document.querySelectorAll("th[data-k]").forEach(th=>{
     const a=th.querySelector(".arr"); if(!a)return;
     a.textContent=(th.dataset.k===sortK)?(sortDir>0?"\u25b2":"\u25bc"):"";
@@ -771,23 +830,29 @@ document.querySelectorAll("th[data-k]").forEach(th=>{
 });
 let activeTab="";
 (function(){
-  const order=[]; DATA.forEach(r=>(r.labels||[]).forEach(l=>{if(!order.includes(l))order.push(l);}));
+  const order=[]; (typeof TABS!=="undefined"?TABS:[]).forEach(l=>{if(l&&!order.includes(l))order.push(l);});
+  DATA.forEach(r=>(r.labels||[]).forEach(l=>{if(!order.includes(l))order.push(l);}));
   const tabs=document.getElementById("tabs");
   const count=v=> v===""?DATA.length:DATA.filter(r=>(r.labels||[]).includes(v)).length;
+  const fuelFor=l=>{const t=(l||"").toLowerCase();return t.includes("elektro")?"elektro":(t.includes("plug")?"plug-in":"");};
   const mk=(val,txt)=>{const b=document.createElement("button");
     b.className="tab"+(val===activeTab?" active":"");b.dataset.v=val;
     b.textContent=txt+" ("+count(val)+")";
-    b.onclick=()=>{activeTab=val;document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.v===val));render();};
+    b.onclick=()=>{activeTab=val;
+      document.getElementById("fuelf").value=fuelFor(val);
+      document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.v===val));
+      render();};
     tabs.appendChild(b);};
   mk("","Visi"); order.forEach(l=>mk(l,l));
 })();
-["q","minp","maxp","ymin","ymax","mmax","minm","onlyvalid","onlynew","hiderep","fuelf","onlyekii","condf"].forEach(id=>{
+["q","minp","maxp","ymin","ymax","mmax","minm","onlyvalid","onlynew","hiderep","hideviewed","fuelf","onlyekii","condf"].forEach(id=>{
   const el=document.getElementById(id);
   el.addEventListener(el.type==="checkbox"?"change":"input", render);
 });
+document.getElementById("clrviewed").onclick=()=>{viewed={}; saveViewed(); render();};
 render();
 </script>
-</body></html>""".replace("__TS__", esc(ts)).replace("__DATA__", data_json)
+</body></html>""".replace("__TS__", esc(ts)).replace("__DATA__", data_json).replace("__TABS__", tabs_json)
 
 
 def send_email(subject: str, html_body: str) -> None:
@@ -978,6 +1043,7 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
 
         fields = detail.get("fields") or {}
         desc = detail.get("description")
+        make, model = split_make_model(ad["url"], fields)
         is_phev = is_phev_text(ad.get("title"), desc)
         if require_phev and not is_phev:
             continue
@@ -1027,6 +1093,7 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
                 entry["last_ta"] = until
 
         ad.update({
+            "make": make, "model": model,
             "inspection_until": until, "inspection_raw": raw,
             "insp_status": inspection_status(until, raw),
             "months_left": months_left, "days_left": days_left,
@@ -1103,7 +1170,8 @@ def main() -> int:
         + (" (first run -> seeding)" if first_run else ""))
 
     # rolling match list for the webpage
-    keep_fields = ("url", "title", "price", "year", "engine", "mileage",
+    keep_fields = ("url", "title", "thumb", "make", "model", "price", "year",
+                   "engine", "mileage",
                    "mileage_k", "inspection_until", "inspection_raw",
                    "insp_status", "months_left", "days_left", "place",
                    "first_seen", "posted", "posted_iso", "archive",
@@ -1128,7 +1196,9 @@ def main() -> int:
 
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    REPORT_PATH.write_text(render_page_html(page_rows, ts), encoding="utf-8")
+    REPORT_PATH.write_text(render_page_html(page_rows, ts,
+                                            [s.get("label", "") for s in searches]),
+                           encoding="utf-8")
     log(f"Wrote {REPORT_PATH} ({len(page_rows)} rows)")
 
     if new_matches and not first_run:
