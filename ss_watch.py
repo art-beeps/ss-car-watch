@@ -636,6 +636,9 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
   th[data-k]:not([data-k=fav]){cursor:pointer}
   th .arr{opacity:.5;font-size:10px}
   td{padding:8px 10px;border-top:1px solid #eee;vertical-align:top}
+  td.desccell{white-space:nowrap;vertical-align:middle}
+  .desc{display:inline-block;max-width:420px;overflow:hidden;text-overflow:ellipsis;
+    white-space:nowrap;vertical-align:middle}
   tr:hover td{background:#fafafa}
   .favrow td{background:#fffbea}
   .favrow:hover td{background:#fff6d6}
@@ -685,7 +688,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
   <table id="tbl"><thead><tr>
     <th data-k="fav">\u2605</th>
     <th>Foto</th>
-    <th data-k="title">Sludin\u0101jums <span class="arr"></span></th>
+    <th data-k="title">Apraksts <span class="arr"></span></th>
     <th data-k="make">Marka <span class="arr"></span></th>
     <th data-k="model">Modelis <span class="arr"></span></th>
     <th data-k="price">Cena <span class="arr"></span></th>
@@ -781,7 +784,7 @@ function rowHtml(r,fav){
     +'<td style="white-space:nowrap"><button class="star" data-u="'+eu+'">'+star+'</button>'
       +'<button class="vbtn'+(vw?" on":"")+'" data-vu="'+eu+'" title="Atz\u012bm\u0113t k\u0101 redz\u0113tu">'+(vw?"\u2713":"\u25cb")+'</button></td>'
     +'<td>'+(r.thumb?('<a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener"><img class="thumb" src="'+esc(r.thumb)+'" loading="lazy" alt=""></a>'):'')+'</td>'
-    +'<td><a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.title)+'</a>'+badge
+    +'<td class="desccell"><a class="adlink desc" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener" title="'+esc(r.title)+'">'+esc(r.title)+'</a>'+badge
       +(r.archive?(' <a class="cpy" href="'+esc(r.archive)+'" target="_blank" rel="noopener">kopija</a>'):'')+'</td>'
     +'<td>'+esc(r.make||"")+'</td>'
     +'<td>'+esc(r.model||"")+'</td>'
