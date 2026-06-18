@@ -710,7 +710,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <th data-k="year">Gads <span class="arr"></span></th>
     <th data-k="engine">Dzin\u0113js <span class="arr"></span></th>
     <th data-k="mileage_k">Nobraukums <span class="arr"></span></th>
-    <th data-k="months_left">Tehnisk\u0101 apskate <span class="arr"></span></th>
+    <th data-k="days_left">Tehnisk\u0101 apskate <span class="arr"></span></th>
     <th data-k="posted_iso">Datums <span class="arr"></span></th>
     <th data-k="place">Vieta <span class="arr"></span></th>
   </tr></thead><tbody id="body"></tbody></table>
@@ -749,9 +749,16 @@ function cmp(a,b,k){
     const x=(a[k]||"").toString().toLowerCase(),y=(b[k]||"").toString().toLowerCase();
     return x<y?-1:x>y?1:0;
   }
-  let x=a[k],y=b[k];
-  x=(x==null)?Infinity:x; y=(y==null)?Infinity:y;
+  const x=a[k],y=b[k];
   return x<y?-1:x>y?1:0;
+}
+function dirCmp(a,b){
+  const k=sortK,x=a[k],y=b[k];
+  const xn=(x==null||x===""),yn=(y==null||y==="");
+  if(xn&&yn)return 0;
+  if(xn)return 1;            // missing value -> always last
+  if(yn)return -1;
+  return sortDir*cmp(a,b,k);
 }
 function passFilter(r){
   const q=document.getElementById("q").value.trim().toLowerCase();
@@ -816,8 +823,8 @@ function render(){
   const all=rowsAll();
   const favRows=all.filter(r=>favs[r.url]);
   const rest=all.filter(r=>!favs[r.url]&&passFilter(r));
-  favRows.sort((a,b)=>sortDir*cmp(a,b,sortK));
-  rest.sort((a,b)=>sortDir*cmp(a,b,sortK));
+  favRows.sort(dirCmp);
+  rest.sort(dirCmp);
   let html="";
   favRows.forEach(r=>html+=rowHtml(r,true));
   rest.forEach(r=>html+=rowHtml(r,false));
