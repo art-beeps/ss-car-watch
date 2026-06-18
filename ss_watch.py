@@ -615,7 +615,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
 <title>SS.LV auto novērošana</title>
 <style>
   body{font-family:system-ui,Segoe UI,Roboto,sans-serif;margin:0;background:#f6f7f9;color:#111}
-  .wrap{max-width:1100px;margin:0 auto;padding:20px 14px 64px}
+  .wrap{max-width:1400px;margin:0 auto;padding:20px 14px 64px}
   h1{font-size:21px;margin:0 0 4px}
   .meta{color:#666;font-size:13px;margin-bottom:14px}
   .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
@@ -629,16 +629,20 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
   .controls select{border:1px solid #ccc;border-radius:7px;padding:6px 8px;font-size:13px;background:#fff}
   .controls label{font-size:13px;color:#333;display:flex;align-items:center;gap:5px}
   .stat{margin-left:auto;color:#666;font-size:12px}
-  table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;
-    box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:14px}
+  .tablewrap{overflow-x:auto;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.08);background:#fff}
+  table{border-collapse:collapse;background:#fff;font-size:14px;table-layout:fixed}
   th{text-align:left;background:#111;color:#fff;padding:9px 10px;font-weight:600;font-size:11px;
-    text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;user-select:none}
+    text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;user-select:none;
+    position:relative;overflow:hidden}
+  .rsz{position:absolute;top:0;right:0;width:7px;height:100%;cursor:col-resize}
+  .rsz:hover{background:rgba(255,255,255,.35)}
   th[data-k]:not([data-k=fav]){cursor:pointer}
   th .arr{opacity:.5;font-size:10px}
-  td{padding:8px 10px;border-top:1px solid #eee;vertical-align:top}
-  td.desccell{white-space:nowrap;vertical-align:middle}
-  .desc{display:inline-block;max-width:420px;overflow:hidden;text-overflow:ellipsis;
-    white-space:nowrap;vertical-align:middle}
+  td{padding:8px 10px;border-top:1px solid #eee;vertical-align:top;overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap}
+  td.desccell{white-space:normal;vertical-align:middle}
+  .desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bdg{margin-top:3px;line-height:1.7}
   tr:hover td{background:#fafafa}
   .favrow td{background:#fffbea}
   .favrow:hover td{background:#fff6d6}
@@ -654,8 +658,9 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
   .cused{background:#9ca3af;color:#fff}
   .star{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:#e0b400;padding:0}
   .cpy{font-size:11px;color:#6b7280;margin-left:6px;white-space:nowrap}
-  .thumb{height:38px;width:58px;object-fit:cover;border-radius:4px;display:block;background:#eee}
+  .thumb{height:54px;width:84px;object-fit:cover;border-radius:4px;display:block;background:#eee}
   tr.viewed td{opacity:.45}
+  tr.viewed.favrow td{opacity:1}
   .vbtn{background:none;border:none;cursor:pointer;font-size:13px;color:#c0c0c0;padding:0 0 0 3px}
   .vbtn.on{color:#16a34a}
   .ins small{color:#666}
@@ -667,7 +672,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
 </style></head>
 <body><div class="wrap">
   <h1>SS.LV vieglo auto nov\u0113ro\u0161ana</h1>
-  <div class="meta">Atjaunin\u0101ts: __TS__ &middot; piesprausto izlasi glab\u0101 \u0161aj\u0101 p\u0101rl\u016bk\u0101</div>
+  <div class="meta">Atjaunin\u0101ts: __TS__ &middot; piesprausto izlasi glab\u0101 \u0161aj\u0101 p\u0101rl\u016bk\u0101 &middot; velc kolonnu malu, lai main\u012btu platumu</div>
   <div id="tabs" class="tabs"></div>
   <div class="controls">
     <input id="q" type="text" placeholder="Mekl\u0113t (nosaukums, dzin\u0113js)...">
@@ -685,7 +690,17 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <button id="clrviewed" type="button" style="border:1px solid #ccc;border-radius:7px;padding:6px 10px;background:#fff;cursor:pointer;font-size:13px">Not\u012br\u012bt redz\u0113tos</button>
     <span id="stat" class="stat"></span>
   </div>
-  <table id="tbl"><thead><tr>
+  <div class="tablewrap">
+  <table id="tbl">
+  <colgroup>
+    <col data-c="fav" data-def="58"><col data-c="thumb" data-def="96">
+    <col data-c="title" data-def="300"><col data-c="make" data-def="110">
+    <col data-c="model" data-def="110"><col data-c="price" data-def="92">
+    <col data-c="year" data-def="60"><col data-c="engine" data-def="84">
+    <col data-c="mileage" data-def="104"><col data-c="ta" data-def="124">
+    <col data-c="posted" data-def="98"><col data-c="place" data-def="104">
+  </colgroup>
+  <thead><tr>
     <th data-k="fav">\u2605</th>
     <th>Foto</th>
     <th data-k="title">Apraksts <span class="arr"></span></th>
@@ -699,6 +714,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <th data-k="posted_iso">Datums <span class="arr"></span></th>
     <th data-k="place">Vieta <span class="arr"></span></th>
   </tr></thead><tbody id="body"></tbody></table>
+  </div>
 </div>
 <script>
 const DATA = __DATA__;
@@ -784,14 +800,14 @@ function rowHtml(r,fav){
     +'<td style="white-space:nowrap"><button class="star" data-u="'+eu+'">'+star+'</button>'
       +'<button class="vbtn'+(vw?" on":"")+'" data-vu="'+eu+'" title="Atz\u012bm\u0113t k\u0101 redz\u0113tu">'+(vw?"\u2713":"\u25cb")+'</button></td>'
     +'<td>'+(r.thumb?('<a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener"><img class="thumb" src="'+esc(r.thumb)+'" loading="lazy" alt=""></a>'):'')+'</td>'
-    +'<td class="desccell"><a class="adlink desc" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener" title="'+esc(r.title)+'">'+esc(r.title)+'</a>'+badge
-      +(r.archive?(' <a class="cpy" href="'+esc(r.archive)+'" target="_blank" rel="noopener">kopija</a>'):'')+'</td>'
+    +'<td class="desccell"><div class="desc"><a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener" title="'+esc(r.title)+'">'+esc(r.title)+'</a></div>'
+      +'<div class="bdg">'+badge+(r.archive?(' <a class="cpy" href="'+esc(r.archive)+'" target="_blank" rel="noopener">kopija</a>'):'')+'</div></td>'
     +'<td>'+esc(r.make||"")+'</td>'
     +'<td>'+esc(r.model||"")+'</td>'
     +'<td class="num">'+price+'</td>'
     +'<td>'+esc(r.year||"")+'</td>'
     +'<td>'+eng+'</td>'
-    +'<td>'+esc(r.mileage||"")+'</td>'
+    +'<td>'+esc(r.mileage|| (r.mileage_km!=null?(r.mileage_km.toLocaleString("lv-LV")+" km"):""))+'</td>'
     +'<td>'+inspCell(r)+'</td>'
     +'<td>'+esc(r.posted||"")+'</td>'
     +'<td>'+esc(r.place||"")+'</td></tr>';
@@ -848,6 +864,26 @@ let activeTab="";
     tabs.appendChild(b);};
   mk("","Visi"); order.forEach(l=>mk(l,l));
 })();
+// ---- Excel-like resizable columns (widths remembered in the browser) ----
+const COLW_KEY="sscw_colw";
+let colw=(()=>{try{return JSON.parse(localStorage.getItem(COLW_KEY))||{};}catch(e){return {};}})();
+function saveColw(){localStorage.setItem(COLW_KEY,JSON.stringify(colw));}
+const COLS=[...document.querySelectorAll("#tbl colgroup col")];
+function applyColw(){let total=0;COLS.forEach(c=>{const w=colw[c.dataset.c]||parseInt(c.dataset.def,10);c.style.width=w+"px";total+=w;});document.getElementById("tbl").style.width=total+"px";}
+applyColw();
+[...document.querySelectorAll("#tbl thead th")].forEach((th,i)=>{
+  const col=COLS[i]; if(!col)return;
+  const h=document.createElement("span"); h.className="rsz"; th.appendChild(h);
+  h.addEventListener("click",e=>e.stopPropagation());
+  h.addEventListener("mousedown",e=>{
+    e.preventDefault(); e.stopPropagation();
+    const sx=e.clientX, sw=col.getBoundingClientRect().width;
+    document.body.style.userSelect="none";
+    function mm(ev){colw[col.dataset.c]=Math.max(40,Math.round(sw+(ev.clientX-sx))); applyColw();}
+    function mu(){document.removeEventListener("mousemove",mm); document.removeEventListener("mouseup",mu); document.body.style.userSelect=""; saveColw();}
+    document.addEventListener("mousemove",mm); document.addEventListener("mouseup",mu);
+  });
+});
 ["q","minp","maxp","ymin","ymax","mmax","minm","onlyvalid","onlynew","hiderep","hideviewed","fuelf","onlyekii","condf"].forEach(id=>{
   const el=document.getElementById(id);
   el.addEventListener(el.type==="checkbox"?"change":"input", render);
