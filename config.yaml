@@ -29,10 +29,10 @@ searches:
       - https://www.ss.lv/lv/transport/cars/          # all makes (auto-expanded)
 
 scan:
-  max_pages_per_source: 5     # deep-run depth per make
-  quick_pages: 2              # hourly depth (fallback for any search)
+  max_pages_per_source: 50     # one-time deep seed depth
+  quick_pages: 1               # hourly = first page only
   detail_fetch_limit: 400
-  request_delay_seconds: 1.0
-
+  request_delay_seconds: 1.5
+  
 report:
   top_n: 60
