@@ -714,7 +714,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <label><input id="onlynew" type="checkbox"> Tikai jaunie</label>
     <label><input id="hiderep" type="checkbox"> Pasl\u0113pt atk\u0101rtotos</label>
     <label><input id="hideviewed" type="checkbox"> Pasl\u0113pt redz\u0113tos</label>
-    <label>Min. kWh <input id="minkwh" type="number" style="width:64px"></label>
+    <label title="Sludin\u0101jumi bez nor\u0101d\u012btas kWh paliek redzami">Min. kWh <input id="minkwh" type="number" style="width:64px"></label>
     <label><input id="onlyhp" type="checkbox"> Ar siltums\u016bkni</label>
     <label><input id="onlyekii" type="checkbox"> Tikai EKII</label>
     <label><input id="onlypc" type="checkbox"> Tikai ar cenas izmai\u0146\u0101m</label>
@@ -820,7 +820,7 @@ function passFilter(r){
   if(document.getElementById("onlyekii").checked&&!(r.ekii||r.ekii_eligible))return false;
   if(document.getElementById("onlypc").checked&&!r.price_delta)return false;
   const mk=parseFloat(document.getElementById("minkwh").value);
-  if(!isNaN(mk)&&!(r.battery_kwh&&r.battery_kwh>=mk))return false;
+  if(!isNaN(mk)&&r.battery_kwh!=null&&r.battery_kwh<mk)return false;
   if(document.getElementById("onlyhp").checked&&!r.heat_pump)return false;
   const cf=document.getElementById("condf").value;
   if(cf&&(r.condition||"")!==cf)return false;
@@ -1082,6 +1082,57 @@ def has_ekii(*texts: str | None) -> bool:
     return "ekii" in " ".join(t or "" for t in texts).lower()
 
 
+CARS_ROOT = "https://www.ss.lv/lv/transport/cars/"
+
+# Fallback make list if discovery fails (kept short but broad)
+FALLBACK_MAKES = [
+    "audi", "bmw", "chevrolet", "chrysler", "citroen", "dacia", "dodge",
+    "fiat", "ford", "honda", "hyundai", "jaguar", "jeep", "kia", "land-rover",
+    "lexus", "mazda", "mercedes", "mini", "mitsubishi", "nissan", "opel",
+    "peugeot", "porsche", "renault", "seat", "skoda", "subaru", "suzuki",
+    "tesla", "toyota", "volkswagen", "volvo", "others",
+]
+
+
+def discover_makes(delay: float) -> list[str]:
+    """Read every make sub-page link off the /transport/cars/ hub, so an
+    'all cars' source truly covers all makes and stays current automatically."""
+    html_text = fetch(CARS_ROOT, delay)
+    if not html_text:
+        log("Make discovery failed; using fallback list.")
+        return [CARS_ROOT + m + "/" for m in FALLBACK_MAKES]
+    soup = BeautifulSoup(html_text, "html.parser")
+    slugs: list[str] = []
+    for a in soup.select("a[href]"):
+        m = re.match(r"^/lv/transport/cars/([a-z0-9\-]+)/$", a.get("href", ""))
+        if m:
+            slug = m.group(1)
+            if slug != "electric-cars" and slug not in slugs:
+                slugs.append(slug)
+    if not slugs:
+        log("No makes parsed from hub; using fallback list.")
+        slugs = FALLBACK_MAKES
+    log(f"Discovered {len(slugs)} car makes from the cars hub.")
+    return [CARS_ROOT + s + "/" for s in slugs]
+
+
+def expand_sources(searches: list[dict], delay: float) -> None:
+    """Replace an 'all cars' root source with every discovered make URL."""
+    roots = {CARS_ROOT, CARS_ROOT.rstrip("/")}
+    needs = any(s in roots for srch in searches for s in srch.get("sources", []))
+    makes = discover_makes(delay) if needs else []
+    for srch in searches:
+        expanded: list[str] = []
+        for s in srch.get("sources", []):
+            if s in roots:
+                expanded.extend(makes)
+            else:
+                expanded.append(s)
+        # de-dupe while preserving order
+        seen_s: set[str] = set()
+        srch["sources"] = [x for x in expanded if not (x in seen_s or seen_s.add(x))]
+
+
 def normalize_searches(cfg: dict) -> list[dict]:
     """Use cfg['searches'] if present; otherwise build a single search from the
     legacy cfg['filters'] + cfg['sources'] block (backward compatible)."""
@@ -1318,6 +1369,7 @@ def main() -> int:
     report_cfg = cfg.get("report") or {}
     top_n = int(report_cfg.get("top_n", 40))
     searches = normalize_searches(cfg)
+    expand_sources(searches, float((cfg.get("scan") or {}).get("request_delay_seconds", 1.5)))
 
     seen = load_json(SEEN_PATH, {})
     first_run = len(seen) == 0
