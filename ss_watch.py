@@ -25,6 +25,7 @@ import sys
 import time
 import html as htmllib
 from datetime import date, datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -169,6 +170,55 @@ def classify_cells(cells: list[str]) -> dict:
 # --------------------------------------------------------------------------
 # Listing page parsing
 # --------------------------------------------------------------------------
+RSS_LABELS = r"(?:Marka|Modelis|Gads|Tilpums|Nobraukums|Cena|Apskat|Марка|Модель|Год|Объ|Пробег|Цена)"
+
+
+def parse_rss(xml_text: str) -> list[dict]:
+    """Parse an ss.lv category RSS feed into ad dicts with a precise posting
+    timestamp from <pubDate>. Regex-based (ss.lv wraps <link> plainly and text
+    in CDATA), fail-safe: returns [] if the feed can't be read."""
+    ads: list[dict] = []
+    for it in re.findall(r"<item\b[^>]*>(.*?)</item>", xml_text or "", re.S | re.I):
+        lm = (re.search(r"<link>\s*(?:<!\[CDATA\[)?\s*(https?://[^<\]\s]+)", it, re.I)
+              or re.search(r"<guid[^>]*>\s*(https?://[^<\s]+)", it, re.I))
+        url = lm.group(1).strip() if lm else ""
+        if "/msg/" not in url:
+            continue
+        posted_ts = None
+        pm = re.search(r"<pubDate>\s*(.*?)\s*</pubDate>", it, re.S | re.I)
+        if pm:
+            try:
+                posted_ts = parsedate_to_datetime(pm.group(1).strip()).strftime("%Y-%m-%dT%H:%M")
+            except Exception:
+                posted_ts = None
+        dm = re.search(r"<description>\s*(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?\s*</description>", it, re.S | re.I)
+        desc = re.sub(r"<[^>]+>", " ", dm.group(1)) if dm else ""
+        tm = re.search(r"<title>\s*(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?\s*</title>", it, re.S | re.I)
+        title = tm.group(1).strip() if tm else ""
+
+        def field(name: str):
+            m = re.search(name + r":\s*(.*?)\s*(?=" + RSS_LABELS + r":|$)", desc, re.S | re.I)
+            return m.group(1).strip() if m else None
+
+        yr = field("Gads") or field("Год")
+        year = None
+        if yr:
+            ym = re.search(r"(19|20)\d{2}", yr)
+            year = int(ym.group(0)) if ym else None
+        cena = field("Cena") or field("\u0426\u0435\u043d\u0430")
+        price = None
+        if cena:
+            digits = re.sub(r"[^\d]", "", cena)
+            price = int(digits) if digits else None
+        if not title:
+            title = " ".join(x for x in [field("Marka"), field("Modelis")] if x)
+        ads.append({"url": url, "title": title, "year": year, "price": price,
+                    "mileage": field("Nobraukums") or field("Пробег"),
+                    "engine": field("Tilpums") or "", "thumb": "",
+                    "posted_ts": posted_ts})
+    return ads
+
+
 def parse_listing(html_text: str) -> list[dict]:
     """Extract ad rows from a listing page.
 
@@ -304,11 +354,12 @@ def parse_detail(html_text: str) -> dict:
                 if price:
                     break
 
-    # listed date
+    # listed date (with time when ss.lv provides it, e.g. "24.06.2026 09:00")
     posted = None
-    m = re.search(r"Datums:\s*(\d{2}\.\d{2}\.\d{4})", soup.get_text(" ", strip=True))
+    m = re.search(r"Datums:\s*(\d{2}\.\d{2}\.\d{4})(?:\s+(\d{2}:\d{2}))?",
+                  soup.get_text(" ", strip=True))
     if m:
-        posted = m.group(1)
+        posted = m.group(1) + (f" {m.group(2)}" if m.group(2) else "")
 
     # description text (for the archived copy)
     description = ""
@@ -402,6 +453,18 @@ def posted_to_iso(posted: str | None) -> str | None:
         return None
     d, mo, y = m.groups()
     return f"{y}-{mo}-{d}"
+
+
+def posted_to_ts(posted: str | None) -> str | None:
+    """'dd.mm.yyyy hh:mm' -> 'yyyy-mm-ddThh:mm' (local, for 'X hours ago').
+    Falls back to date only when no time is given."""
+    if not posted:
+        return None
+    m = re.match(r"(\d{2})\.(\d{2})\.(\d{4})(?:\s+(\d{2}):(\d{2}))?", posted.strip())
+    if not m:
+        return None
+    d, mo, y, hh, mm = m.groups()
+    return f"{y}-{mo}-{d}" + (f"T{hh}:{mm}" if hh else "")
 
 
 def parse_mileage_km(text: str | None) -> int | None:
@@ -629,96 +692,211 @@ def render_email_html(matches: list[dict]) -> str:
 </body></html>"""
 
 
-def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
+def default_banners() -> list[dict]:
+    return [
+        {"title": "Jūsu reklāma šeit",
+         "text": "Sasniedziet pircējus, kas tieši tagad meklē elektroauto. "
+                 "Reklamējiet savu uzņēmumu šajā vietā.",
+         "cta": "Sazināties", "url": "mailto:info@example.com", "placeholder": True},
+        {"title": "Aviloo baterijas sertifikāts",
+         "text": "Pārbaudiet lietota elektroauto baterijas patieso veselību "
+                 "pirms pirkšanas.",
+         "cta": "Uzzināt vairāk", "url": "https://www.aviloo.com/"},
+        {"title": "VIN un vēstures pārbaude",
+         "text": "Pasūtiet auto VIN un vēstures pārbaudi pirms darījuma.",
+         "cta": "Pasūtīt", "url": "https://www.provin.lv/"},
+    ]
+
+
+def render_banners(banners: list[dict]) -> str:
+    out = []
+    for b in banners:
+        ph = " ph" if b.get("placeholder") else ""
+        url = b.get("url", "#")
+        rel = ' target="_blank" rel="noopener sponsored"' if str(url).startswith("http") else ""
+        out.append(
+            f'<div class="banner{ph}"><h3>{esc(b.get("title",""))}</h3>'
+            f'<p>{esc(b.get("text",""))}</p>'
+            f'<a class="cta" href="{esc(url)}"{rel}>{esc(b.get("cta","Uzzināt vairāk"))}</a></div>'
+        )
+    out.append('<div class="rail-note">Reklāma</div>')
+    return "\n".join(out)
+
+
+def render_page_html(rows: list[dict], ts: str, tab_labels: list[str],
+                     banners: list[dict] | None = None) -> str:
     """Interactive page: sortable, filterable, with pinned favourites
     (favourites persist in the browser via localStorage)."""
     data_json = json.dumps(rows, ensure_ascii=False)
     tabs_json = json.dumps(tab_labels, ensure_ascii=False)
+    banners_html = render_banners(banners if banners is not None else default_banners())
     return """<!doctype html>
 <html lang="lv"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SS.LV auto novērošana</title>
+<title>Elektroauto un EKII meklētava</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  body{font-family:system-ui,Segoe UI,Roboto,sans-serif;margin:0;background:#f6f7f9;color:#111}
-  .wrap{max-width:1400px;margin:0 auto;padding:20px 14px 64px}
-  h1{font-size:21px;margin:0 0 4px}
-  .meta{color:#666;font-size:13px;margin-bottom:14px}
-  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-  .tab{border:1px solid #d4d4d8;background:#fff;border-radius:999px;padding:8px 18px;
-    font-size:14px;font-weight:600;cursor:pointer;color:#333}
-  .tab.active{background:#111;color:#fff;border-color:#111}
-  .controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:14px;
-    background:#fff;border:1px solid #e6e6e6;border-radius:10px;padding:12px}
-  .controls input[type=text],.controls input[type=number]{border:1px solid #ccc;border-radius:7px;
-    padding:6px 8px;font-size:14px}
-  .controls select{border:1px solid #ccc;border-radius:7px;padding:6px 8px;font-size:13px;background:#fff}
-  .controls label{font-size:13px;color:#333;display:flex;align-items:center;gap:5px}
-  .stat{margin-left:auto;color:#666;font-size:12px}
-  .tablewrap{overflow-x:auto;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.08);background:#fff}
-  table{border-collapse:collapse;background:#fff;font-size:14px;table-layout:fixed}
-  th{text-align:left;background:#111;color:#fff;padding:9px 10px;font-weight:600;font-size:11px;
-    text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;user-select:none;
-    position:relative;overflow:hidden}
+  :root{
+    --bg:#F5F7F6; --surface:#fff; --ink:#17211C; --muted:#5E6B64;
+    --line:#E4E9E6; --line-2:#EEF2F0;
+    --brand:#0E7C5A; --brand-ink:#0A5C43; --brand-soft:#E7F4EE;
+    --amber:#B45309; --red:#B91C1C; --red-soft:#FBE7E7;
+    --shadow:0 1px 2px rgba(20,40,30,.04),0 8px 26px -14px rgba(20,40,30,.14);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Manrope',system-ui,sans-serif;margin:0;background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;font-size:14px;line-height:1.45}
+  a{color:var(--brand-ink);text-decoration:none}a:hover{text-decoration:underline}
+  .appbar{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .appbar-in{max-width:1400px;margin:0 auto;padding:14px 18px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.01em;
+    color:var(--ink);display:flex;align-items:center;gap:9px}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
+  .tagline{color:var(--muted);font-size:13px}
+  .updated{margin-left:auto;color:var(--muted);font-size:12px}
+  .wrap{max-width:1400px;margin:0 auto;padding:18px 18px 80px}
+  .layout{display:flex;gap:22px;align-items:flex-start}
+  .main{flex:1;min-width:0}
+  .rail{width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;position:sticky;top:78px}
+  .banner{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+  .banner h3{font-family:'Space Grotesk',sans-serif;font-size:15px;margin:0 0 6px;color:var(--ink);font-weight:600}
+  .banner p{margin:0 0 12px;font-size:13px;color:var(--muted);line-height:1.5}
+  .banner .cta{display:inline-block;background:var(--brand);color:#fff;border-radius:9px;padding:8px 14px;font-size:13px;font-weight:600}
+  .banner .cta:hover{background:var(--brand-ink);text-decoration:none}
+  .banner.ph{border-style:dashed;background:var(--brand-soft)}
+  .banner.ph .cta{background:transparent;color:var(--brand-ink);border:1px solid var(--brand)}
+  .rail-note{font-size:11px;color:var(--muted);text-align:center;letter-spacing:.02em}
+  @media(max-width:1024px){
+    .layout{flex-direction:column}
+    .rail{width:100%;position:static;flex-direction:row;flex-wrap:wrap}
+    .rail .banner{flex:1 1 240px}
+    .rail-note{width:100%}
+  }
+  @media(max-width:560px){.rail{flex-direction:column}.rail .banner{flex:none}}
+  .tabs{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:4px;margin:4px 0 16px;box-shadow:var(--shadow)}
+  .tab{border:none;background:none;border-radius:999px;padding:8px 16px;font:inherit;font-weight:600;
+    font-size:13.5px;cursor:pointer;color:var(--muted);white-space:nowrap;transition:background .15s,color .15s}
+  .tab:hover{color:var(--ink)}
+  .tab.active{background:var(--brand);color:#fff}
+  .controls{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:16px;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--shadow)}
+  .controls .row2{display:none;flex-wrap:wrap;gap:8px 12px;align-items:center;width:100%;
+    border-top:1px solid var(--line-2);padding-top:12px;margin-top:2px}
+  .controls.more .row2{display:flex}
+  .controls input[type=text],.controls input[type=number],.controls select{
+    border:1px solid var(--line);border-radius:9px;padding:7px 10px;font:inherit;font-size:13px;background:#fff;color:var(--ink)}
+  .controls input:focus,.controls select:focus{outline:2px solid var(--brand-soft);border-color:var(--brand)}
+  .controls input[type=text]{min-width:200px;flex:1 1 200px;max-width:340px}
+  .controls label{font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+  .controls input[type=checkbox]{accent-color:var(--brand);width:16px;height:16px}
+  .btn{border:1px solid var(--line);border-radius:9px;padding:7px 12px;background:#fff;cursor:pointer;font:inherit;font-size:13px;color:var(--ink)}
+  .btn:hover{border-color:var(--brand);color:var(--brand-ink)}
+  .btn-more{margin-left:auto;font-weight:600}
+  .stat{color:var(--muted);font-size:12px;width:100%;margin-top:2px}
+  .tablewrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;background:var(--surface);width:100%;font-size:14px;table-layout:fixed}
+  thead th{text-align:left;background:var(--brand-ink);color:#fff;padding:11px 12px;font-weight:600;font-size:12px;
+    white-space:nowrap;user-select:none;position:relative;overflow:hidden}
   .rsz{position:absolute;top:0;right:0;width:7px;height:100%;cursor:col-resize}
-  .rsz:hover{background:rgba(255,255,255,.35)}
+  .rsz:hover{background:rgba(255,255,255,.25)}
   th[data-k]:not([data-k=fav]){cursor:pointer}
-  th .arr{opacity:.5;font-size:10px}
-  td{padding:8px 10px;border-top:1px solid #eee;vertical-align:top;overflow:hidden;
-    text-overflow:ellipsis;white-space:nowrap}
-  td.desccell{white-space:normal;vertical-align:middle}
-  .desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .bdg{margin-top:3px;line-height:1.7}
-  tr:hover td{background:#fafafa}
-  .favrow td{background:#fffbea}
-  .favrow:hover td{background:#fff6d6}
-  a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
-  .num{white-space:nowrap;font-weight:600}
-  .badge{background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px}
-  .b2{border-radius:4px;padding:1px 6px;font-size:11px;margin-left:4px;white-space:nowrap}
-  .rep{background:#6b7280;color:#fff}
-  .pdn{background:#15803d;color:#fff}
-  .pup{background:#b91c1c;color:#fff}
-  .hp{background:#0369a1;color:#fff}
-  .ta2{background:#7c3aed;color:#fff}
-  .ek{background:#0d9488;color:#fff}
-  .ekok{background:#15803d;color:#fff}
-  .cnew{background:#2563eb;color:#fff}
-  .cused{background:#9ca3af;color:#fff}
-  .star{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:#e0b400;padding:0}
-  .cpy{font-size:11px;color:#6b7280;margin-left:6px;white-space:nowrap}
-  .thumb{height:54px;width:84px;object-fit:cover;border-radius:4px;display:block;background:#eee}
-  tr.viewed td{opacity:.45}
+  th .arr{opacity:.55;font-size:10px}
+  td{padding:11px 12px;border-top:1px solid var(--line-2);vertical-align:middle;overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
+  td.desccell{white-space:normal}
+  .desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:600;line-height:1.35}
+  .desc a{color:var(--ink)}
+  .bdg{margin-top:5px;display:flex;flex-wrap:wrap;gap:5px}
+  tbody tr:hover td{background:#F8FBF9}
+  .favrow td{background:#FBFAF2}
+  .favrow:hover td{background:#F6F4E8}
+  .num{white-space:nowrap;font-weight:600;font-family:'Space Grotesk',sans-serif;font-variant-numeric:tabular-nums}
+  .price{font-weight:700;font-size:15px;font-family:'Space Grotesk',sans-serif}
+  .badge,.b2{display:inline-flex;align-items:center;gap:3px;border-radius:999px;padding:2px 9px;
+    font-size:11.5px;font-weight:600;line-height:1.5;white-space:nowrap}
+  .badge{background:var(--brand-soft);color:var(--brand-ink)}
+  .rep{background:#EEF1EF;color:#55625B}
+  .pdn{background:var(--brand-soft);color:var(--brand-ink)}
+  .pup{background:var(--red-soft);color:var(--red)}
+  .hp{background:#E4F0F6;color:#0B6089}
+  .ta2{background:#EFE9FB;color:#6D3FC4}
+  .ek{background:#DEF1EA;color:#0A6E4F}
+  .ekok{background:var(--brand);color:#fff}
+  .cnew{background:#E5EEFB;color:#1F5FBF}
+  .cused{background:#EEF1EF;color:#68746D}
+  .star{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:#D9B44A;padding:0}
+  .cpy{font-size:11px;color:var(--muted);margin-left:6px;white-space:nowrap;font-weight:500}
+  .thumb{height:58px;width:88px;object-fit:cover;border-radius:10px;display:block;background:#EEF2F0}
+  tr.viewed td{opacity:.5}
   tr.viewed.favrow td{opacity:1}
-  .vbtn{background:none;border:none;cursor:pointer;font-size:13px;color:#c0c0c0;padding:0 0 0 3px}
-  .vbtn.on{color:#16a34a}
-  .ins small{color:#666}
-  .ins.ok{color:#15803d;font-weight:600}
-  .ins.warn{color:#b45309}
-  .ins.bad{color:#b91c1c}
-  .ins.none{color:#999}
-  .ins.unk{color:#bbb}
+  .vbtn{background:none;border:none;cursor:pointer;font-size:13px;color:#C4CCC7;padding:0 0 0 3px}
+  .vbtn.on{color:var(--brand)}
+  .ins small{color:var(--muted)}
+  .ins.ok{color:var(--brand-ink);font-weight:700}
+  .ins.warn{color:var(--amber)}
+  .ins.bad{color:var(--red)}
+  .ins.none{color:#9AA39E}
+  .ins.unk{color:#BAC2BD}
+  @media(max-width:820px){
+    .appbar-in{padding:12px 14px}
+    .updated{width:100%;margin:2px 0 0}
+    .wrap{padding:14px 12px 80px}
+    .controls input[type=text]{max-width:none}
+    .tablewrap{overflow:visible;border:none;background:none;box-shadow:none}
+    table{table-layout:auto;width:100%}
+    thead{display:none}
+    tbody,tr,td{display:block;width:auto!important}
+    tbody tr{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);margin-bottom:12px;padding:12px 14px 14px;position:relative}
+    tbody tr:hover td,.favrow td{background:none}
+    td{border:none;padding:3px 0;white-space:normal;overflow:visible;text-overflow:clip}
+    td[data-label]{display:flex;gap:8px;align-items:baseline}
+    td[data-label]::before{content:attr(data-label);color:var(--muted);font-size:12px;font-weight:600;min-width:104px}
+    td.c-fav{position:absolute;top:10px;right:8px;padding:0}
+    td.c-thumb{padding:0 0 10px}
+    .thumb{height:180px;width:100%;border-radius:12px}
+    td.c-desc{padding:0 0 4px}
+    .desc{-webkit-line-clamp:3;font-size:15.5px}
+    td.c-price .price{font-size:19px}
+    td.c-make,td.c-model{display:none}
+    td.c-year::before,td.c-engine::before{min-width:104px}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head>
-<body><div class="wrap">
-  <h1>SS.LV vieglo auto nov\u0113ro\u0161ana</h1>
-  <div class="meta">Atjaunin\u0101ts: __TS__ &middot; piesprausto izlasi glab\u0101 \u0161aj\u0101 p\u0101rl\u016bk\u0101 &middot; velc kolonnu malu, lai main\u012btu platumu</div>
+<body>
+  <div class="appbar"><div class="appbar-in">
+    <span class="brand"><span class="dot"></span>Elektroauto meklētava</span>
+    <span class="tagline">Elektro un plug-in auto ar EKII atbalstu</span>
+    <span class="updated">Atjaunināts __TS__</span>
+  </div></div>
+  <div class="wrap">
   <div id="tabs" class="tabs"></div>
-  <div class="controls">
-    <input id="q" type="text" placeholder="Mekl\u0113t (nosaukums, dzin\u0113js)...">
+  <div class="layout">
+  <div class="main">
+  <div class="controls" id="controls">
+    <input id="q" type="text" placeholder="Meklēt nosaukumā vai dzinējā...">
     <label>Cena <input id="minp" type="number" style="width:74px" placeholder="no">\u2013<input id="maxp" type="number" style="width:74px" placeholder="l\u012bdz"></label>
-    <label>Gads <input id="ymin" type="number" style="width:60px" placeholder="no">\u2013<input id="ymax" type="number" style="width:60px" placeholder="l\u012bdz"></label>
-    <label>Maks. nobr. t\u016bkst. <input id="mmax" type="number" style="width:70px"></label>
-    <label>Min. TA m\u0113n. <input id="minm" type="number" style="width:60px"></label>
     <select id="fuelf"><option value="">Visas degvielas</option><option value="elektro">Elektro</option><option value="plug-in">Plug-in</option><option value="hibr\u012bds">Hibr\u012bds</option><option value="benz\u012bns">Benz\u012bns</option><option value="d\u012bzelis">D\u012bzelis</option><option value="g\u0101ze">G\u0101ze</option></select>
-    <select id="condf"><option value="">Jebkur\u0161 st\u0101voklis</option><option value="new">Jauni auto</option><option value="used">Lietoti</option></select>
-    <label><input id="onlyvalid" type="checkbox"> Tikai ar der\u012bgu TA</label>
-    <label><input id="onlynew" type="checkbox"> Tikai jaunie</label>
-    <label><input id="hiderep" type="checkbox"> Pasl\u0113pt atk\u0101rtotos</label>
-    <label><input id="hideviewed" type="checkbox"> Pasl\u0113pt redz\u0113tos</label>
     <label title="Sludin\u0101jumi bez nor\u0101d\u012btas kWh paliek redzami">Min. kWh <input id="minkwh" type="number" style="width:64px"></label>
-    <label><input id="onlyhp" type="checkbox"> Ar siltums\u016bkni</label>
     <label><input id="onlyekii" type="checkbox"> Tikai EKII</label>
-    <label><input id="onlypc" type="checkbox"> Tikai ar cenas izmai\u0146\u0101m</label>
-    <button id="clrviewed" type="button" style="border:1px solid #ccc;border-radius:7px;padding:6px 10px;background:#fff;cursor:pointer;font-size:13px">Not\u012br\u012bt redz\u0113tos</button>
+    <button class="btn btn-more" id="morebtn" type="button">Vair\u0101k filtru</button>
+    <div class="row2">
+      <label>Gads <input id="ymin" type="number" style="width:60px" placeholder="no">\u2013<input id="ymax" type="number" style="width:60px" placeholder="l\u012bdz"></label>
+      <label>Maks. nobr. t\u016bkst. <input id="mmax" type="number" style="width:70px"></label>
+      <label>Min. TA m\u0113n. <input id="minm" type="number" style="width:60px"></label>
+      <select id="condf"><option value="">Jebkur\u0161 st\u0101voklis</option><option value="new">Jauni auto</option><option value="used">Lietoti</option></select>
+      <label><input id="onlyhp" type="checkbox"> Ar siltums\u016bkni</label>
+      <label><input id="onlyvalid" type="checkbox"> Tikai ar der\u012bgu TA</label>
+      <label><input id="onlynew" type="checkbox"> Tikai jaunie</label>
+      <label><input id="onlypc" type="checkbox"> Tikai ar cenas izmai\u0146\u0101m</label>
+      <label><input id="hiderep" type="checkbox"> Pasl\u0113pt atk\u0101rtotos</label>
+      <label><input id="hideviewed" type="checkbox"> Pasl\u0113pt redz\u0113tos</label>
+      <button id="clrviewed" class="btn" type="button">Not\u012br\u012bt redz\u0113tos</button>
+    </div>
     <span id="stat" class="stat"></span>
   </div>
   <div class="tablewrap">
@@ -747,6 +925,9 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <th data-k="posted_iso">Datums <span class="arr"></span></th>
     <th data-k="place">Vieta <span class="arr"></span></th>
   </tr></thead><tbody id="body"></tbody></table>
+  </div>
+  </div>
+  <aside class="rail">__BANNERS__</aside>
   </div>
 </div>
 <script>
@@ -828,16 +1009,39 @@ function passFilter(r){
 }
 function rowHtml(r,fav){
   const price=r.price!=null?(r.price.toLocaleString("lv-LV")+" \u20ac"):"?";
-  let badge=r.is_new?' <span class="badge">JAUNS</span>':"";
+function relPosted(r){
+  const ts=r.posted_ts;
+  if(!ts)return {t:esc(r.posted||""),title:esc(r.posted||"")};
+  const d=new Date(ts.replace(" ","T")), now=new Date();
+  if(isNaN(d))return {t:esc(r.posted||""),title:esc(r.posted||"")};
+  const abs=esc(r.posted||"");
+  const sameDay=d.getFullYear()===now.getFullYear()&&d.getMonth()===now.getMonth()&&d.getDate()===now.getDate();
+  const hasTime=ts.length>10;
+  if(sameDay){
+    if(!hasTime)return {t:"\u0161odien",title:abs};
+    const mins=Math.floor((now-d)/60000);
+    if(mins<1)return {t:"tikko",title:abs};
+    if(mins<60)return {t:"pirms "+mins+" min",title:abs};
+    return {t:"pirms "+Math.floor(mins/60)+" h",title:abs};
+  }
+  // calendar-day difference
+  const a=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  const b=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const days=Math.round((b-a)/86400000);
+  if(days<=0)return {t:"\u0161odien",title:abs};
+  if(days===1)return {t:"vakar",title:abs};
+  return {t:"pirms "+days+" d.",title:abs};
+}
+  let badge=r.is_new?' <span class="badge">Jauns</span>':"";
   if(r.ekii_eligible)badge+=' <span class="b2 ekok" title="'+esc(r.reg||"")+'">EKII \u2713'+(r.ekii_reason?(" "+esc(r.ekii_reason)):"")+'</span>';
   else if(r.ekii)badge+=' <span class="b2 ek">EKII</span>';
   if(r.fuel_cat==="elektro"||r.fuel_cat==="plug-in"||r.fuel_cat==="hibr\u012bds"){
-    if(r.condition==="new")badge+=' <span class="b2 cnew" title="'+esc(r.reg||"")+'">JAUNS AUTO</span>';
-    else if(r.condition==="used")badge+=' <span class="b2 cused">LIETOTS</span>';
+    if(r.condition==="new")badge+=' <span class="b2 cnew" title="'+esc(r.reg||"")+'">Jauns auto</span>';
+    else if(r.condition==="used")badge+=' <span class="b2 cused">Lietots</span>';
   }
-  if(r.heat_pump)badge+=' <span class="b2 hp">Siltums\u016bknis</span>';
-  if(r.ta_renewed)badge+=' <span class="b2 ta2">TA ATJAUNOTS</span>';
-  if(r.is_repeat)badge+=' <span class="b2 rep">ATK\u0100RTOTS'+(r.seen_count>1?(" \u00d7"+r.seen_count):"")+'</span>';
+  if(r.heat_pump)badge+=' <span class="b2 hp">\u2600 Siltums\u016bknis</span>';
+  if(r.ta_renewed)badge+=' <span class="b2 ta2">TA atjaunots</span>';
+  if(r.is_repeat)badge+=' <span class="b2 rep">Atk\u0101rtots'+(r.seen_count>1?(" \u00d7"+r.seen_count):"")+'</span>';
   if(r.price_delta){const ab=Math.abs(r.price_delta).toLocaleString("lv-LV"),
     was=(r.prev_price!=null?("Agr\u0101k: "+r.prev_price.toLocaleString("lv-LV")+" \u20ac"):"");
     badge+=(r.price_delta<0
@@ -847,22 +1051,23 @@ function rowHtml(r,fav){
   const eng=esc(r.engine|| (r.fuel_cat?r.fuel_cat:""));
   const eu=encodeURIComponent(r.url);
   const vw=!!viewed[r.url];
+  const rp=relPosted(r);
   return '<tr class="'+(fav?"favrow":"")+(vw?" viewed":"")+'">'
-    +'<td style="white-space:nowrap"><button class="star" data-u="'+eu+'">'+star+'</button>'
+    +'<td class="c-fav" style="white-space:nowrap"><button class="star" data-u="'+eu+'">'+star+'</button>'
       +'<button class="vbtn'+(vw?" on":"")+'" data-vu="'+eu+'" title="Atz\u012bm\u0113t k\u0101 redz\u0113tu">'+(vw?"\u2713":"\u25cb")+'</button></td>'
-    +'<td>'+(r.thumb?('<a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener"><img class="thumb" src="'+esc(r.thumb)+'" loading="lazy" alt=""></a>'):'')+'</td>'
-    +'<td class="desccell"><div class="desc"><a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener" title="'+esc(r.title)+'">'+esc(r.title)+'</a></div>'
+    +'<td class="c-thumb">'+(r.thumb?('<a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener"><img class="thumb" src="'+esc(r.thumb)+'" loading="lazy" alt=""></a>'):'')+'</td>'
+    +'<td class="desccell c-desc"><div class="desc"><a class="adlink" data-u="'+eu+'" href="'+esc(r.url)+'" target="_blank" rel="noopener" title="'+esc(r.title)+'">'+esc(r.title)+'</a></div>'
       +'<div class="bdg">'+badge+(r.archive?(' <a class="cpy" href="'+esc(r.archive)+'" target="_blank" rel="noopener">kopija</a>'):'')+'</div></td>'
-    +'<td>'+esc(r.make||"")+'</td>'
-    +'<td>'+esc(r.model||"")+'</td>'
-    +'<td class="num">'+price+'</td>'
-    +'<td>'+esc(r.year||"")+'</td>'
-    +'<td>'+eng+'</td>'
-    +'<td>'+(r.battery_kwh?(r.battery_kwh+' kWh'):'')+'</td>'
-    +'<td>'+esc(r.mileage|| (r.mileage_km!=null?(r.mileage_km.toLocaleString("lv-LV")+" km"):""))+'</td>'
-    +'<td>'+inspCell(r)+'</td>'
-    +'<td>'+esc(r.posted||"")+'</td>'
-    +'<td>'+esc(r.place||"")+'</td></tr>';
+    +'<td class="c-make" data-label="Marka">'+esc(r.make||"")+'</td>'
+    +'<td class="c-model" data-label="Modelis">'+esc(r.model||"")+'</td>'
+    +'<td class="c-price num" data-label="Cena"><span class="price">'+price+'</span></td>'
+    +'<td class="c-year" data-label="Gads">'+esc(r.year||"")+'</td>'
+    +'<td class="c-engine" data-label="Dzin\u0113js">'+eng+'</td>'
+    +'<td class="c-battery" data-label="Baterija">'+(r.battery_kwh?(r.battery_kwh+' kWh'):'')+'</td>'
+    +'<td class="c-mileage" data-label="Nobraukums">'+esc(r.mileage|| (r.mileage_km!=null?(r.mileage_km.toLocaleString("lv-LV")+" km"):""))+'</td>'
+    +'<td class="c-ta" data-label="Tehnisk\u0101 apskate">'+inspCell(r)+'</td>'
+    +'<td class="c-posted" data-label="Datums" title="'+rp.title+'">'+rp.t+'</td>'
+    +'<td class="c-place" data-label="Vieta">'+esc(r.place||"")+'</td></tr>';
 }
 function render(){
   const all=rowsAll();
@@ -944,6 +1149,8 @@ applyColw();
   el.addEventListener(el.type==="checkbox"?"change":"input", render);
 });
 document.getElementById("clrviewed").onclick=()=>{viewed={}; saveViewed(); render();};
+(function(){const c=document.getElementById("controls"),b=document.getElementById("morebtn");
+  b.onclick=()=>{c.classList.toggle("more");b.textContent=c.classList.contains("more")?"Maz\u0101k filtru":"Vair\u0101k filtru";};})();
 
 // ---- auto-refresh: check for fresh data, reload when the user is idle ----
 let lastActive=Date.now(), updateReady=false;
@@ -973,7 +1180,7 @@ setInterval(checkUpdate, 5*60*1000);                    // check every 5 min
 setInterval(()=>{ if(updateReady && Date.now()-lastActive>30000) doReload(); }, 15000);
 render();
 </script>
-</body></html>""".replace("__TS__", esc(ts)).replace("__DATA__", data_json).replace("__TABS__", tabs_json)
+</body></html>""".replace("__TS__", esc(ts)).replace("__DATA__", data_json).replace("__TABS__", tabs_json).replace("__BANNERS__", banners_html)
 
 
 def send_email(subject: str, html_body: str) -> None:
@@ -1194,6 +1401,18 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
                 ad["_src"] = src
                 current.setdefault(ad["url"], ad)
 
+    # RSS fast-lane: one tiny request that discovers the newest ads and stamps
+    # them with a precise <pubDate> posting time
+    rss_ts: dict[str, str] = {}
+    rss_url = search.get("rss")
+    if rss_url:
+        rss_ads = parse_rss(fetch(rss_url, delay) or "")
+        log(f"[{label}] RSS: {len(rss_ads)} items")
+        for a in rss_ads:
+            if a.get("posted_ts"):
+                rss_ts[a["url"]] = a["posted_ts"]
+            current.setdefault(a["url"], a)
+
     def is_new_or_changed(u: str) -> bool:
         e = seen.get(u)
         if e is None:
@@ -1317,8 +1536,11 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
             "inspection_until": until, "inspection_raw": raw,
             "insp_status": inspection_status(until, raw),
             "months_left": months_left, "days_left": days_left,
-            "place": detail.get("place"), "posted": detail.get("posted"),
-            "posted_iso": posted_to_iso(detail.get("posted")),
+            "place": detail.get("place"), "posted": detail.get("posted")
+                or (rss_ts.get(ad["url"], "").replace("T", " ") or None),
+            "posted_iso": posted_to_iso(detail.get("posted"))
+                or (rss_ts.get(ad["url"], "")[:10] or None),
+            "posted_ts": rss_ts.get(ad["url"]) or posted_to_ts(detail.get("posted")),
             "mileage_k": parse_mileage_k(ad.get("mileage")),
             "mileage_km": mileage_km, "reg": reg_raw, "condition": condition,
             "fuel_cat": fuel_cat, "ekii": ekii,
@@ -1404,7 +1626,7 @@ def main() -> int:
                    "engine", "mileage",
                    "mileage_k", "inspection_until", "inspection_raw",
                    "insp_status", "months_left", "days_left", "place",
-                   "first_seen", "posted", "posted_iso", "archive",
+                   "first_seen", "posted", "posted_iso", "posted_ts", "archive",
                    "fuel_cat", "ekii", "ekii_eligible", "ekii_reason",
                    "mileage_km", "reg", "condition", "battery_kwh", "heat_pump",
                    "labels",
@@ -1446,7 +1668,8 @@ def main() -> int:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text(render_page_html(page_rows, ts,
-                                            [s.get("label", "") for s in searches]),
+                                            [s.get("label", "") for s in searches],
+                                            cfg.get("banners")),
                            encoding="utf-8")
     log(f"Wrote {REPORT_PATH} ({len(page_rows)} rows)")
     (REPORT_PATH.parent / "version.txt").write_text(ts, encoding="utf-8")
