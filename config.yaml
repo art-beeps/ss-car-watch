@@ -1,21 +1,22 @@
 searches:
   - label: "EV"
-    max_price_eur: 40000
-    max_pages: 20            # used only on a manual deep run
-    quick_pages: 2           # hourly = first 2 pages
+    max_price_eur: null       # no price cap — filter on the page
+    max_pages: 25             # deep seed once = whole electric-cars catalogue
+    quick_pages: 1            # hourly = first page only
     min_inspection_months: 0
     require_inspection: false
     sources:
       - https://www.ss.lv/lv/transport/cars/electric-cars/
 
   - label: "Plug-in"
-    max_price_eur: 45000
+    max_price_eur: null       # no price cap
     require_phev: true
     prescreen_min_year: 2025
     prescreen_max_mileage_k: 6
     min_inspection_months: 0
     require_inspection: false
-    quick_pages: 2
+    max_pages: 50             # deep seed depth per make
+    quick_pages: 1
     sources:
       - https://www.ss.lv/lv/transport/cars/          # all makes (auto-expanded)
 
@@ -24,15 +25,16 @@ searches:
     keywords_exclude: [pērkam, pērku, rezerves]
     min_inspection_months: 0
     require_inspection: false
-    quick_pages: 2
+    max_pages: 50
+    quick_pages: 1
     sources:
       - https://www.ss.lv/lv/transport/cars/          # all makes (auto-expanded)
 
 scan:
-  max_pages_per_source: 50     # one-time deep seed depth
-  quick_pages: 1               # hourly = first page only
+  max_pages_per_source: 50
+  quick_pages: 1
   detail_fetch_limit: 400
   request_delay_seconds: 1.5
-  
+
 report:
   top_n: 60
