@@ -462,6 +462,33 @@ def is_phev_text(*texts: str | None) -> bool:
     return any(k in blob for k in PHEV_KEYWORDS)
 
 
+def battery_kwh(*texts: str | None) -> float | None:
+    """Pull battery capacity (kWh) out of ad text — ss.lv has no field for it.
+    Matches '40 kWh', '77,4 kWh', '64kwh', '40 kw/h', Cyrillic 'кВтч'. Ignores
+    plain kW (motor power) by requiring the 'h'. Sanity-bounded to 5-250 kWh."""
+    blob = " ".join(t or "" for t in texts).lower().replace("\xa0", " ")
+    best = None
+    for m in re.finditer(
+            r"(\d{1,3}(?:[.,]\d)?)\s*"
+            r"(?:kwh|kw\s*[·./-]?\s*h|kvth|k\s*w\s*t\s*h|квтч|квт\s*[·./-]?\s*ч)",
+            blob):
+        val = float(m.group(1).replace(",", "."))
+        if 5 <= val <= 250:
+            best = val if best is None else best
+    return best
+
+
+HEATPUMP_KEYWORDS = ("siltums\u016bkn", "siltumsukn", "heat pump", "heatpump",
+                     "\u0442\u0435\u043f\u043b\u043e\u0432\u043e\u0439 \u043d\u0430\u0441\u043e\u0441",
+                     "\u0442\u0435\u043f\u043b\u043e\u043d\u0430\u0441\u043e\u0441",
+                     "\u0442\u0435\u043f\u043b. \u043d\u0430\u0441\u043e\u0441")
+
+
+def has_heat_pump(*texts: str | None) -> bool:
+    blob = " ".join(t or "" for t in texts).lower()
+    return any(k in blob for k in HEATPUMP_KEYWORDS)
+
+
 def field_get(fields: dict, needle: str) -> str | None:
     for k, v in fields.items():
         if needle in k:
@@ -494,22 +521,20 @@ def slug_from_url(url: str) -> str:
     return re.sub(r"[^A-Za-z0-9_-]", "", base) or "ad"
 
 
-def car_fingerprint(url: str, ad: dict) -> str | None:
-    """A best-effort identity for a physical car, so re-posted ads (which get a
-    new URL each time) can be recognised. Needs make/model + year + engine +
-    mileage; returns None when too little is known to group safely."""
+def car_key(ad: dict) -> str | None:
+    """Best-effort identity for a physical car, so a re-posted ad (new URL,
+    possibly new price) can be recognised as the same vehicle. Built from the
+    enriched record (make/model from the detail 'Marka' field, year, engine or
+    fuel, and mileage in thousands). Returns None when too little is known.
+    Works for EVs too, where engine is blank but fuel = elektro."""
     year = ad.get("year")
-    engine = (ad.get("engine") or "").strip().lower()
-    mileage = (ad.get("mileage") or "").strip().lower()
-    if not (year and engine and mileage):
+    make = (ad.get("make") or "").strip().lower()
+    model = (ad.get("model") or "").strip().lower()
+    motor = (ad.get("engine") or ad.get("fuel_cat") or "").strip().lower()
+    km = ad.get("mileage_km")
+    if not (year and make and model and motor and km is not None):
         return None
-    # make/model from the URL path: .../cars/<make>/<model>/<id>.html
-    parts = [p for p in url.split("?")[0].split("/") if p]
-    make_model = ""
-    if "cars" in parts:
-        i = parts.index("cars")
-        make_model = "/".join(parts[i + 1:i + 3])
-    return f"{make_model}|{year}|{engine}|{mileage}"
+    return f"{make}|{model}|{year}|{motor}|{int(round(km / 1000))}"
 
 
 # --------------------------------------------------------------------------
@@ -651,6 +676,9 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
   .badge{background:#16a34a;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px}
   .b2{border-radius:4px;padding:1px 6px;font-size:11px;margin-left:4px;white-space:nowrap}
   .rep{background:#6b7280;color:#fff}
+  .pdn{background:#15803d;color:#fff}
+  .pup{background:#b91c1c;color:#fff}
+  .hp{background:#0369a1;color:#fff}
   .ta2{background:#7c3aed;color:#fff}
   .ek{background:#0d9488;color:#fff}
   .ekok{background:#15803d;color:#fff}
@@ -686,7 +714,10 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <label><input id="onlynew" type="checkbox"> Tikai jaunie</label>
     <label><input id="hiderep" type="checkbox"> Pasl\u0113pt atk\u0101rtotos</label>
     <label><input id="hideviewed" type="checkbox"> Pasl\u0113pt redz\u0113tos</label>
+    <label>Min. kWh <input id="minkwh" type="number" style="width:64px"></label>
+    <label><input id="onlyhp" type="checkbox"> Ar siltums\u016bkni</label>
     <label><input id="onlyekii" type="checkbox"> Tikai EKII</label>
+    <label><input id="onlypc" type="checkbox"> Tikai ar cenas izmai\u0146\u0101m</label>
     <button id="clrviewed" type="button" style="border:1px solid #ccc;border-radius:7px;padding:6px 10px;background:#fff;cursor:pointer;font-size:13px">Not\u012br\u012bt redz\u0113tos</button>
     <span id="stat" class="stat"></span>
   </div>
@@ -697,6 +728,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <col data-c="title" data-def="300"><col data-c="make" data-def="110">
     <col data-c="model" data-def="110"><col data-c="price" data-def="92">
     <col data-c="year" data-def="60"><col data-c="engine" data-def="84">
+    <col data-c="battery" data-def="86">
     <col data-c="mileage" data-def="104"><col data-c="ta" data-def="124">
     <col data-c="posted" data-def="98"><col data-c="place" data-def="104">
   </colgroup>
@@ -709,6 +741,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
     <th data-k="price">Cena <span class="arr"></span></th>
     <th data-k="year">Gads <span class="arr"></span></th>
     <th data-k="engine">Dzin\u0113js <span class="arr"></span></th>
+    <th data-k="battery_kwh">Baterija <span class="arr"></span></th>
     <th data-k="mileage_k">Nobraukums <span class="arr"></span></th>
     <th data-k="days_left">Tehnisk\u0101 apskate <span class="arr"></span></th>
     <th data-k="posted_iso">Datums <span class="arr"></span></th>
@@ -718,6 +751,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str]) -> str:
 </div>
 <script>
 const DATA = __DATA__;
+const BUILD_TS = "__TS__";
 const TABS = __TABS__;
 const FAVKEY = "sscw_favs";
 let favs = (()=>{try{return JSON.parse(localStorage.getItem(FAVKEY))||{};}catch(e){return {};}})();
@@ -784,6 +818,10 @@ function passFilter(r){
   const sv=activeTab;
   if(sv&&!((r.labels||[]).includes(sv)))return false;
   if(document.getElementById("onlyekii").checked&&!(r.ekii||r.ekii_eligible))return false;
+  if(document.getElementById("onlypc").checked&&!r.price_delta)return false;
+  const mk=parseFloat(document.getElementById("minkwh").value);
+  if(!isNaN(mk)&&!(r.battery_kwh&&r.battery_kwh>=mk))return false;
+  if(document.getElementById("onlyhp").checked&&!r.heat_pump)return false;
   const cf=document.getElementById("condf").value;
   if(cf&&(r.condition||"")!==cf)return false;
   return true;
@@ -797,8 +835,14 @@ function rowHtml(r,fav){
     if(r.condition==="new")badge+=' <span class="b2 cnew" title="'+esc(r.reg||"")+'">JAUNS AUTO</span>';
     else if(r.condition==="used")badge+=' <span class="b2 cused">LIETOTS</span>';
   }
+  if(r.heat_pump)badge+=' <span class="b2 hp">Siltums\u016bknis</span>';
   if(r.ta_renewed)badge+=' <span class="b2 ta2">TA ATJAUNOTS</span>';
   if(r.is_repeat)badge+=' <span class="b2 rep">ATK\u0100RTOTS'+(r.seen_count>1?(" \u00d7"+r.seen_count):"")+'</span>';
+  if(r.price_delta){const ab=Math.abs(r.price_delta).toLocaleString("lv-LV"),
+    was=(r.prev_price!=null?("Agr\u0101k: "+r.prev_price.toLocaleString("lv-LV")+" \u20ac"):"");
+    badge+=(r.price_delta<0
+      ?' <span class="b2 pdn" title="'+was+'">\u2193 '+ab+' \u20ac</span>'
+      :' <span class="b2 pup" title="'+was+'">\u2191 '+ab+' \u20ac</span>');}
   const star=fav?"\u2605":"\u2606";
   const eng=esc(r.engine|| (r.fuel_cat?r.fuel_cat:""));
   const eu=encodeURIComponent(r.url);
@@ -814,6 +858,7 @@ function rowHtml(r,fav){
     +'<td class="num">'+price+'</td>'
     +'<td>'+esc(r.year||"")+'</td>'
     +'<td>'+eng+'</td>'
+    +'<td>'+(r.battery_kwh?(r.battery_kwh+' kWh'):'')+'</td>'
     +'<td>'+esc(r.mileage|| (r.mileage_km!=null?(r.mileage_km.toLocaleString("lv-LV")+" km"):""))+'</td>'
     +'<td>'+inspCell(r)+'</td>'
     +'<td>'+esc(r.posted||"")+'</td>'
@@ -828,7 +873,7 @@ function render(){
   let html="";
   favRows.forEach(r=>html+=rowHtml(r,true));
   rest.forEach(r=>html+=rowHtml(r,false));
-  document.getElementById("body").innerHTML=html||'<tr><td colspan="12" style="padding:20px;color:#888">Nav rezult\u0101tu</td></tr>';
+  document.getElementById("body").innerHTML=html||'<tr><td colspan="13" style="padding:20px;color:#888">Nav rezult\u0101tu</td></tr>';
   document.getElementById("stat").textContent=favRows.length+" piesprausti \u00b7 "+rest.length+" r\u0101d\u012bti";
   document.querySelectorAll(".star").forEach(b=>b.onclick=()=>{
     const u=decodeURIComponent(b.dataset.u);
@@ -854,10 +899,11 @@ document.querySelectorAll("th[data-k]").forEach(th=>{
   if(th.dataset.k==="fav")return;
   th.onclick=()=>{const k=th.dataset.k; if(sortK===k)sortDir*=-1; else{sortK=k; sortDir=1;} render();};
 });
-let activeTab="";
+let activeTab=(()=>{try{return localStorage.getItem("sscw_tab")||"";}catch(e){return "";}})();
 (function(){
   const order=[]; (typeof TABS!=="undefined"?TABS:[]).forEach(l=>{if(l&&!order.includes(l))order.push(l);});
   DATA.forEach(r=>(r.labels||[]).forEach(l=>{if(!order.includes(l))order.push(l);}));
+  if(activeTab && activeTab!=="" && !order.includes(activeTab))activeTab="";
   const tabs=document.getElementById("tabs");
   const count=v=> v===""?DATA.length:DATA.filter(r=>(r.labels||[]).includes(v)).length;
   const fuelFor=l=>{const t=(l||"").toLowerCase();return t.includes("elektro")?"elektro":(t.includes("plug")?"plug-in":"");};
@@ -865,11 +911,13 @@ let activeTab="";
     b.className="tab"+(val===activeTab?" active":"");b.dataset.v=val;
     b.textContent=txt+" ("+count(val)+")";
     b.onclick=()=>{activeTab=val;
+      try{localStorage.setItem("sscw_tab",val);}catch(e){}
       document.getElementById("fuelf").value=fuelFor(val);
       document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.v===val));
       render();};
     tabs.appendChild(b);};
   mk("","Visi"); order.forEach(l=>mk(l,l));
+  if(activeTab)document.getElementById("fuelf").value=fuelFor(activeTab);
 })();
 // ---- Excel-like resizable columns (widths remembered in the browser) ----
 const COLW_KEY="sscw_colw";
@@ -891,11 +939,38 @@ applyColw();
     document.addEventListener("mousemove",mm); document.addEventListener("mouseup",mu);
   });
 });
-["q","minp","maxp","ymin","ymax","mmax","minm","onlyvalid","onlynew","hiderep","hideviewed","fuelf","onlyekii","condf"].forEach(id=>{
+["q","minp","maxp","ymin","ymax","mmax","minm","minkwh","onlyvalid","onlynew","hiderep","hideviewed","fuelf","onlyhp","onlyekii","onlypc","condf"].forEach(id=>{
   const el=document.getElementById(id);
   el.addEventListener(el.type==="checkbox"?"change":"input", render);
 });
 document.getElementById("clrviewed").onclick=()=>{viewed={}; saveViewed(); render();};
+
+// ---- auto-refresh: check for fresh data, reload when the user is idle ----
+let lastActive=Date.now(), updateReady=false;
+["mousemove","keydown","scroll","click","touchstart"].forEach(e=>
+  addEventListener(e,()=>{lastActive=Date.now();},{passive:true}));
+function doReload(){location.href=location.pathname+"?t="+Date.now();}
+function showBanner(){
+  if(document.getElementById("upbanner"))return;
+  const b=document.createElement("button");
+  b.id="upbanner"; b.textContent="\u21bb Pieejami jauni dati \u2014 atjaunot";
+  b.onclick=doReload;
+  Object.assign(b.style,{position:"fixed",bottom:"18px",left:"50%",
+    transform:"translateX(-50%)",zIndex:"9999",background:"#111",color:"#fff",
+    border:"none",borderRadius:"999px",padding:"10px 20px",fontSize:"14px",
+    cursor:"pointer",boxShadow:"0 2px 10px rgba(0,0,0,.3)"});
+  document.body.appendChild(b);
+}
+async function checkUpdate(){
+  try{
+    const r=await fetch("version.txt?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;
+    const v=(await r.text()).trim();
+    if(v && v!==BUILD_TS){updateReady=true; showBanner();}
+  }catch(e){}
+}
+setInterval(checkUpdate, 5*60*1000);                    // check every 5 min
+setInterval(()=>{ if(updateReady && Date.now()-lastActive>30000) doReload(); }, 15000);
 render();
 </script>
 </body></html>""".replace("__TS__", esc(ts)).replace("__DATA__", data_json).replace("__TABS__", tabs_json)
@@ -939,10 +1014,29 @@ def send_email(subject: str, html_body: str) -> None:
 # --------------------------------------------------------------------------
 # State maintenance
 # --------------------------------------------------------------------------
+def listing_sig(ad: dict) -> str:
+    """Signature of a listing row. If it changes for the same URL, ss.lv has
+    recycled that URL to a different (or edited) ad and we must re-read it."""
+    return "|".join(str(ad.get(k) or "")
+                    for k in ("title", "year", "mileage", "price"))
+
+
+def seen_ts(entry) -> str | None:
+    return entry.get("ts") if isinstance(entry, dict) else entry
+
+
+def seen_sig(entry):
+    return entry.get("sig") if isinstance(entry, dict) else None
+
+
 def prune_seen(seen: dict) -> dict:
     cutoff = today() - relativedelta(days=SEEN_KEEP_DAYS)
-    return {u: t for u, t in seen.items()
-            if date.fromisoformat(t[:10]) >= cutoff}
+    out = {}
+    for u, e in seen.items():
+        ts = seen_ts(e)
+        if ts and date.fromisoformat(ts[:10]) >= cutoff:
+            out[u] = e
+    return out
 
 
 def prune_matches(matches: list[dict]) -> list[dict]:
@@ -1025,6 +1119,10 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
     Mutates `seen` and `fps`."""
     delay = float(scan.get("request_delay_seconds", 1.5))
     max_pages = int(search.get("max_pages", scan.get("max_pages_per_source", 3)))
+    # Hourly "quick" runs scan only the first page(s) to catch fresh listings
+    # fast; the once-a-day "deep" run scans everything. Set via SCAN_MODE env.
+    if os.environ.get("SCAN_MODE", "").lower() == "quick":
+        max_pages = int(search.get("quick_pages", scan.get("quick_pages", 1)))
     detail_limit = int(search.get("detail_fetch_limit",
                                  scan.get("detail_fetch_limit", 60)))
     label = search.get("label", "Meklējums")
@@ -1045,7 +1143,20 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
                 ad["_src"] = src
                 current.setdefault(ad["url"], ad)
 
-    new_urls = [u for u in current if u not in seen]
+    def is_new_or_changed(u: str) -> bool:
+        e = seen.get(u)
+        if e is None:
+            return True
+        old = seen_sig(e)
+        if old is None:                 # legacy entry (no signature) -> adopt silently
+            return False
+        return old != listing_sig(current[u])
+
+    new_urls = [u for u in current if is_new_or_changed(u)]
+    # URLs already seen but with a changed signature = ss.lv recycled/edited them;
+    # their previously-stored data is now stale and must be dropped.
+    changed_urls = [u for u in new_urls
+                    if seen.get(u) is not None and seen_sig(seen[u]) is not None]
     require_phev = search.get("require_phev")
     ps_min_year = search.get("prescreen_min_year")
     ps_max_mk = search.get("prescreen_max_mileage_k")
@@ -1099,6 +1210,8 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
         if not fuel_cat and "/electric-cars/" in ad["url"]:
             fuel_cat = "elektro"
         ekii = has_ekii(ad.get("title"), desc)
+        batt = battery_kwh(ad.get("title"), desc)
+        heatpump = has_heat_pump(ad.get("title"), desc)
 
         # exact mileage + registration month (for the new-PHEV EKII test)
         mileage_km = (parse_mileage_km(field_get(fields, "nobraukums"))
@@ -1118,8 +1231,12 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
         if not passes_fuel_keywords(fuel_cat, ad.get("title"), desc, search):
             continue
 
-        fp = car_fingerprint(ad["url"], ad)
+        fp = car_key({"make": make, "model": model, "year": ad.get("year"),
+                      "engine": ad.get("engine"), "fuel_cat": fuel_cat,
+                      "mileage_km": mileage_km})
+        price = ad.get("price")
         is_repeat, seen_count, first_seen_any, ta_renewed = False, 1, now_iso, False
+        prev_price, price_delta = None, None
         if fp:
             prior = fps.get(fp)
             if prior:
@@ -1129,14 +1246,20 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
                 first_seen_any = prior.get("first_seen", now_iso)
                 if is_repeat and now_valid and not prior.get("had_valid_ta"):
                     ta_renewed = True
+                lp = prior.get("last_price")
+                if lp and price and price != lp:          # same car, new price
+                    prev_price, price_delta = lp, price - lp
             entry = fps.setdefault(fp, {"first_seen": now_iso, "urls": [],
-                                        "had_valid_ta": False, "last_ta": None})
+                                        "had_valid_ta": False, "last_ta": None,
+                                        "last_price": None})
             if ad["url"] not in entry["urls"]:
                 entry["urls"].append(ad["url"])
             entry["last_seen"] = now_iso
             if now_valid:
                 entry["had_valid_ta"] = True
                 entry["last_ta"] = until
+            if price:
+                entry["last_price"] = price
 
         ad.update({
             "make": make, "model": model,
@@ -1149,9 +1272,12 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
             "mileage_km": mileage_km, "reg": reg_raw, "condition": condition,
             "fuel_cat": fuel_cat, "ekii": ekii,
             "ekii_eligible": ekii_eligible, "ekii_reason": ekii_reason,
+            "battery_kwh": batt, "heat_pump": heatpump,
             "labels": [label],
             "is_repeat": is_repeat, "seen_count": seen_count,
             "first_seen_any": first_seen_any, "ta_renewed": ta_renewed,
+            "prev_price": prev_price, "price_delta": price_delta,
+            "car_fp": fp,
             "first_seen": now_iso, "is_new": True,
         })
         try:
@@ -1165,19 +1291,22 @@ def run_search(search: dict, scan: dict, seen: dict, fps: dict,
             ad["archive"] = None
         matches.append(ad)
 
-    # remember every currently-listed car (fingerprint) and mark all as seen
+    # keep every matched car's fingerprint fresh and mark all as seen
+    matched_by_url = {m["url"]: m for m in matches}
     for u, ad in current.items():
-        fp = car_fingerprint(u, ad)
+        m = matched_by_url.get(u)
+        fp = car_key(m) if m else None
         if fp:
             entry = fps.setdefault(fp, {"first_seen": now_iso, "urls": [],
-                                        "had_valid_ta": False, "last_ta": None})
+                                        "had_valid_ta": False, "last_ta": None,
+                                        "last_price": None})
             if u not in entry["urls"]:
                 entry["urls"].append(u)
             entry["last_seen"] = now_iso
-        seen[u] = now_iso
+        seen[u] = {"ts": now_iso, "sig": listing_sig(ad)}
 
     log(f"[{label}] matches: {len(matches)}")
-    return matches
+    return matches, changed_urls
 
 
 # --------------------------------------------------------------------------
@@ -1199,8 +1328,11 @@ def main() -> int:
 
     # run every configured search (each with its own price band / fuel / rules)
     all_matches: list[dict] = []
+    changed_all: set[str] = set()
     for s in searches:
-        all_matches.extend(run_search(s, scan, seen, fps, now_iso))
+        ms, changed = run_search(s, scan, seen, fps, now_iso)
+        all_matches.extend(ms)
+        changed_all.update(changed)
 
     # dedup across searches by URL, merging the labels that matched
     by_url: dict[str, dict] = {}
@@ -1222,12 +1354,31 @@ def main() -> int:
                    "insp_status", "months_left", "days_left", "place",
                    "first_seen", "posted", "posted_iso", "archive",
                    "fuel_cat", "ekii", "ekii_eligible", "ekii_reason",
-                   "mileage_km", "reg", "condition", "labels",
-                   "is_repeat", "seen_count", "first_seen_any", "ta_renewed")
+                   "mileage_km", "reg", "condition", "battery_kwh", "heat_pump",
+                   "labels",
+                   "is_repeat", "seen_count", "first_seen_any", "ta_renewed",
+                   "prev_price", "price_delta", "car_fp")
+    # remove stale rows for any URL ss.lv recycled/edited (even if the new ad
+    # no longer qualifies, e.g. expired TA), then add/replace fresh matches
+    if changed_all:
+        stored_matches = [sm for sm in stored_matches if sm["url"] not in changed_all]
     for m in new_matches:
-        if m["url"] not in known_match_urls:
-            stored_matches.append({k: m.get(k) for k in keep_fields})
+        stored_matches = [sm for sm in stored_matches if sm["url"] != m["url"]]
+        stored_matches.append({k: m.get(k) for k in keep_fields})
     stored_matches = prune_matches(stored_matches)
+    # collapse re-listings of the same physical car: keep only the most recent
+    # listing (newest first_seen) so the dashboard shows one row per car, with
+    # the price-change badge on the current listing
+    seen_fp: set[str] = set()
+    deduped: list[dict] = []
+    for m in sorted(stored_matches, key=lambda x: x.get("first_seen", ""), reverse=True):
+        k = m.get("car_fp")
+        if k:
+            if k in seen_fp:
+                continue
+            seen_fp.add(k)
+        deduped.append(m)
+    stored_matches = deduped
     stored_matches.sort(key=lambda a: a.get("price") or 1_000_000)
 
     cutoff_new = datetime.now(timezone.utc) - timedelta(hours=24)
@@ -1246,6 +1397,7 @@ def main() -> int:
                                             [s.get("label", "") for s in searches]),
                            encoding="utf-8")
     log(f"Wrote {REPORT_PATH} ({len(page_rows)} rows)")
+    (REPORT_PATH.parent / "version.txt").write_text(ts, encoding="utf-8")
 
     if new_matches and not first_run:
         subject = f"SS.LV auto: {len(new_matches)} jauns(-i) sludinājums(-i)"
