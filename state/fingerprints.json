@@ -1,1 +1,62 @@
-{}
+{
+  "tesla|model 3|2019|elektro|107": {
+    "first_seen": "2026-09-09T01:17:37.251051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdplbx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18000,
+    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+  },
+  "vw|id 4 gtx|2023|elektro|91": {
+    "first_seen": "2026-09-09T01:17:37.251051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpdme.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 32950,
+    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+  },
+  "voyah|dream|2025|elektro|14": {
+    "first_seen": "2026-09-09T01:17:37.251051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddpcx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 62000,
+    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+  },
+  "rivian|r1t|2023|elektro|57": {
+    "first_seen": "2026-09-09T01:17:37.251051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbngek.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 69990,
+    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+  },
+  "cita|marka|2025|1.5h|15": {
+    "first_seen": "2026-09-09T01:17:37.251051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/hejef.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-02-29",
+    "last_price": 35500,
+    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+  },
+  "cita|marka|2026|2.0h|0": {
+    "first_seen": "2026-09-09T01:17:37.251051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/hnnop.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 41580,
+    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+  }
+}
