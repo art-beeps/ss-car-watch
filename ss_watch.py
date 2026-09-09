@@ -33,6 +33,14 @@ from pathlib import Path
 import requests
 import yaml
 from bs4 import BeautifulSoup
+
+# Prefer lxml (fast) but fall back to Python's built-in parser so a missing
+# dependency can never crash the run.
+try:
+    import lxml  # noqa: F401
+    BS_PARSER = "lxml"
+except Exception:
+    BS_PARSER = "html.parser"
 from dateutil.relativedelta import relativedelta
 
 # --------------------------------------------------------------------------
@@ -226,7 +234,7 @@ def parse_listing(html_text: str) -> list[dict]:
     relying on a specific row-id scheme, so this keeps working even if ss.lv
     tweaks its table markup. Each ad has two such links (thumbnail + title);
     we keep the one that carries the title text and dedupe by URL."""
-    soup = BeautifulSoup(html_text, "lxml")
+    soup = BeautifulSoup(html_text, BS_PARSER)
     ads: list[dict] = []
     seen: set[str] = set()
     for link in soup.select('a[href*="/msg/"]'):
@@ -313,7 +321,7 @@ def parse_inspection_date(value: str) -> date | None:
 
 def parse_detail(html_text: str) -> dict:
     """Read the label/value option table on an ad page."""
-    soup = BeautifulSoup(html_text, "lxml")
+    soup = BeautifulSoup(html_text, BS_PARSER)
     fields: dict[str, str] = {}
 
     # ss.lv option rows: a label cell (td.ads_opt_name) + value cell
@@ -757,10 +765,10 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str],
   .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
   .tagline{color:var(--muted);font-size:13px}
   .updated{margin-left:auto;color:var(--muted);font-size:12px}
-  .wrap{max-width:1400px;margin:0 auto;padding:18px 18px 80px}
+  .wrap{max-width:1400px;margin:0 auto;padding:16px 14px 80px}
   .layout{display:flex;gap:22px;align-items:flex-start}
   .main{flex:1;min-width:0}
-  .rail{width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;position:sticky;top:78px}
+  .rail{width:248px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;position:sticky;top:78px}
   .banner{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
   .banner h3{font-family:'Space Grotesk',sans-serif;font-size:15px;margin:0 0 6px;color:var(--ink);font-weight:600}
   .banner p{margin:0 0 12px;font-size:13px;color:var(--muted);line-height:1.5}
@@ -799,13 +807,13 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str],
   .stat{color:var(--muted);font-size:12px;width:100%;margin-top:2px}
   .tablewrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
   table{border-collapse:collapse;background:var(--surface);width:100%;font-size:14px;table-layout:fixed}
-  thead th{text-align:left;background:var(--brand-ink);color:#fff;padding:11px 12px;font-weight:600;font-size:12px;
+  thead th{text-align:left;background:var(--brand-ink);color:#fff;padding:10px 8px;font-weight:600;font-size:12px;
     white-space:nowrap;user-select:none;position:relative;overflow:hidden}
   .rsz{position:absolute;top:0;right:0;width:7px;height:100%;cursor:col-resize}
   .rsz:hover{background:rgba(255,255,255,.25)}
   th[data-k]:not([data-k=fav]){cursor:pointer}
   th .arr{opacity:.55;font-size:10px}
-  td{padding:11px 12px;border-top:1px solid var(--line-2);vertical-align:middle;overflow:hidden;
+  td{padding:9px 8px;border-top:1px solid var(--line-2);vertical-align:middle;overflow:hidden;
     text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
   td.desccell{white-space:normal}
   .desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:600;line-height:1.35}
@@ -830,7 +838,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str],
   .cused{background:#EEF1EF;color:#68746D}
   .star{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:#D9B44A;padding:0}
   .cpy{font-size:11px;color:var(--muted);margin-left:6px;white-space:nowrap;font-weight:500}
-  .thumb{height:58px;width:88px;object-fit:cover;border-radius:10px;display:block;background:#EEF2F0}
+  .thumb{height:44px;width:66px;object-fit:cover;border-radius:8px;display:block;background:#EEF2F0}
   tr.viewed td{opacity:.5}
   tr.viewed.favrow td{opacity:1}
   .vbtn{background:none;border:none;cursor:pointer;font-size:13px;color:#C4CCC7;padding:0 0 0 3px}
@@ -902,13 +910,13 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str],
   <div class="tablewrap">
   <table id="tbl">
   <colgroup>
-    <col data-c="fav" data-def="58"><col data-c="thumb" data-def="96">
-    <col data-c="title" data-def="300"><col data-c="make" data-def="110">
-    <col data-c="model" data-def="110"><col data-c="price" data-def="92">
-    <col data-c="year" data-def="60"><col data-c="engine" data-def="84">
-    <col data-c="battery" data-def="86">
-    <col data-c="mileage" data-def="104"><col data-c="ta" data-def="124">
-    <col data-c="posted" data-def="98"><col data-c="place" data-def="104">
+    <col data-c="fav" data-def="44"><col data-c="thumb" data-def="78">
+    <col data-c="title" data-def="204"><col data-c="make" data-def="78">
+    <col data-c="model" data-def="80"><col data-c="price" data-def="82">
+    <col data-c="year" data-def="48"><col data-c="engine" data-def="62">
+    <col data-c="battery" data-def="72">
+    <col data-c="mileage" data-def="84"><col data-c="ta" data-def="90">
+    <col data-c="posted" data-def="78"><col data-c="place" data-def="82">
   </colgroup>
   <thead><tr>
     <th data-k="fav">\u2605</th>
@@ -1125,7 +1133,7 @@ let activeTab=(()=>{try{return localStorage.getItem("sscw_tab")||"";}catch(e){re
   if(activeTab)document.getElementById("fuelf").value=fuelFor(activeTab);
 })();
 // ---- Excel-like resizable columns (widths remembered in the browser) ----
-const COLW_KEY="sscw_colw";
+const COLW_KEY="sscw_colw2";
 let colw=(()=>{try{return JSON.parse(localStorage.getItem(COLW_KEY))||{};}catch(e){return {};}})();
 function saveColw(){localStorage.setItem(COLW_KEY,JSON.stringify(colw));}
 const COLS=[...document.querySelectorAll("#tbl colgroup col")];
@@ -1308,7 +1316,7 @@ def discover_makes(delay: float) -> list[str]:
     if not html_text:
         log("Make discovery failed; using fallback list.")
         return [CARS_ROOT + m + "/" for m in FALLBACK_MAKES]
-    soup = BeautifulSoup(html_text, "html.parser")
+    soup = BeautifulSoup(html_text, BS_PARSER)
     slugs: list[str] = []
     for a in soup.select("a[href]"):
         m = re.match(r"^/lv/transport/cars/([a-z0-9\-]+)/$", a.get("href", ""))
