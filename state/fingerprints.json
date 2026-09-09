@@ -127,7 +127,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 10900,
-    "last_seen": "2026-09-09T16:45:46.061052+00:00"
+    "last_seen": "2026-09-09T19:51:25.233133+00:00"
   },
   "renault|kangoo e-tech|2025|elektro|0": {
     "first_seen": "2026-09-09T16:45:46.061052+00:00",
@@ -168,5 +168,25 @@
     "last_ta": null,
     "last_price": 49490,
     "last_seen": "2026-09-09T16:45:46.061052+00:00"
+  },
+  "tesla|model 3, y|2025|elektro|1": {
+    "first_seen": "2026-09-09T19:51:25.233133+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfdfb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 300,
+    "last_seen": "2026-09-09T19:51:25.233133+00:00"
+  },
+  "opel|astra|2024|plug-in|0": {
+    "first_seen": "2026-09-09T19:51:25.233133+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/opel/astra/bmheb.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-08-31",
+    "last_price": 25000,
+    "last_seen": "2026-09-09T19:51:25.233133+00:00"
   }
 }
