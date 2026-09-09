@@ -118,5 +118,55 @@
     "last_ta": null,
     "last_price": 90300,
     "last_seen": "2026-09-09T11:34:10.052173+00:00"
+  },
+  "nissan|env200|2018|elektro|170": {
+    "first_seen": "2026-09-09T16:45:46.061052+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxxoe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10900,
+    "last_seen": "2026-09-09T16:45:46.061052+00:00"
+  },
+  "renault|kangoo e-tech|2025|elektro|0": {
+    "first_seen": "2026-09-09T16:45:46.061052+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpiep.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 26900,
+    "last_seen": "2026-09-09T16:45:46.061052+00:00"
+  },
+  "bmv|ix|2021|elektro|87": {
+    "first_seen": "2026-09-09T16:45:46.061052+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddedg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 39500,
+    "last_seen": "2026-09-09T16:45:46.061052+00:00"
+  },
+  "toyota|c-hr+|2026|elektro|4": {
+    "first_seen": "2026-09-09T16:45:46.061052+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccjcdl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 42900,
+    "last_seen": "2026-09-09T16:45:46.061052+00:00"
+  },
+  "byd|sealion 7|2026|elektro|13": {
+    "first_seen": "2026-09-09T16:45:46.061052+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbngjg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 49490,
+    "last_seen": "2026-09-09T16:45:46.061052+00:00"
   }
 }
