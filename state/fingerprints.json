@@ -46,8 +46,8 @@
     ],
     "had_valid_ta": true,
     "last_ta": "2028-02-29",
-    "last_price": 35500,
-    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+    "last_price": 29900,
+    "last_seen": "2026-09-09T11:34:10.052173+00:00"
   },
   "cita|marka|2026|2.0h|0": {
     "first_seen": "2026-09-09T01:17:37.251051+00:00",
@@ -58,5 +58,65 @@
     "last_ta": null,
     "last_price": 41580,
     "last_seen": "2026-09-09T01:17:37.251051+00:00"
+  },
+  "vw|id. 4 pro perf|2021|elektro|120": {
+    "first_seen": "2026-09-09T11:34:10.052173+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccihcj.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 25900,
+    "last_seen": "2026-09-09T11:34:10.052173+00:00"
+  },
+  "byd|atto 3|2022|elektro|68": {
+    "first_seen": "2026-09-09T11:34:10.052173+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cexbik.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 26990,
+    "last_seen": "2026-09-09T11:34:10.052173+00:00"
+  },
+  "lynk|& co 08|2025|plug-in|11": {
+    "first_seen": "2026-09-09T11:34:10.052173+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmogo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 37900,
+    "last_seen": "2026-09-09T11:34:10.052173+00:00"
+  },
+  "mercedes-benz|eqs 450|2024|elektro|30": {
+    "first_seen": "2026-09-09T11:34:10.052173+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cepjxl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 81990,
+    "last_seen": "2026-09-09T11:34:10.052173+00:00"
+  },
+  "bmw|i7 edrive 50|2023|elektro|16": {
+    "first_seen": "2026-09-09T11:34:10.052173+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccxnkg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 87500,
+    "last_seen": "2026-09-09T11:34:10.052173+00:00"
+  },
+  "bmw|ix 45|2026|elektro|0": {
+    "first_seen": "2026-09-09T11:34:10.052173+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cckkph.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 90300,
+    "last_seen": "2026-09-09T11:34:10.052173+00:00"
   }
 }
