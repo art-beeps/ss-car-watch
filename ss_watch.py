@@ -700,6 +700,201 @@ def render_email_html(matches: list[dict]) -> str:
 </body></html>"""
 
 
+CITY_COORDS = {
+    "RĪGA": (56.9496, 24.1052, "Rīga"), "LIEPĀJA": (56.5047, 21.0108, "Liepāja"),
+    "DAUGAVPILS": (55.8747, 26.5364, "Daugavpils"), "JELGAVA": (56.6500, 23.7128, "Jelgava"),
+    "JĒKABPILS": (56.4920, 25.8578, "Jēkabpils"), "VENTSPILS": (57.3894, 21.5606, "Ventspils"),
+    "RĒZEKNE": (56.5100, 27.3300, "Rēzekne"), "VALMIERA": (57.5410, 25.4270, "Valmiera"),
+    "CĒSIS": (57.3120, 25.2740, "Cēsis"), "SIGULDA": (57.1537, 24.8598, "Sigulda"),
+    "SIGULDAS": (57.1537, 24.8598, "Siguldas nov."), "TUKUMS": (56.9670, 23.1520, "Tukums"),
+    "SALDUS": (56.6640, 22.4930, "Saldus"), "TALSI": (57.2450, 22.5860, "Talsi"),
+    "TALSU": (57.2450, 22.5860, "Talsu raj."), "KULDĪGA": (56.9677, 21.9617, "Kuldīga"),
+    "AIZPUTE": (56.7200, 21.6000, "Aizpute"), "DOBELE": (56.6250, 23.2800, "Dobele"),
+    "BAUSKA": (56.4090, 24.1900, "Bauska"), "MADONA": (56.8533, 26.2172, "Madona"),
+    "LĪVĀNI": (56.3550, 26.1730, "Līvāni"), "PREIĻU": (56.2940, 26.7250, "Preiļu nov."),
+    "ALŪKSNE": (57.4250, 27.0420, "Alūksne"), "BALVI": (57.1320, 27.2650, "Balvi"),
+    "GULBENE": (57.1780, 26.7560, "Gulbene"), "LIMBAŽI": (57.5140, 24.7150, "Limbaži"),
+    "RŪJIENA": (57.8970, 25.3290, "Rūjiena"), "SMILTENES": (57.4230, 25.9000, "Smiltenes nov."),
+    "AIZKRAUKLE": (56.6050, 25.2560, "Aizkraukle"), "SALASPILS": (56.8610, 24.3600, "Salaspils nov."),
+    "AKNĪSTE": (56.1620, 25.7480, "Aknīste"), "CIEMUPE": (56.9800, 24.5600, "Ciemupe"),
+    "TRAPENE": (57.3500, 26.8300, "Trapene"), "AUGŠLĪGATNE": (57.1600, 25.0300, "Augšlīgatne"),
+}
+
+# Snapshot of CSDD's authorized end-of-life-vehicle (liquidation certificate) list.
+# (name, website, city, street, phone)
+RECYCLERS = [
+    ("SIA \"2G PROJEKTS\"", "https://www.2gprojekts.lv", "LIEPĀJA", "Ziemupes iela 24", "29428156"),
+    ("SIA \"77\"", "https://www.luzni.lv", "LĪVĀNI", "Celtniecības iela 20A", "23777777"),
+    ("SIA \"77\"", "https://www.luzni.lv", "MADONA", "Saules iela 66", "23777777"),
+    ("SIA \"ANDREA\"", "https://www.andrea.lv", "JELGAVA", "Paula Lejiņa iela 4", "29217038"),
+    ("SIA \"AR & AUTO\"", "https://www.ar-auto.lv", "SIGULDA", "Lauku iela 14", "29189922"),
+    ("IK \"AUTO G.M.\"", "https://www.autogm.lv", "BAUSKA", "Mežotnes iela 2", "22440125"),
+    ("SIA Auto pārstrāde", "https://autoparstrade.lv", "RĪGA", "Granīta iela 13A", "20252424"),
+    ("Auto pārstrāde (SIA Fero M)", "https://cermet.lv", "JELGAVA", "Aviācijas iela 18N", "80000140"),
+    ("Auto pārstrāde (SIA KARE PLUSS)", "https://www.karepluss.lv", "DAUGAVPILS", "Dunduru iela 2", "65407460"),
+    ("Auto pārstrāde (SIA Lommetalla)", "https://lommetalla.lv", "RĪGA", "Pildas iela 1", "28831231"),
+    ("Auto pārstrāde (SIA TM Recycling)", "https://tmrecycling.lv", "CIEMUPE", "\"Rudzulauki\"", "29742171"),
+    ("Auto pārstrāde (SIA TM Recycling)", "https://tmrecycling.lv", "JELGAVA", "Dzelzceļnieku iela 8A", "22123357"),
+    ("Auto pārstrāde (SIA TM Recycling)", "https://tmrecycling.lv", "BAUSKA", "Bērzkalna iela 77", "28342802"),
+    ("Auto pārstrāde (SIA TM Recycling)", "https://tmrecycling.lv", "DOBELE", "Liepājas šoseja 19A", "28342802"),
+    ("Auto pārstrāde (SIA TM Recycling)", "https://tmrecycling.lv", "SALDUS", "\"Zemgaļi\"", "28341632"),
+    ("Auto pārstrāde (SIA TM Recycling)", "https://tmrecycling.lv", "RĪGA", "Lēdurgas iela 1", "26179189"),
+    ("Auto pārstrāde (SIA Tolmets Jēkabpils)", "https://ameteks.lv", "JĒKABPILS", "Dzelzceļmalas iela 5", "22488218"),
+    ("Auto pārstrāde (SIA Tolmets Kurzeme)", "https://www.tolmetskurzeme.lv", "LIEPĀJA", "Kapsēdes iela 2D", "80700009"),
+    ("Auto pārstrāde (SIA Tolmets Kurzeme)", "https://www.tolmetskurzeme.lv", "AIZPUTE", "Kalvenes iela 73A", "27655240"),
+    ("Auto pārstrāde (SIA Tolmets Kurzeme)", "https://www.tolmetskurzeme.lv", "VENTSPILS", "Kurzemes iela 51", "26402980"),
+    ("Auto pārstrāde (SIA Tolmets Kurzeme)", "https://www.tolmetskurzeme.lv", "KULDĪGA", "Mederu iela 8", "26567540"),
+    ("Auto pārstrāde (SIA Tolmets Rēzekne)", "https://autoparstrade.lv", "RĒZEKNE", "Komunālā iela 12", "25442228"),
+    ("Auto pārstrāde (SIA Tolmets Tukums)", "https://autoparstrade.lv", "TALSI", "Krišjāņa Valdemāra iela 75C", "26567240"),
+    ("Auto pārstrāde (SIA Tolmets Tukums)", "https://autoparstrade.lv", "TUKUMS", "Stacijas iela 4D", "28376008"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "ALŪKSNE", "Ganību iela 18", "25737662"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "BALVI", "Tehnikas iela 5C", "25671694"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "CĒSIS", "Rūpniecības iela 17/19", "27839529"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "GULBENE", "Malas iela 8", "25737660"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "LIMBAŽI", "Dzegužu iela 3", "28346333"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "RŪJIENA", "Rīgas iela 65B", "25458964"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "SIGULDAS NOV.", "Silajēkas 2", "28613330"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "SMILTENES NOV.", "\"Dzegužkalni\"", "29118413"),
+    ("Auto pārstrāde (SIA Tolmets Vidzeme)", "https://www.tolmetsvidzeme.lv", "VALMIERA", "Mūrmuižas iela 18C", "28611127"),
+    ("Auto pārstrāde (SIA Vulkāns)", "https://www.vulkans.lv", "AIZKRAUKLE", "Nomales iela 22A", "25771661"),
+    ("Auto pārstrāde (SIA X-Met)", "https://autoparstrade.lv", "DAUGAVPILS", "2.Preču iela 10M", "29342534"),
+    ("SIA \"AUTODOMS\"", "", "DAUGAVPILS", "Dunduru iela 9A", "29287764"),
+    ("SIA \"AUTOGARANT\"", "https://www.autogarant.lv", "GRIBUĻI", "\"Konservu cehs\"", "29225912"),
+    ("SIA \"AUTOLŪŽŅI\"", "https://www.autoluzni.com", "ROBEŽNIEKI", "Liepu iela 10", "22077215"),
+    ("SIA \"AUTOMOBILE\"", "", "VALMIERA", "Ausekļa iela 25-38", "27529898"),
+    ("SIA \"BASIC\"", "", "SALASPILS NOV.", "\"Vecozoli\"", ""),
+    ("SIA \"EKO STEEL\"", "https://www.ekosteel.lv", "AIZKRAUKLE", "Nomales iela 20", "67383535"),
+    ("SIA \"EKO STEEL\"", "https://www.ekosteel.lv", "RĪGA", "Atlasa iela 6", "67383535"),
+    ("SIA \"EMSI-AUTO\"", "", "JELGAVA", "Ruļļu iela 8D", "28626425"),
+    ("SIA \"ERDE VS\"", "https://www.erde.lv", "TALSU RAJ.", "\"Mehāniskās darbnīcas\"", "29162646"),
+    ("SIA \"ESYS PRO\"", "https://www.esys.lv", "SALDUS NOV.", "Cīruļi", "26993362"),
+    ("SIA \"EURO LOM\"", "https://www.eurolom.lv", "RĪGA", "Flotes iela 9C", "28494949"),
+    ("SIA \"EURO LOM\"", "https://www.eurolom.lv", "RĪGA", "Jūrmalas gatve 16B", "28494949"),
+    ("SIA \"EURO LOM\"", "https://www.eurolom.lv", "RĪGA", "Katlakalna iela 11", "28494949"),
+    ("SIA \"EVRO TRANS\"", "https://www.evrotrans.lv", "RĒZEKNE", "Rīgas iela 16D", "29408460"),
+    ("SIA \"GAISMAS MOTORS\"", "https://www.gaismasmotors.com", "STŪNĪŠI", "\"Gaismas motors\"", "29138414"),
+    ("SIA \"GULBĪTIS 2\"", "", "KAUGURMUIŽA", "Gulbīši", ""),
+    ("SIA \"JAPPS\"", "https://www.japps.lv", "RĪGA", "Strengu iela 1", "29515395"),
+    ("SIA \"JJ AUTOSERVISS\"", "", "MUNDIGCIEMS", "Sauleskalni-17", "26667704"),
+    ("SIA \"JUNIKS\"", "", "AKNĪSTE", "Augšzemes iela 76", "22076060"),
+    ("SIA \"KURANT\"", "", "MADONA", "Rūpniecības iela 39E", "26166412"),
+    ("SIA \"L.L.B.\"", "", "AUGŠLĪGATNE", "\"Madaras 1\"", "29243837"),
+    ("SIA \"LATGALES METĀLS\"", "", "DAUGAVPILS", "Andreja Pumpura iela 151", "29577725"),
+    ("SIA \"M.K.QUATTRO\"", "", "LIEPĀJA", "Krūmu iela 1/3", "26711624"),
+    ("SIA \"MARSELS AUTO\"", "https://www.marselsauto.lv", "VĀLODZES CIEMS", "Ziedkalnes iela 1", "29543061"),
+    ("SIA \"R&R AUTOŠROTS\"", "", "SALDUS NOV.", "Tīreļi", "26529831"),
+    ("SIA \"RAIDS\"", "https://www.raids.lv", "RĪGA", "Sāremas iela 1A", "29115171"),
+    ("SIA \"RES-MET\"", "https://www.resmet.lv", "VALMIERA", "Krautuves iela 7", "26573371"),
+    ("SIA \"SIGNĀLS EM\"", "", "MADONA", "Lazdonas iela 21", ""),
+    ("SIA \"SV AUTOHOF\"", "https://www.autohof.lv", "RĪGA", "Latgales iela 465", "29137528"),
+    ("SIA \"TAIGA OUTFITTERS\"", "", "AIZKRAUKLE", "Jaunceltnes iela 13B", "28888689"),
+    ("SIA \"TRANSPORTS TUKUMS LTD\"", "https://www.transportstukums.lv", "TUKUMS", "Tehnikas iela 3", "29243786"),
+    ("SIA FIRMA \"VAL.MET.A.\"", "https://www.valmeta.lv", "VALMIERA", "Gaides iela 10", "29349214"),
+    ("SIA \"VICARS\"", "https://www.vicars.lv", "PREIĻU NOV.", "\"Sprindži\"", "65321111"),
+    ("SIA ZEE TECHNOLOGY", "", "TRAPENE", "Annurijas", "25655568"),
+    ("SIA \"ZVIEDRU AUTO SERVISS\"", "https://www.zviedruauto.lv", "RĪGA", "Lizuma iela 5G", "29684584"),
+    ("SIA MD SERVISS", "", "SIGULDAS NOVADS", "Inčukalna pag., Indrāni 11", "29419898"),
+    ("SIA GINTEX FOREST", "", "LIEPĀJA", "Dīķa iela 11-2", "20688600"),
+]
+
+
+def render_recyclers_page(companies: list, ts: str) -> str:
+    """Separate page: map + list of CSDD-authorized end-of-life-vehicle
+    (liquidation certificate) companies. Leaflet + OpenStreetMap (no API key)."""
+    groups: dict[str, dict] = {}
+    others: list[dict] = []
+    for name, web, city, street, phone in companies:
+        entry = {"n": name, "w": web, "a": f"{city.title()}, {street}", "p": phone}
+        token = (city or "").split()[0].upper() if city else ""
+        coord = CITY_COORDS.get(token)
+        if coord:
+            g = groups.setdefault(token, {"city": coord[2], "lat": coord[0],
+                                          "lng": coord[1], "companies": []})
+            g["companies"].append(entry)
+        else:
+            others.append(entry)
+    places = list(groups.values())
+    places_json = json.dumps(places, ensure_ascii=False)
+
+    def li(c):
+        w = (f' &middot; <a href="{esc(c["w"])}" target="_blank" rel="noopener">{esc(c["w"].replace("https://","").replace("http://",""))}</a>'
+             if c["w"] else "")
+        ph = f' &middot; tel. {esc(c["p"])}' if c["p"] else ""
+        return f'<li><b>{esc(c["n"])}</b><br><span class="muted">{esc(c["a"])}{ph}</span>{w}</li>'
+
+    list_html = ""
+    for g in sorted(places, key=lambda x: x["city"]):
+        list_html += (f'<h3>{esc(g["city"])}</h3><ul>'
+                      + "".join(li(c) for c in g["companies"]) + "</ul>")
+    if others:
+        list_html += ("<h3>Citas atrašanās vietas</h3><ul>"
+                      + "".join(li(c) for c in others) + "</ul>")
+
+    return """<!doctype html><html lang="lv"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Likvidācijas sertifikāts — apstrādes uzņēmumi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+  :root{--bg:#F5F7F6;--surface:#fff;--ink:#17211C;--muted:#5E6B64;--line:#E4E9E6;
+    --brand:#0E7C5A;--brand-ink:#0A5C43;--brand-soft:#E7F4EE;--radius:14px;
+    --shadow:0 1px 2px rgba(20,40,30,.04),0 8px 26px -14px rgba(20,40,30,.14)}
+  *{box-sizing:border-box}
+  body{font-family:'Manrope',system-ui,sans-serif;margin:0;background:var(--bg);color:var(--ink);line-height:1.5}
+  a{color:var(--brand-ink)}
+  .appbar{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:600}
+  .appbar-in{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;display:flex;align-items:center;gap:9px}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
+  .back{margin-left:auto;font-size:13px;font-weight:600}
+  .wrap{max-width:1100px;margin:0 auto;padding:18px}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:22px;margin:6px 0 4px}
+  .lead{color:var(--muted);font-size:14px;margin:0 0 16px;max-width:70ch}
+  #map{height:520px;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:22px}
+  h3{font-family:'Space Grotesk',sans-serif;font-size:15px;margin:20px 0 8px;color:var(--brand-ink)}
+  ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px}
+  .muted{color:var(--muted)}
+  .src{margin:10px 0 26px;font-size:13px}
+  .updated{color:var(--muted);font-size:12px;width:100%;margin-top:2px}
+</style></head><body>
+  <div class="appbar"><div class="appbar-in">
+    <span class="brand"><span class="dot"></span>Elektroauto meklētava</span>
+    <a class="back" href="index.html">&larr; Uz sludinājumiem</a>
+    <span class="updated">Atjaunināts __TS__</span>
+  </div></div>
+  <div class="wrap">
+    <h1>Likvidācijas sertifikāts — apstrādes uzņēmumi</h1>
+    <p class="lead">Uzņēmumi, kas ir tiesīgi pieņemt nolietotu transportlīdzekli
+      un izsniegt <b>likvidācijas sertifikātu</b> (nepieciešams, lai noņemtu auto
+      no uzskaites). Karte un saraksts pēc CSDD oficiālajiem datiem. Atrašanās
+      vietas atzīmētas pilsētas līmenī — precīzu adresi skatiet sarakstā.</p>
+    <div id="map"></div>
+    <p class="src">Oficiālais, aktuālais saraksts:
+      <a href="https://www.csdd.lv/nolietota-transportlidzekla-parstrade/apstrades-uznemumu-saraksts" target="_blank" rel="noopener">CSDD apstrādes uzņēmumu saraksts</a></p>
+    __LIST__
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  const PLACES=__PLACES__;
+  const map=L.map('map').setView([56.88,24.9],7);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
+  function esc(s){const d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML;}
+  PLACES.forEach(p=>{
+    const items=p.companies.map(c=>{
+      const w=c.w?('<br><a href="'+esc(c.w)+'" target="_blank" rel="noopener">'+esc(c.w.replace(/^https?:\\/\\//,''))+'</a>'):'';
+      const ph=c.p?('<br>tel. '+esc(c.p)):'';
+      return '<b>'+esc(c.n)+'</b><br>'+esc(c.a)+ph+w;
+    }).join('<hr style="border:none;border-top:1px solid #eee;margin:6px 0">');
+    L.marker([p.lat,p.lng]).addTo(map)
+      .bindPopup('<b style="color:#0A5C43">'+esc(p.city)+'</b><br>'+items);
+  });
+  </script>
+</body></html>""".replace("__TS__", esc(ts)).replace("__PLACES__", places_json).replace("__LIST__", list_html)
+
+
 def default_banners() -> list[dict]:
     return [
         {"title": "Jūsu reklāma šeit",
@@ -764,6 +959,9 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str],
     color:var(--ink);display:flex;align-items:center;gap:9px}
   .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
   .tagline{color:var(--muted);font-size:13px}
+  .navlink{font-size:13px;font-weight:600;color:var(--brand-ink);border:1px solid var(--line);
+    border-radius:999px;padding:5px 12px}
+  .navlink:hover{background:var(--brand-soft);text-decoration:none}
   .updated{margin-left:auto;color:var(--muted);font-size:12px}
   .wrap{max-width:1400px;margin:0 auto;padding:16px 14px 80px}
   .layout{display:flex;gap:22px;align-items:flex-start}
@@ -879,6 +1077,7 @@ def render_page_html(rows: list[dict], ts: str, tab_labels: list[str],
   <div class="appbar"><div class="appbar-in">
     <span class="brand"><span class="dot"></span>Elektroauto meklētava</span>
     <span class="tagline">Elektro un plug-in auto ar EKII atbalstu</span>
+    <a class="navlink" href="likvidacija.html">Likvid\u0101cija</a>
     <span class="updated">Atjaunināts __TS__</span>
   </div></div>
   <div class="wrap">
@@ -1681,6 +1880,8 @@ def main() -> int:
                            encoding="utf-8")
     log(f"Wrote {REPORT_PATH} ({len(page_rows)} rows)")
     (REPORT_PATH.parent / "version.txt").write_text(ts, encoding="utf-8")
+    (REPORT_PATH.parent / "likvidacija.html").write_text(
+        render_recyclers_page(RECYCLERS, ts), encoding="utf-8")
 
     if new_matches and not first_run:
         subject = f"SS.LV auto: {len(new_matches)} jauns(-i) sludinājums(-i)"
