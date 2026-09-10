@@ -298,5 +298,35 @@
     "last_ta": null,
     "last_price": 71000,
     "last_seen": "2026-09-10T16:31:43.282801+00:00"
+  },
+  "renault|zoe|2014|elektro|202": {
+    "first_seen": "2026-09-10T19:49:57.834267+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpfjo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 5400,
+    "last_seen": "2026-09-10T19:49:57.834267+00:00"
+  },
+  "volkswagen|id-3|2020|elektro|86": {
+    "first_seen": "2026-09-10T19:49:57.834267+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdjhfd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21200,
+    "last_seen": "2026-09-10T19:49:57.834267+00:00"
+  },
+  "polestar|polestar 2|2022|elektro|60": {
+    "first_seen": "2026-09-10T19:49:57.834267+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdjbdx.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-03-24",
+    "last_price": 31700,
+    "last_seen": "2026-09-10T19:49:57.834267+00:00"
   }
 }
