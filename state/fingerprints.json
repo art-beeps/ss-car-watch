@@ -258,5 +258,45 @@
     "last_ta": "2028-11-30",
     "last_price": 39990,
     "last_seen": "2026-09-10T11:31:26.153772+00:00"
+  },
+  "mg|mg4|2024|elektro|21": {
+    "first_seen": "2026-09-10T16:31:43.282801+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cecofm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 23990,
+    "last_seen": "2026-09-10T16:31:43.282801+00:00"
+  },
+  "bmw|ix|2021|elektro|57": {
+    "first_seen": "2026-09-10T16:31:43.282801+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccihpp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 43000,
+    "last_seen": "2026-09-10T16:31:43.282801+00:00"
+  },
+  "toyota|bz4x|2026|elektro|3": {
+    "first_seen": "2026-09-10T16:31:43.282801+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbojln.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 52380,
+    "last_seen": "2026-09-10T16:31:43.282801+00:00"
+  },
+  "mercedes|benz eqe 350|2025|elektro|15": {
+    "first_seen": "2026-09-10T16:31:43.282801+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdjpkx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 71000,
+    "last_seen": "2026-09-10T16:31:43.282801+00:00"
   }
 }
