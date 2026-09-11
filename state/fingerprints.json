@@ -438,5 +438,15 @@
     "last_ta": null,
     "last_price": 92000,
     "last_seen": "2026-09-11T11:32:46.737118+00:00"
+  },
+  "renault|scenic e-tech|2024|elektro|21": {
+    "first_seen": "2026-09-11T16:36:20.385975+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkjop.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 34995,
+    "last_seen": "2026-09-11T16:36:20.385975+00:00"
   }
 }
