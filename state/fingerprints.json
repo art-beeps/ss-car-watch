@@ -328,5 +328,35 @@
     "last_ta": "2027-03-24",
     "last_price": 31700,
     "last_seen": "2026-09-10T19:49:57.834267+00:00"
+  },
+  "hyundai|ionic|2021|elektro|130": {
+    "first_seen": "2026-09-11T06:07:52.291834+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnlko.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10000,
+    "last_seen": "2026-09-11T06:07:52.291834+00:00"
+  },
+  "fiat|500e|2021|plug-in|61": {
+    "first_seen": "2026-09-11T06:07:52.291834+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccffol.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15700,
+    "last_seen": "2026-09-11T06:07:52.291834+00:00"
+  },
+  "nissan|leaf|2023|elektro|56": {
+    "first_seen": "2026-09-11T06:07:52.291834+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnmbb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 16950,
+    "last_seen": "2026-09-11T06:07:52.291834+00:00"
   }
 }
