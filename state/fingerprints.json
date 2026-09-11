@@ -448,5 +448,25 @@
     "last_ta": null,
     "last_price": 34995,
     "last_seen": "2026-09-11T16:36:20.385975+00:00"
+  },
+  "renault|zoe|2013|elektro|133": {
+    "first_seen": "2026-09-11T19:50:28.341053+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/celicj.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-09-24",
+    "last_price": 4200,
+    "last_seen": "2026-09-11T19:50:28.341053+00:00"
+  },
+  "mercedes|benz eqb 300|2022|elektro|62": {
+    "first_seen": "2026-09-11T19:50:28.341053+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdofci.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28200,
+    "last_seen": "2026-09-11T19:50:28.341053+00:00"
   }
 }
