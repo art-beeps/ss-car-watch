@@ -478,5 +478,25 @@
     "last_ta": null,
     "last_price": 23990,
     "last_seen": "2026-09-12T10:57:09.271937+00:00"
+  },
+  "volkswagen|id 3|2022|elektro|87": {
+    "first_seen": "2026-09-12T17:16:26.309665+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdbixe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21500,
+    "last_seen": "2026-09-12T17:16:26.309665+00:00"
+  },
+  "bmw|i4|2022|elektro|153": {
+    "first_seen": "2026-09-12T17:16:26.309665+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchkcm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 31000,
+    "last_seen": "2026-09-12T17:16:26.309665+00:00"
   }
 }
