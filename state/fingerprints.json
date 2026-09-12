@@ -468,5 +468,15 @@
     "last_ta": null,
     "last_price": 28200,
     "last_seen": "2026-09-11T19:50:28.341053+00:00"
+  },
+  "peugeot|e-2008|2023|elektro|3": {
+    "first_seen": "2026-09-12T10:57:09.271937+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cceobe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 23990,
+    "last_seen": "2026-09-12T10:57:09.271937+00:00"
   }
 }
