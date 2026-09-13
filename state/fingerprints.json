@@ -306,8 +306,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 5400,
-    "last_seen": "2026-09-10T22:40:12.250228+00:00"
+    "last_price": 4900,
+    "last_seen": "2026-09-13T14:30:02.141486+00:00"
   },
   "volkswagen|id-3|2020|elektro|86": {
     "first_seen": "2026-09-10T19:49:57.834267+00:00",
@@ -527,7 +527,7 @@
     "had_valid_ta": true,
     "last_ta": "2027-12-07",
     "last_price": 25500,
-    "last_seen": "2026-09-13T10:22:37.294532+00:00"
+    "last_seen": "2026-09-13T14:30:02.141486+00:00"
   },
   "bmw|ix xdrive40|2022|elektro|70": {
     "first_seen": "2026-09-13T10:22:37.294532+00:00",
@@ -538,5 +538,25 @@
     "last_ta": null,
     "last_price": 45500,
     "last_seen": "2026-09-13T10:22:37.294532+00:00"
+  },
+  "vw|id. 4 pro|2023|elektro|45": {
+    "first_seen": "2026-09-13T14:30:02.141486+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxngc.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-05-18",
+    "last_price": 28900,
+    "last_seen": "2026-09-13T14:30:02.141486+00:00"
+  },
+  "genesis|gv sportpro+489zs|2024|elektro|38": {
+    "first_seen": "2026-09-13T14:30:02.141486+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bmhceb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 43000,
+    "last_seen": "2026-09-13T14:30:02.141486+00:00"
   }
 }
