@@ -542,12 +542,13 @@
   "vw|id. 4 pro|2023|elektro|45": {
     "first_seen": "2026-09-13T14:30:02.141486+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxngc.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxngc.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxhon.html"
     ],
     "had_valid_ta": true,
     "last_ta": "2027-05-18",
     "last_price": 28900,
-    "last_seen": "2026-09-13T14:30:02.141486+00:00"
+    "last_seen": "2026-09-13T18:14:44.560781+00:00"
   },
   "genesis|gv sportpro+489zs|2024|elektro|38": {
     "first_seen": "2026-09-13T14:30:02.141486+00:00",
@@ -558,5 +559,35 @@
     "last_ta": null,
     "last_price": 43000,
     "last_seen": "2026-09-13T14:30:02.141486+00:00"
+  },
+  "tesla|s|2017|elektro|149": {
+    "first_seen": "2026-09-13T18:14:44.560781+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddkne.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19000,
+    "last_seen": "2026-09-13T18:14:44.560781+00:00"
+  },
+  "volkswagen|id. 3|2025|elektro|23": {
+    "first_seen": "2026-09-13T18:14:44.560781+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccelpp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 34500,
+    "last_seen": "2026-09-13T18:14:44.560781+00:00"
+  },
+  "audi|q8|2023|elektro|72": {
+    "first_seen": "2026-09-13T18:14:44.560781+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxpib.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 54250,
+    "last_seen": "2026-09-13T18:14:44.560781+00:00"
   }
 }
