@@ -589,5 +589,15 @@
     "last_ta": null,
     "last_price": 54250,
     "last_seen": "2026-09-13T18:14:44.560781+00:00"
+  },
+  "mitsubishi|i miev|2012|elektro|115": {
+    "first_seen": "2026-09-13T20:56:58.048085+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfikf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 2900,
+    "last_seen": "2026-09-13T20:56:58.048085+00:00"
   }
 }
