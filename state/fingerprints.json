@@ -508,5 +508,35 @@
     "last_ta": null,
     "last_price": 12000,
     "last_seen": "2026-09-13T04:58:08.846327+00:00"
+  },
+  "audi|e-tron|2020|elektro|179": {
+    "first_seen": "2026-09-13T10:22:37.294532+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbeidf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21500,
+    "last_seen": "2026-09-13T10:22:37.294532+00:00"
+  },
+  "tesla|model y|2021|elektro|197": {
+    "first_seen": "2026-09-13T10:22:37.294532+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cckcoc.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-12-07",
+    "last_price": 25500,
+    "last_seen": "2026-09-13T10:22:37.294532+00:00"
+  },
+  "bmw|ix xdrive40|2022|elektro|70": {
+    "first_seen": "2026-09-13T10:22:37.294532+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cefegi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 45500,
+    "last_seen": "2026-09-13T10:22:37.294532+00:00"
   }
 }
