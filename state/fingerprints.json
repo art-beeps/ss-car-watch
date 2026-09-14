@@ -372,12 +372,13 @@
   "gwm|ora funky 300|2024|elektro|4": {
     "first_seen": "2026-09-11T11:32:46.737118+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cexpmd.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cexpmd.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxiljc.html"
     ],
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 20000,
-    "last_seen": "2026-09-11T11:32:46.737118+00:00"
+    "last_seen": "2026-09-14T14:14:32.859537+00:00"
   },
   "skywell|et5|2023|elektro|18": {
     "first_seen": "2026-09-11T11:32:46.737118+00:00",
@@ -599,5 +600,55 @@
     "last_ta": null,
     "last_price": 2900,
     "last_seen": "2026-09-13T20:56:58.048085+00:00"
+  },
+  "dacia|spring|2021|elektro|29": {
+    "first_seen": "2026-09-14T14:14:32.859537+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cedlib.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10400,
+    "last_seen": "2026-09-14T14:14:32.859537+00:00"
+  },
+  "tesla|model s|2016|elektro|99": {
+    "first_seen": "2026-09-14T14:14:32.859537+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnclb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19500,
+    "last_seen": "2026-09-14T14:14:32.859537+00:00"
+  },
+  "volkswagen|id4 gtx|2023|elektro|66": {
+    "first_seen": "2026-09-14T14:14:32.859537+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cefmcg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 36500,
+    "last_seen": "2026-09-14T14:14:32.859537+00:00"
+  },
+  "renault|citi|2025|1.2h|22": {
+    "first_seen": "2026-09-14T14:14:32.859537+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/renault/another/cbmdxh.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-03-31",
+    "last_price": 40000,
+    "last_seen": "2026-09-14T14:14:32.859537+00:00"
+  },
+  "skoda|kodiaq|2025|1.5h|9": {
+    "first_seen": "2026-09-14T14:14:32.859537+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/skoda/kodiaq/cbiijf.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-11-30",
+    "last_price": 41000,
+    "last_seen": "2026-09-14T14:14:32.859537+00:00"
   }
 }
