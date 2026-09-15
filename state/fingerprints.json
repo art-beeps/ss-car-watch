@@ -790,5 +790,25 @@
     "last_ta": "2028-08-31",
     "last_price": 44900,
     "last_seen": "2026-09-15T18:17:22.316942+00:00"
+  },
+  "mg|mg4|2023|elektro|65": {
+    "first_seen": "2026-09-15T21:29:53.617656+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbocib.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24990,
+    "last_seen": "2026-09-15T21:29:53.617656+00:00"
+  },
+  "mercedes|benz amg eqs 450+|2024|elektro|30": {
+    "first_seen": "2026-09-15T21:29:53.617656+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccnxxc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 75000,
+    "last_seen": "2026-09-15T21:29:53.617656+00:00"
   }
 }
