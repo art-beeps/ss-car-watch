@@ -377,8 +377,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 20000,
-    "last_seen": "2026-09-14T14:14:32.859537+00:00"
+    "last_price": 19500,
+    "last_seen": "2026-09-16T11:49:28.987725+00:00"
   },
   "skywell|et5|2023|elektro|18": {
     "first_seen": "2026-09-11T11:32:46.737118+00:00",
@@ -810,5 +810,55 @@
     "last_ta": null,
     "last_price": 75000,
     "last_seen": "2026-09-15T21:29:53.617656+00:00"
+  },
+  "nissan|leaf|2013|elektro|118": {
+    "first_seen": "2026-09-16T11:49:28.987725+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxdegk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 4800,
+    "last_seen": "2026-09-16T11:49:28.987725+00:00"
+  },
+  "gwm|ora|2024|elektro|17": {
+    "first_seen": "2026-09-16T11:49:28.987725+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cecfjp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17790,
+    "last_seen": "2026-09-16T11:49:28.987725+00:00"
+  },
+  "audi|q4|2023|elektro|131": {
+    "first_seen": "2026-09-16T11:49:28.987725+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjgom.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 26990,
+    "last_seen": "2026-09-16T11:49:28.987725+00:00"
+  },
+  "volkswagen|id. 7 pro|2025|elektro|21": {
+    "first_seen": "2026-09-16T11:49:28.987725+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccmpix.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 49500,
+    "last_seen": "2026-09-16T11:49:28.987725+00:00"
+  },
+  "skoda|kodiaq|2025|1.5h|8": {
+    "first_seen": "2026-09-16T11:49:28.987725+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/skoda/kodiaq/cglpgi.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-08-31",
+    "last_price": 39200,
+    "last_seen": "2026-09-16T11:49:28.987725+00:00"
   }
 }
