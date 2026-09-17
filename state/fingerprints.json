@@ -890,5 +890,55 @@
     "last_ta": null,
     "last_price": 26600,
     "last_seen": "2026-09-16T20:14:43.963067+00:00"
+  },
+  "nissan|leaf|2012|elektro|174": {
+    "first_seen": "2026-09-17T13:35:33.571570+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccikfd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 3990,
+    "last_seen": "2026-09-17T13:35:33.571570+00:00"
+  },
+  "bmw|i3s|2021|elektro|90": {
+    "first_seen": "2026-09-17T13:35:33.571570+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbelmh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17999,
+    "last_seen": "2026-09-17T13:35:33.571570+00:00"
+  },
+  "gwm|ora 03 400 pro|2023|elektro|34": {
+    "first_seen": "2026-09-17T13:35:33.571570+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjdlg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21900,
+    "last_seen": "2026-09-17T13:35:33.571570+00:00"
+  },
+  "byd|seal u dmi|2025|plug-in|10": {
+    "first_seen": "2026-09-17T13:35:33.571570+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cejgoe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 35990,
+    "last_seen": "2026-09-17T13:35:33.571570+00:00"
+  },
+  "kia|ev9|2024|elektro|60": {
+    "first_seen": "2026-09-17T13:35:33.571570+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccjcnk.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-09-30",
+    "last_price": 53000,
+    "last_seen": "2026-09-17T13:35:33.571570+00:00"
   }
 }
