@@ -306,8 +306,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 4900,
-    "last_seen": "2026-09-13T14:30:02.141486+00:00"
+    "last_price": 4700,
+    "last_seen": "2026-09-17T18:20:50.886264+00:00"
   },
   "volkswagen|id-3|2020|elektro|86": {
     "first_seen": "2026-09-10T19:49:57.834267+00:00",
@@ -940,5 +940,15 @@
     "last_ta": "2027-09-30",
     "last_price": 53000,
     "last_seen": "2026-09-17T13:35:33.571570+00:00"
+  },
+  "polestar|2|2022|elektro|52": {
+    "first_seen": "2026-09-17T18:20:50.886264+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfpgo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 25880,
+    "last_seen": "2026-09-17T18:20:50.886264+00:00"
   }
 }
