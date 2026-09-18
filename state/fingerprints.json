@@ -383,12 +383,13 @@
   "skywell|et5|2023|elektro|18": {
     "first_seen": "2026-09-11T11:32:46.737118+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cekbxx.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cekbxx.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnpih.html"
     ],
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 21500,
-    "last_seen": "2026-09-11T11:32:46.737118+00:00"
+    "last_seen": "2026-09-18T11:28:06.640968+00:00"
   },
   "mini|cooper se 3door hatch|2024|elektro|54": {
     "first_seen": "2026-09-11T11:32:46.737118+00:00",
@@ -980,5 +981,35 @@
     "last_ta": null,
     "last_price": 84990,
     "last_seen": "2026-09-18T00:28:26.786470+00:00"
+  },
+  "hyundai|kona|2023|elektro|25": {
+    "first_seen": "2026-09-18T11:28:06.640968+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cephxk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 20200,
+    "last_seen": "2026-09-18T11:28:06.640968+00:00"
+  },
+  "bmw|i3|2021|elektro|96": {
+    "first_seen": "2026-09-18T11:28:06.640968+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cclmdm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21500,
+    "last_seen": "2026-09-18T11:28:06.640968+00:00"
+  },
+  "cupra|cura born|2023|elektro|38": {
+    "first_seen": "2026-09-18T11:28:06.640968+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bmkhpd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22500,
+    "last_seen": "2026-09-18T11:28:06.640968+00:00"
   }
 }
