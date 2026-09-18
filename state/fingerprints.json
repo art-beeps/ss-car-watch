@@ -950,5 +950,35 @@
     "last_ta": null,
     "last_price": 25880,
     "last_seen": "2026-09-17T18:20:50.886264+00:00"
+  },
+  "hyundai|ioniq|2018|elektro|168": {
+    "first_seen": "2026-09-18T00:28:26.786470+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblggd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10000,
+    "last_seen": "2026-09-18T00:28:26.786470+00:00"
+  },
+  "citroen|e-c4|2022|elektro|119": {
+    "first_seen": "2026-09-18T00:28:26.786470+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfiogg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15700,
+    "last_seen": "2026-09-18T00:28:26.786470+00:00"
+  },
+  "lotus|electre|2023|elektro|27": {
+    "first_seen": "2026-09-18T00:28:26.786470+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxxdcg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 84990,
+    "last_seen": "2026-09-18T00:28:26.786470+00:00"
   }
 }
