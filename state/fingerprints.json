@@ -1051,5 +1051,15 @@
     "last_ta": null,
     "last_price": 75900,
     "last_seen": "2026-09-18T16:33:03.783165+00:00"
+  },
+  "mercedes|eqb 250+|2024|elektro|20": {
+    "first_seen": "2026-09-18T22:40:02.785074+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbebge.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 42100,
+    "last_seen": "2026-09-18T22:40:02.785074+00:00"
   }
 }
