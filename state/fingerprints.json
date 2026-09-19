@@ -187,7 +187,7 @@
     "had_valid_ta": true,
     "last_ta": "2028-08-31",
     "last_price": 25000,
-    "last_seen": "2026-09-19T06:00:49.786685+00:00"
+    "last_seen": "2026-09-19T11:11:33.320463+00:00"
   },
   "ev|charge ev charge|2026|elektro|2": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
@@ -1072,5 +1072,55 @@
     "last_ta": null,
     "last_price": 46500,
     "last_seen": "2026-09-19T06:00:49.786685+00:00"
+  },
+  "nissan|leaf|2013|elektro|128": {
+    "first_seen": "2026-09-19T11:11:33.320463+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchbgh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 3500,
+    "last_seen": "2026-09-19T11:11:33.320463+00:00"
+  },
+  "citroen|ami|2023|elektro|13": {
+    "first_seen": "2026-09-19T11:11:33.320463+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bnmonf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 5999,
+    "last_seen": "2026-09-19T11:11:33.320463+00:00"
+  },
+  "renault|zoe|2019|elektro|102": {
+    "first_seen": "2026-09-19T11:11:33.320463+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdmfbm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 8500,
+    "last_seen": "2026-09-19T11:11:33.320463+00:00"
+  },
+  "peugeot|partner|2010|1.6|253": {
+    "first_seen": "2026-09-19T11:11:33.320463+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/peugeot/partner/cdnxgn.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 350,
+    "last_seen": "2026-09-19T11:11:33.320463+00:00"
+  },
+  "toyota|corolla verso|2007|2.2d|303": {
+    "first_seen": "2026-09-19T11:11:33.320463+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/toyota/corolla-verso/bcdxno.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2026-09-30",
+    "last_price": 550,
+    "last_seen": "2026-09-19T11:11:33.320463+00:00"
   }
 }
