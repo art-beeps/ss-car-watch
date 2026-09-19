@@ -1122,5 +1122,25 @@
     "last_ta": "2026-09-30",
     "last_price": 550,
     "last_seen": "2026-09-19T11:11:33.320463+00:00"
+  },
+  "mercedes-benz|eqv 300|2024|elektro|21": {
+    "first_seen": "2026-09-19T14:31:07.976584+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccijnl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 59900,
+    "last_seen": "2026-09-19T14:31:07.976584+00:00"
+  },
+  "mitsubishi|eclipse|2025|2.4h|28": {
+    "first_seen": "2026-09-19T14:31:07.976584+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/mitsubishi/eclipse/ckegm.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-04-30",
+    "last_price": 21990,
+    "last_seen": "2026-09-19T14:31:07.976584+00:00"
   }
 }
