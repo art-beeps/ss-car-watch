@@ -476,10 +476,10 @@
     "urls": [
       "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cceobe.html"
     ],
-    "had_valid_ta": false,
-    "last_ta": null,
-    "last_price": 23990,
-    "last_seen": "2026-09-12T10:57:09.271937+00:00"
+    "had_valid_ta": true,
+    "last_ta": "2028-09-18",
+    "last_price": 23190,
+    "last_seen": "2026-09-20T12:29:14.578326+00:00"
   },
   "volkswagen|id 3|2022|elektro|87": {
     "first_seen": "2026-09-12T17:16:26.309665+00:00",
@@ -1152,5 +1152,25 @@
     "last_ta": null,
     "last_price": 13500,
     "last_seen": "2026-09-20T06:25:29.238053+00:00"
+  },
+  "tesla|3|2020|elektro|120": {
+    "first_seen": "2026-09-20T12:29:14.578326+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cenjnn.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-10-15",
+    "last_price": 20900,
+    "last_seen": "2026-09-20T12:29:14.578326+00:00"
+  },
+  "opel|frontera|2025|elektro|0": {
+    "first_seen": "2026-09-20T12:29:14.578326+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccilbk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 27100,
+    "last_seen": "2026-09-20T12:29:14.578326+00:00"
   }
 }
