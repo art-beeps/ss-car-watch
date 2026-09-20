@@ -1142,5 +1142,15 @@
     "last_ta": "2027-04-30",
     "last_price": 21990,
     "last_seen": "2026-09-19T14:31:07.976584+00:00"
+  },
+  "opel|corsa|2023|elektro|84": {
+    "first_seen": "2026-09-20T06:25:29.238053+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblhhf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 13500,
+    "last_seen": "2026-09-20T06:25:29.238053+00:00"
   }
 }
