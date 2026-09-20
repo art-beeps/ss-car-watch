@@ -187,7 +187,7 @@
     "had_valid_ta": true,
     "last_ta": "2028-08-31",
     "last_price": 25000,
-    "last_seen": "2026-09-19T11:11:33.320463+00:00"
+    "last_seen": "2026-09-20T16:52:43.672856+00:00"
   },
   "ev|charge ev charge|2026|elektro|2": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
@@ -1172,5 +1172,45 @@
     "last_ta": null,
     "last_price": 27100,
     "last_seen": "2026-09-20T12:29:14.578326+00:00"
+  },
+  "peugeot|e-208|2020|elektro|115": {
+    "first_seen": "2026-09-20T16:52:43.672856+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkbjo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 12400,
+    "last_seen": "2026-09-20T16:52:43.672856+00:00"
+  },
+  "mini|cooper se|2021|elektro|35": {
+    "first_seen": "2026-09-20T16:52:43.672856+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccjkxx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 16000,
+    "last_seen": "2026-09-20T16:52:43.672856+00:00"
+  },
+  "audi|e-tron 55|2019|elektro|170": {
+    "first_seen": "2026-09-20T16:52:43.672856+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnxoh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19999,
+    "last_seen": "2026-09-20T16:52:43.672856+00:00"
+  },
+  "bmv|ix|2021|elektro|88": {
+    "first_seen": "2026-09-20T16:52:43.672856+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddedg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 39000,
+    "last_seen": "2026-09-20T16:52:43.672856+00:00"
   }
 }
