@@ -1262,5 +1262,65 @@
     "last_ta": null,
     "last_price": 400,
     "last_seen": "2026-09-21T14:20:00.012197+00:00"
+  },
+  "volkswagen|golf|2016|elektro|176": {
+    "first_seen": "2026-09-21T19:34:29.827790+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bpoino.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 7100,
+    "last_seen": "2026-09-21T19:34:29.827790+00:00"
+  },
+  "tesla|model 3|2020|elektro|200": {
+    "first_seen": "2026-09-21T19:34:29.827790+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmocl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19750,
+    "last_seen": "2026-09-21T19:34:29.827790+00:00"
+  },
+  "audi|q4 etron|2021|elektro|52": {
+    "first_seen": "2026-09-21T19:34:29.827790+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccfghc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 35500,
+    "last_seen": "2026-09-21T19:34:29.827790+00:00"
+  },
+  "bmw|ix|2022|elektro|50": {
+    "first_seen": "2026-09-21T19:34:29.827790+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdkkki.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 41850,
+    "last_seen": "2026-09-21T19:34:29.827790+00:00"
+  },
+  "polestar|4|2024|elektro|27": {
+    "first_seen": "2026-09-21T19:34:29.827790+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfjlmf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 52000,
+    "last_seen": "2026-09-21T19:34:29.827790+00:00"
+  },
+  "toyota|c-hr|2026|2.0h|0": {
+    "first_seen": "2026-09-21T19:34:29.827790+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/toyota/c-hr/cblmjh.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-06-30",
+    "last_price": 42990,
+    "last_seen": "2026-09-21T19:34:29.827790+00:00"
   }
 }
