@@ -1222,5 +1222,45 @@
     "last_ta": null,
     "last_price": 66550,
     "last_seen": "2026-09-21T06:31:58.402361+00:00"
+  },
+  "volkswagen|id. 3|2021|elektro|72": {
+    "first_seen": "2026-09-21T14:20:00.012197+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbinnh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21700,
+    "last_seen": "2026-09-21T14:20:00.012197+00:00"
+  },
+  "volkswagen|id3|2022|elektro|60": {
+    "first_seen": "2026-09-21T14:20:00.012197+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfhnho.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22500,
+    "last_seen": "2026-09-21T14:20:00.012197+00:00"
+  },
+  "lexus|rx|2025|2.5h|12": {
+    "first_seen": "2026-09-21T14:20:00.012197+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/lexus/rx/ccipgp.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-04-30",
+    "last_price": 79900,
+    "last_seen": "2026-09-21T14:20:00.012197+00:00"
+  },
+  "audi|a4|2000|2.5d|365": {
+    "first_seen": "2026-09-21T14:20:00.012197+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/audi/a4/bjgpxh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 400,
+    "last_seen": "2026-09-21T14:20:00.012197+00:00"
   }
 }
