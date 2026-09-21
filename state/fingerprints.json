@@ -1212,5 +1212,15 @@
     "last_ta": null,
     "last_price": 39000,
     "last_seen": "2026-09-20T16:52:43.672856+00:00"
+  },
+  "mercedes|benz eqe 43 amg|2024|elektro|28": {
+    "first_seen": "2026-09-21T06:31:58.402361+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdbbmh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 66550,
+    "last_seen": "2026-09-21T06:31:58.402361+00:00"
   }
 }
