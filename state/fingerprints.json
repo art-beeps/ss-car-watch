@@ -1412,5 +1412,45 @@
     "last_ta": "2029-05-31",
     "last_price": 79900,
     "last_seen": "2026-09-22T13:28:55.219781+00:00"
+  },
+  "nissan|leaf|2022|elektro|95": {
+    "first_seen": "2026-09-22T18:09:26.412343+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxdecp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15300,
+    "last_seen": "2026-09-22T18:09:26.412343+00:00"
+  },
+  "nissan|leaf|2021|elektro|65": {
+    "first_seen": "2026-09-22T18:09:26.412343+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjkdf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15600,
+    "last_seen": "2026-09-22T18:09:26.412343+00:00"
+  },
+  "skywell|et5|2023|elektro|17": {
+    "first_seen": "2026-09-22T18:09:26.412343+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdnbfl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22000,
+    "last_seen": "2026-09-22T18:09:26.412343+00:00"
+  },
+  "bmw|i7 xdrive60|2023|elektro|25": {
+    "first_seen": "2026-09-22T18:09:26.412343+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccnxil.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 89300,
+    "last_seen": "2026-09-22T18:09:26.412343+00:00"
   }
 }
