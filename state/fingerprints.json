@@ -1322,5 +1322,25 @@
     "last_ta": "2028-06-30",
     "last_price": 42990,
     "last_seen": "2026-09-21T19:34:29.827790+00:00"
+  },
+  "vw|id5 gtx|2023|elektro|108": {
+    "first_seen": "2026-09-22T07:47:20.823154+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdhxgp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 33000,
+    "last_seen": "2026-09-22T07:47:20.823154+00:00"
+  },
+  "mazda|mx|2025|1.6h|8": {
+    "first_seen": "2026-09-22T07:47:20.823154+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/mazda/mx/cgmfdx.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-07-31",
+    "last_price": 21490,
+    "last_seen": "2026-09-22T07:47:20.823154+00:00"
   }
 }
