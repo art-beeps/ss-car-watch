@@ -498,8 +498,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 31000,
-    "last_seen": "2026-09-12T17:16:26.309665+00:00"
+    "last_price": 29990,
+    "last_seen": "2026-09-23T20:30:09.503949+00:00"
   },
   "gwm|ora|2024|elektro|48": {
     "first_seen": "2026-09-12T22:23:58.753643+00:00",
@@ -1502,5 +1502,35 @@
     "last_ta": "2028-11-30",
     "last_price": 33900,
     "last_seen": "2026-09-23T17:14:44.750476+00:00"
+  },
+  "mercedes|eqc|2020|elektro|135": {
+    "first_seen": "2026-09-23T20:30:09.503949+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccfhoi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29900,
+    "last_seen": "2026-09-23T20:30:09.503949+00:00"
+  },
+  "maxus|mifa9|2024|elektro|30": {
+    "first_seen": "2026-09-23T20:30:09.503949+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpgln.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 41000,
+    "last_seen": "2026-09-23T20:30:09.503949+00:00"
+  },
+  "jeep|grand cherokee|2025|2.0h|21": {
+    "first_seen": "2026-09-23T20:30:09.503949+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/jeep/grand-cherokee/coxxi.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-04-30",
+    "last_price": 55000,
+    "last_seen": "2026-09-23T20:30:09.503949+00:00"
   }
 }
