@@ -1482,5 +1482,25 @@
     "last_ta": "2027-06-30",
     "last_price": 28000,
     "last_seen": "2026-09-23T11:50:31.137839+00:00"
+  },
+  "gw|ora funky cat|2023|elektro|28": {
+    "first_seen": "2026-09-23T17:14:44.750476+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbgxho.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17900,
+    "last_seen": "2026-09-23T17:14:44.750476+00:00"
+  },
+  "cita|marka|2026|1.5h|24": {
+    "first_seen": "2026-09-23T17:14:44.750476+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/cgifhg.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-11-30",
+    "last_price": 33900,
+    "last_seen": "2026-09-23T17:14:44.750476+00:00"
   }
 }
