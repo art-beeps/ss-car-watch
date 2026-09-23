@@ -779,8 +779,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 36990,
-    "last_seen": "2026-09-15T18:17:22.316942+00:00"
+    "last_price": 36900,
+    "last_seen": "2026-09-23T11:50:31.137839+00:00"
   },
   "honda|cr-v|2025|2.0h|14": {
     "first_seen": "2026-09-15T18:17:22.316942+00:00",
@@ -1462,5 +1462,25 @@
     "last_ta": null,
     "last_price": 33940,
     "last_seen": "2026-09-23T06:05:53.973268+00:00"
+  },
+  "dongfeng|box|2025|elektro|6": {
+    "first_seen": "2026-09-23T11:50:31.137839+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bneipk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22200,
+    "last_seen": "2026-09-23T11:50:31.137839+00:00"
+  },
+  "peugeot|408|2024|plug-in|0": {
+    "first_seen": "2026-09-23T11:50:31.137839+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/peugeot/408/cgddbl.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-06-30",
+    "last_price": 28000,
+    "last_seen": "2026-09-23T11:50:31.137839+00:00"
   }
 }
