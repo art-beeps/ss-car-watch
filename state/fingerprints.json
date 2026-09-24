@@ -226,8 +226,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 8800,
-    "last_seen": "2026-09-10T11:31:26.153772+00:00"
+    "last_price": 8750,
+    "last_seen": "2026-09-24T19:18:11.784856+00:00"
   },
   "audi|e-tron|2019|elektro|150": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
@@ -991,7 +991,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 19800,
-    "last_seen": "2026-09-19T06:00:49.786685+00:00"
+    "last_seen": "2026-09-24T19:18:11.784856+00:00"
   },
   "bmw|i3|2021|elektro|96": {
     "first_seen": "2026-09-18T11:28:06.640968+00:00",
@@ -1563,7 +1563,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 2500,
-    "last_seen": "2026-09-24T15:15:51.928209+00:00"
+    "last_seen": "2026-09-24T19:18:11.784856+00:00"
   },
   "italcar|nev|2026|elektro|0": {
     "first_seen": "2026-09-24T15:15:51.928209+00:00",
@@ -1594,5 +1594,35 @@
     "last_ta": null,
     "last_price": 45340,
     "last_seen": "2026-09-24T15:15:51.928209+00:00"
+  },
+  "renault|megane|2021|plug-in|32": {
+    "first_seen": "2026-09-24T19:18:11.784856+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/renault/megane/bedpix.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-07-31",
+    "last_price": 13200,
+    "last_seen": "2026-09-24T19:18:11.784856+00:00"
+  },
+  "audi|e-tron|2020|elektro|189": {
+    "first_seen": "2026-09-24T19:18:11.784856+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbeidf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21000,
+    "last_seen": "2026-09-24T19:18:11.784856+00:00"
+  },
+  "byd|atto 2|2025|elektro|2": {
+    "first_seen": "2026-09-24T19:18:11.784856+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbeilo.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-05-23",
+    "last_price": 31300,
+    "last_seen": "2026-09-24T19:18:11.784856+00:00"
   }
 }
