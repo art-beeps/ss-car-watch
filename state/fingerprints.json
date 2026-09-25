@@ -1624,5 +1624,35 @@
     "last_ta": "2028-05-23",
     "last_price": 31300,
     "last_seen": "2026-09-24T19:18:11.784856+00:00"
+  },
+  "bmw|i3|2018|elektro|170": {
+    "first_seen": "2026-09-25T13:56:16.935183+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cebjgh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 12500,
+    "last_seen": "2026-09-25T13:56:16.935183+00:00"
+  },
+  "gwm|ora 300 pro|2024|elektro|30": {
+    "first_seen": "2026-09-25T13:56:16.935183+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfjodl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18900,
+    "last_seen": "2026-09-25T13:56:16.935183+00:00"
+  },
+  "tesla|y|2023|elektro|96": {
+    "first_seen": "2026-09-25T13:56:16.935183+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmlch.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 38000,
+    "last_seen": "2026-09-25T13:56:16.935183+00:00"
   }
 }
