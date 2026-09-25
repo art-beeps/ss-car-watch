@@ -890,7 +890,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 26600,
-    "last_seen": "2026-09-16T20:14:43.963067+00:00"
+    "last_seen": "2026-09-25T22:30:33.683051+00:00"
   },
   "nissan|leaf|2012|elektro|174": {
     "first_seen": "2026-09-17T13:35:33.571570+00:00",
@@ -1704,5 +1704,25 @@
     "last_ta": null,
     "last_price": 42500,
     "last_seen": "2026-09-25T18:43:49.407118+00:00"
+  },
+  "mitsubishi|i-miev|2012|elektro|119": {
+    "first_seen": "2026-09-25T22:30:33.683051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbolik.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 2500,
+    "last_seen": "2026-09-25T22:30:33.683051+00:00"
+  },
+  "citroen|spacetourer|2022|elektro|77": {
+    "first_seen": "2026-09-25T22:30:33.683051+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnbph.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 26500,
+    "last_seen": "2026-09-25T22:30:33.683051+00:00"
   }
 }
