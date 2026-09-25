@@ -1654,5 +1654,55 @@
     "last_ta": null,
     "last_price": 38000,
     "last_seen": "2026-09-25T13:56:16.935183+00:00"
+  },
+  "volkswagen|golf7|2015|elektro|113": {
+    "first_seen": "2026-09-25T18:43:49.407118+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfpnmp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 8750,
+    "last_seen": "2026-09-25T18:43:49.407118+00:00"
+  },
+  "tesla|model 3|2023|elektro|85": {
+    "first_seen": "2026-09-25T18:43:49.407118+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchplf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22500,
+    "last_seen": "2026-09-25T18:43:49.407118+00:00"
+  },
+  "volvo|ex30|2025|elektro|13": {
+    "first_seen": "2026-09-25T18:43:49.407118+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpdcj.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29000,
+    "last_seen": "2026-09-25T18:43:49.407118+00:00"
+  },
+  "tesla|y|2022|elektro|64": {
+    "first_seen": "2026-09-25T18:43:49.407118+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfpmfg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 33880,
+    "last_seen": "2026-09-25T18:43:49.407118+00:00"
+  },
+  "bmw|i4|2023|elektro|54": {
+    "first_seen": "2026-09-25T18:43:49.407118+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmpke.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 42500,
+    "last_seen": "2026-09-25T18:43:49.407118+00:00"
   }
 }
