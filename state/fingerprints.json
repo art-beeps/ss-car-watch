@@ -1734,5 +1734,35 @@
     "last_ta": null,
     "last_price": 11400,
     "last_seen": "2026-09-27T08:21:01.408613+00:00"
+  },
+  "podpoint|type1|2021|elektro|10": {
+    "first_seen": "2026-09-27T14:05:58.892944+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cgjmcx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 100,
+    "last_seen": "2026-09-27T14:05:58.892944+00:00"
+  },
+  "nissan|ariya|2024|elektro|53": {
+    "first_seen": "2026-09-27T14:05:58.892944+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccgehx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28800,
+    "last_seen": "2026-09-27T14:05:58.892944+00:00"
+  },
+  "volkswagen|id. buzz|2024|elektro|53": {
+    "first_seen": "2026-09-27T14:05:58.892944+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccjefo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 39000,
+    "last_seen": "2026-09-27T14:05:58.892944+00:00"
   }
 }
