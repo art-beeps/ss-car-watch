@@ -1764,5 +1764,15 @@
     "last_ta": null,
     "last_price": 39000,
     "last_seen": "2026-09-27T14:05:58.892944+00:00"
+  },
+  "renault|zoe|2020|elektro|57": {
+    "first_seen": "2026-09-27T22:21:23.350618+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdijmp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 11490,
+    "last_seen": "2026-09-27T22:21:23.350618+00:00"
   }
 }
