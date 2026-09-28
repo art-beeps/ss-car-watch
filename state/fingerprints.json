@@ -1824,5 +1824,25 @@
     "last_ta": null,
     "last_price": 69990,
     "last_seen": "2026-09-28T15:38:07.819404+00:00"
+  },
+  "hyundai|ioniq|2018|elektro|138": {
+    "first_seen": "2026-09-28T22:08:46.195743+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbignn.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-10-29",
+    "last_price": 10880,
+    "last_seen": "2026-09-28T22:08:46.195743+00:00"
+  },
+  "gwm|ora 03|2024|elektro|49": {
+    "first_seen": "2026-09-28T22:08:46.195743+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cepghp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17900,
+    "last_seen": "2026-09-28T22:08:46.195743+00:00"
   }
 }
