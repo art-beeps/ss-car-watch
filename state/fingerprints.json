@@ -1210,8 +1210,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 39000,
-    "last_seen": "2026-09-20T16:52:43.672856+00:00"
+    "last_price": 36000,
+    "last_seen": "2026-09-28T07:03:31.869835+00:00"
   },
   "mercedes|benz eqe 43 amg|2024|elektro|28": {
     "first_seen": "2026-09-21T06:31:58.402361+00:00",
@@ -1774,5 +1774,25 @@
     "last_ta": null,
     "last_price": 11490,
     "last_seen": "2026-09-27T22:21:23.350618+00:00"
+  },
+  "bmw|i3|2018|elektro|63": {
+    "first_seen": "2026-09-28T07:03:31.869835+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchxho.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 13800,
+    "last_seen": "2026-09-28T07:03:31.869835+00:00"
+  },
+  "audi|a3|1999|1.9d|375": {
+    "first_seen": "2026-09-28T07:03:31.869835+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/audi/a3/bhonih.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2026-12-31",
+    "last_price": 600,
+    "last_seen": "2026-09-28T07:03:31.869835+00:00"
   }
 }
