@@ -879,8 +879,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 13945,
-    "last_seen": "2026-09-16T20:14:43.963067+00:00"
+    "last_price": 13445,
+    "last_seen": "2026-09-29T08:42:11.198817+00:00"
   },
   "audi|e-tron|2020|elektro|80": {
     "first_seen": "2026-09-16T20:14:43.963067+00:00",
@@ -1844,5 +1844,45 @@
     "last_ta": null,
     "last_price": 17900,
     "last_seen": "2026-09-28T22:08:46.195743+00:00"
+  },
+  "bmw|i3|2017|elektro|238": {
+    "first_seen": "2026-09-29T08:42:11.198817+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccffie.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10750,
+    "last_seen": "2026-09-29T08:42:11.198817+00:00"
+  },
+  "jaguar|i-pace|2019|elektro|109": {
+    "first_seen": "2026-09-29T08:42:11.198817+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxgdlx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 25000,
+    "last_seen": "2026-09-29T08:42:11.198817+00:00"
+  },
+  "volkswagen|id buzz|2024|elektro|73": {
+    "first_seen": "2026-09-29T08:42:11.198817+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkfcd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 42200,
+    "last_seen": "2026-09-29T08:42:11.198817+00:00"
+  },
+  "kia|pv5 cargo 4dr|2026|elektro|0": {
+    "first_seen": "2026-09-29T08:42:11.198817+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxihfe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 46440,
+    "last_seen": "2026-09-29T08:42:11.198817+00:00"
   }
 }
