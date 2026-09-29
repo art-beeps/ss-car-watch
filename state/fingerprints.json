@@ -1853,7 +1853,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 10750,
-    "last_seen": "2026-09-29T08:42:11.198817+00:00"
+    "last_seen": "2026-09-29T15:59:17.390697+00:00"
   },
   "jaguar|i-pace|2019|elektro|109": {
     "first_seen": "2026-09-29T08:42:11.198817+00:00",
@@ -1884,5 +1884,45 @@
     "last_ta": null,
     "last_price": 46440,
     "last_seen": "2026-09-29T08:42:11.198817+00:00"
+  },
+  "tesla|model x|2019|elektro|158": {
+    "first_seen": "2026-09-29T15:59:17.390697+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkbnh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 27500,
+    "last_seen": "2026-09-29T15:59:17.390697+00:00"
+  },
+  "volkswagen|id4 pro|2022|elektro|55": {
+    "first_seen": "2026-09-29T15:59:17.390697+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdggkn.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 30450,
+    "last_seen": "2026-09-29T15:59:17.390697+00:00"
+  },
+  "nissan|ariya|2023|elektro|83": {
+    "first_seen": "2026-09-29T15:59:17.390697+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxmoeb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 38999,
+    "last_seen": "2026-09-29T15:59:17.390697+00:00"
+  },
+  "volkswagen|caddy|2025|1.5h|25": {
+    "first_seen": "2026-09-29T15:59:17.390697+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/volkswagen/caddy/ccfoxx.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-08-31",
+    "last_price": 36100,
+    "last_seen": "2026-09-29T15:59:17.390697+00:00"
   }
 }
