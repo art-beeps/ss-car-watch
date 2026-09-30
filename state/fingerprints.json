@@ -1934,5 +1934,25 @@
     "last_ta": null,
     "last_price": 10500,
     "last_seen": "2026-09-29T20:54:07.218985+00:00"
+  },
+  "jaguar|i-pace|2019|elektro|107": {
+    "first_seen": "2026-09-30T06:51:24.074219+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddmmc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18950,
+    "last_seen": "2026-09-30T06:51:24.074219+00:00"
+  },
+  "nissan|evalia e-nv200|2021|elektro|46": {
+    "first_seen": "2026-09-30T06:51:24.074219+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bpdcjl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 20950,
+    "last_seen": "2026-09-30T06:51:24.074219+00:00"
   }
 }
