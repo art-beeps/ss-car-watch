@@ -2104,5 +2104,35 @@
     "last_ta": null,
     "last_price": 18900,
     "last_seen": "2026-10-02T12:50:34.616906+00:00"
+  },
+  "nissan|leaf|2011|elektro|230": {
+    "first_seen": "2026-10-02T18:31:58.876090+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxmbpl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 2500,
+    "last_seen": "2026-10-02T18:31:58.876090+00:00"
+  },
+  "kia|e-niro|2019|elektro|183": {
+    "first_seen": "2026-10-02T18:31:58.876090+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccjloj.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 16200,
+    "last_seen": "2026-10-02T18:31:58.876090+00:00"
+  },
+  "subaru|e-outback|2026|elektro|0": {
+    "first_seen": "2026-10-02T18:31:58.876090+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjhid.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 52900,
+    "last_seen": "2026-10-02T18:31:58.876090+00:00"
   }
 }
