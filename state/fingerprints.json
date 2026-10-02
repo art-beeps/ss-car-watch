@@ -187,7 +187,7 @@
     "had_valid_ta": true,
     "last_ta": "2028-08-31",
     "last_price": 25000,
-    "last_seen": "2026-10-01T23:57:43.175793+00:00"
+    "last_seen": "2026-10-02T05:52:38.972854+00:00"
   },
   "ev|charge ev charge|2026|elektro|2": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
@@ -2063,6 +2063,6 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 27000,
-    "last_seen": "2026-10-01T23:57:43.175793+00:00"
+    "last_seen": "2026-10-02T05:52:38.972854+00:00"
   }
 }
