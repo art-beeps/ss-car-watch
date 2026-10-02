@@ -398,8 +398,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 21000,
-    "last_seen": "2026-09-28T15:38:07.819404+00:00"
+    "last_price": 20900,
+    "last_seen": "2026-10-02T12:50:34.616906+00:00"
   },
   "toyota|bz4x|2023|elektro|61": {
     "first_seen": "2026-09-11T11:32:46.737118+00:00",
@@ -840,7 +840,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 26990,
-    "last_seen": "2026-09-24T15:15:51.928209+00:00"
+    "last_seen": "2026-10-02T12:50:34.616906+00:00"
   },
   "volkswagen|id. 7 pro|2025|elektro|21": {
     "first_seen": "2026-09-16T11:49:28.987725+00:00",
@@ -2064,5 +2064,45 @@
     "last_ta": null,
     "last_price": 27000,
     "last_seen": "2026-10-02T05:52:38.972854+00:00"
+  },
+  "dacia|spring|2022|elektro|82": {
+    "first_seen": "2026-10-02T12:50:34.616906+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccophg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 11800,
+    "last_seen": "2026-10-02T12:50:34.616906+00:00"
+  },
+  "peugeot|2008 gt line|2020|elektro|167": {
+    "first_seen": "2026-10-02T12:50:34.616906+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ceiggx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15000,
+    "last_seen": "2026-10-02T12:50:34.616906+00:00"
+  },
+  "dfsk|seres 3|2023|elektro|54": {
+    "first_seen": "2026-10-02T12:50:34.616906+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchpnd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17100,
+    "last_seen": "2026-10-02T12:50:34.616906+00:00"
+  },
+  "gwm|ora 03|2023|elektro|9": {
+    "first_seen": "2026-10-02T12:50:34.616906+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccfeej.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18900,
+    "last_seen": "2026-10-02T12:50:34.616906+00:00"
   }
 }
