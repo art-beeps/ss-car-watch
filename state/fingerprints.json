@@ -2154,5 +2154,15 @@
     "last_ta": null,
     "last_price": 17500,
     "last_seen": "2026-10-03T18:01:21.157949+00:00"
+  },
+  "nissan|leaf|2023|elektro|58": {
+    "first_seen": "2026-10-03T21:27:46.679731+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnmbb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 16700,
+    "last_seen": "2026-10-03T21:27:46.679731+00:00"
   }
 }
