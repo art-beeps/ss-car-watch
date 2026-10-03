@@ -126,8 +126,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 10900,
-    "last_seen": "2026-09-09T19:51:25.233133+00:00"
+    "last_price": 9000,
+    "last_seen": "2026-10-03T18:01:21.157949+00:00"
   },
   "renault|kangoo e-tech|2025|elektro|0": {
     "first_seen": "2026-09-09T16:45:46.061052+00:00",
@@ -2144,5 +2144,15 @@
     "last_ta": null,
     "last_price": 21200,
     "last_seen": "2026-10-03T08:17:33.973277+00:00"
+  },
+  "renault|zoe|2020|elektro|130": {
+    "first_seen": "2026-10-03T18:01:21.157949+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccifkk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17500,
+    "last_seen": "2026-10-03T18:01:21.157949+00:00"
   }
 }
