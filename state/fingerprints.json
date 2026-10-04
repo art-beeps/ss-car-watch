@@ -2164,5 +2164,25 @@
     "last_ta": null,
     "last_price": 16700,
     "last_seen": "2026-10-03T21:27:46.679731+00:00"
+  },
+  "ora|64kw 400 pro|2024|elektro|14": {
+    "first_seen": "2026-10-04T07:01:30.503330+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdkjxf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22950,
+    "last_seen": "2026-10-04T07:01:30.503330+00:00"
+  },
+  "opel|corsa|2008|1.2|14": {
+    "first_seen": "2026-10-04T07:01:30.503330+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/opel/corsa/fjdhx.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-04-30",
+    "last_price": 300,
+    "last_seen": "2026-10-04T07:01:30.503330+00:00"
   }
 }
