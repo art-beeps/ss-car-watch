@@ -2194,5 +2194,15 @@
     "last_ta": "2028-04-30",
     "last_price": 50000,
     "last_seen": "2026-10-05T07:11:46.815216+00:00"
+  },
+  "bmv|ix|2021|elektro|89": {
+    "first_seen": "2026-10-05T16:10:56.270547+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddedg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 37000,
+    "last_seen": "2026-10-05T16:10:56.270547+00:00"
   }
 }
