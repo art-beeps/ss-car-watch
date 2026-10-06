@@ -1972,8 +1972,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 8950,
-    "last_seen": "2026-09-30T23:57:58.633581+00:00"
+    "last_price": 8450,
+    "last_seen": "2026-10-06T17:17:15.571707+00:00"
   },
   "tesla|model y|2023|elektro|130": {
     "first_seen": "2026-09-30T19:29:00.247327+00:00",
@@ -2224,5 +2224,25 @@
     "last_ta": null,
     "last_price": 21790,
     "last_seen": "2026-10-06T10:32:00.231917+00:00"
+  },
+  "volkswagen|id3|2020|elektro|113": {
+    "first_seen": "2026-10-06T17:17:15.571707+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblgnl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15888,
+    "last_seen": "2026-10-06T17:17:15.571707+00:00"
+  },
+  "cita|marka|2026|1.5h|15": {
+    "first_seen": "2026-10-06T17:17:15.571707+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/cgifhd.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-12-31",
+    "last_price": 35840,
+    "last_seen": "2026-10-06T17:17:15.571707+00:00"
   }
 }
