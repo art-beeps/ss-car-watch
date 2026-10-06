@@ -2214,5 +2214,15 @@
     "last_ta": null,
     "last_price": 48500,
     "last_seen": "2026-10-05T22:45:41.446850+00:00"
+  },
+  "gwm|ora ora 03|2025|elektro|60": {
+    "first_seen": "2026-10-06T10:32:00.231917+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchxoo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21790,
+    "last_seen": "2026-10-06T10:32:00.231917+00:00"
   }
 }
