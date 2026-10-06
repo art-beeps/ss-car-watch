@@ -187,7 +187,7 @@
     "had_valid_ta": true,
     "last_ta": "2028-08-31",
     "last_price": 25000,
-    "last_seen": "2026-10-02T05:52:38.972854+00:00"
+    "last_seen": "2026-10-06T21:43:31.776499+00:00"
   },
   "ev|charge ev charge|2026|elektro|2": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
@@ -2244,5 +2244,15 @@
     "last_ta": "2028-12-31",
     "last_price": 35840,
     "last_seen": "2026-10-06T17:17:15.571707+00:00"
+  },
+  "renault|citi|2025|1.2h|24": {
+    "first_seen": "2026-10-06T21:43:31.776499+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/renault/another/bhpcp.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-01-31",
+    "last_price": 40000,
+    "last_seen": "2026-10-06T21:43:31.776499+00:00"
   }
 }
