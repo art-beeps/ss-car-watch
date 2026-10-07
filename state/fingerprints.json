@@ -2272,8 +2272,8 @@
     ],
     "had_valid_ta": true,
     "last_ta": "2028-08-31",
-    "last_price": 32800,
-    "last_seen": "2026-10-07T08:51:57.507569+00:00"
+    "last_price": 31900,
+    "last_seen": "2026-10-07T22:04:49.146226+00:00"
   },
   "ford|focus|2002|1.6|121": {
     "first_seen": "2026-10-07T08:51:57.507569+00:00",
@@ -2284,5 +2284,35 @@
     "last_ta": null,
     "last_price": 500,
     "last_seen": "2026-10-07T08:51:57.507569+00:00"
+  },
+  "nissan|life|2018|elektro|160": {
+    "first_seen": "2026-10-07T22:04:49.146226+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkhpx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10800,
+    "last_seen": "2026-10-07T22:04:49.146226+00:00"
+  },
+  "mini|cooper|2019|elektro|55": {
+    "first_seen": "2026-10-07T22:04:49.146226+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbombe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 12400,
+    "last_seen": "2026-10-07T22:04:49.146226+00:00"
+  },
+  "tesla|model 3|2020|elektro|120": {
+    "first_seen": "2026-10-07T22:04:49.146226+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cenjnn.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-10-15",
+    "last_price": 20500,
+    "last_seen": "2026-10-07T22:04:49.146226+00:00"
   }
 }
