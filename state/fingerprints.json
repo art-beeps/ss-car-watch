@@ -2314,5 +2314,25 @@
     "last_ta": "2027-10-15",
     "last_price": 20500,
     "last_seen": "2026-10-07T22:04:49.146226+00:00"
+  },
+  "mg|zs ev|2022|elektro|125": {
+    "first_seen": "2026-10-08T09:09:06.214755+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdjocm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 8950,
+    "last_seen": "2026-10-08T09:09:06.214755+00:00"
+  },
+  "bmw|ix 50xdrive|2024|elektro|34": {
+    "first_seen": "2026-10-08T09:09:06.214755+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnolh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 54990,
+    "last_seen": "2026-10-08T09:09:06.214755+00:00"
   }
 }
