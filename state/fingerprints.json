@@ -1612,8 +1612,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 21000,
-    "last_seen": "2026-09-24T19:18:11.784856+00:00"
+    "last_price": 21900,
+    "last_seen": "2026-10-09T21:01:32.070066+00:00"
   },
   "byd|atto 2|2025|elektro|2": {
     "first_seen": "2026-09-24T19:18:11.784856+00:00",
@@ -2404,5 +2404,15 @@
     "last_ta": null,
     "last_price": 49990,
     "last_seen": "2026-10-09T16:20:53.319732+00:00"
+  },
+  "hiphi|x human horizons|2023|elektro|13": {
+    "first_seen": "2026-10-09T21:01:32.070066+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkidx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 65000,
+    "last_seen": "2026-10-09T21:01:32.070066+00:00"
   }
 }
