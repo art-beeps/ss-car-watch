@@ -800,7 +800,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 24990,
-    "last_seen": "2026-09-16T00:29:57.730670+00:00"
+    "last_seen": "2026-10-09T09:16:44.693355+00:00"
   },
   "mercedes|benz amg eqs 450+|2024|elektro|30": {
     "first_seen": "2026-09-15T21:29:53.617656+00:00",
@@ -2354,5 +2354,35 @@
     "last_ta": null,
     "last_price": 18995,
     "last_seen": "2026-10-08T16:37:26.984035+00:00"
+  },
+  "vw|id 3 pro 150kw|2020|elektro|58": {
+    "first_seen": "2026-10-09T09:16:44.693355+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfpkpx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19900,
+    "last_seen": "2026-10-09T09:16:44.693355+00:00"
+  },
+  "tesla|model 3|2020|elektro|163": {
+    "first_seen": "2026-10-09T09:16:44.693355+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbeiid.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 20500,
+    "last_seen": "2026-10-09T09:16:44.693355+00:00"
+  },
+  "skoda|jnyaq iv|2023|elektro|50": {
+    "first_seen": "2026-10-09T09:16:44.693355+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfpkpf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 25500,
+    "last_seen": "2026-10-09T09:16:44.693355+00:00"
   }
 }
