@@ -2384,5 +2384,25 @@
     "last_ta": null,
     "last_price": 25500,
     "last_seen": "2026-10-09T09:16:44.693355+00:00"
+  },
+  "jaguar|i-pace|2018|elektro|110": {
+    "first_seen": "2026-10-09T16:20:53.319732+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkfce.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17995,
+    "last_seen": "2026-10-09T16:20:53.319732+00:00"
+  },
+  "byd|sealion 7|2025|elektro|22": {
+    "first_seen": "2026-10-09T16:20:53.319732+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpfge.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 49990,
+    "last_seen": "2026-10-09T16:20:53.319732+00:00"
   }
 }
