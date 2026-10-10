@@ -2424,5 +2424,25 @@
     "last_ta": null,
     "last_price": 29990,
     "last_seen": "2026-10-10T13:51:05.119792+00:00"
+  },
+  "kia|soul ev|2015|elektro|135": {
+    "first_seen": "2026-10-10T18:42:28.332198+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cboidj.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-10-06",
+    "last_price": 7500,
+    "last_seen": "2026-10-10T18:42:28.332198+00:00"
+  },
+  "kia|niro|2019|elektro|165": {
+    "first_seen": "2026-10-10T18:42:28.332198+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccjmli.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18948,
+    "last_seen": "2026-10-10T18:42:28.332198+00:00"
   }
 }
