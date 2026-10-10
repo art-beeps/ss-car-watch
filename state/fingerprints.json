@@ -2414,5 +2414,15 @@
     "last_ta": null,
     "last_price": 65000,
     "last_seen": "2026-10-09T21:01:32.070066+00:00"
+  },
+  "polstar|polstar 2|2022|elektro|52": {
+    "first_seen": "2026-10-10T13:51:05.119792+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccembh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29990,
+    "last_seen": "2026-10-10T13:51:05.119792+00:00"
   }
 }
