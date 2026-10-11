@@ -2454,5 +2454,15 @@
     "last_ta": null,
     "last_price": 23000,
     "last_seen": "2026-10-11T09:03:37.727819+00:00"
+  },
+  "audi|e-tron|2021|elektro|64": {
+    "first_seen": "2026-10-11T15:48:31.832283+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnblo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 27900,
+    "last_seen": "2026-10-11T15:48:31.832283+00:00"
   }
 }
