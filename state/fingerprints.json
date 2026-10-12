@@ -1972,8 +1972,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 8450,
-    "last_seen": "2026-10-06T17:17:15.571707+00:00"
+    "last_price": 8200,
+    "last_seen": "2026-10-12T06:10:52.579987+00:00"
   },
   "tesla|model y|2023|elektro|130": {
     "first_seen": "2026-09-30T19:29:00.247327+00:00",
@@ -2464,5 +2464,25 @@
     "last_ta": null,
     "last_price": 27900,
     "last_seen": "2026-10-11T15:48:31.832283+00:00"
+  },
+  "mg|mg4|2022|elektro|33": {
+    "first_seen": "2026-10-12T06:10:52.579987+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cciinj.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 16500,
+    "last_seen": "2026-10-12T06:10:52.579987+00:00"
+  },
+  "bmw|i4|2022|elektro|62": {
+    "first_seen": "2026-10-12T06:10:52.579987+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfdpml.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 35999,
+    "last_seen": "2026-10-12T06:10:52.579987+00:00"
   }
 }
