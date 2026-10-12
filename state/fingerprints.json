@@ -1588,12 +1588,13 @@
   "skoda|kodiaq|2026|1.5h|0": {
     "first_seen": "2026-09-24T15:15:51.928209+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/skoda/kodiaq/ccixio.html"
+      "https://www.ss.lv/msg/lv/transport/cars/skoda/kodiaq/ccixio.html",
+      "https://www.ss.lv/msg/lv/transport/cars/skoda/kodiaq/chxxfm.html"
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 45340,
-    "last_seen": "2026-09-24T15:15:51.928209+00:00"
+    "last_price": 48600,
+    "last_seen": "2026-10-12T15:44:30.525488+00:00"
   },
   "renault|megane|2021|plug-in|32": {
     "first_seen": "2026-09-24T19:18:11.784856+00:00",
@@ -1732,8 +1733,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 11400,
-    "last_seen": "2026-09-27T08:21:01.408613+00:00"
+    "last_price": 10900,
+    "last_seen": "2026-10-12T15:44:30.525488+00:00"
   },
   "podpoint|type1|2021|elektro|10": {
     "first_seen": "2026-09-27T14:05:58.892944+00:00",
@@ -2484,5 +2485,15 @@
     "last_ta": null,
     "last_price": 35999,
     "last_seen": "2026-10-12T06:10:52.579987+00:00"
+  },
+  "volkswagen|golf|2019|elektro|99": {
+    "first_seen": "2026-10-12T15:44:30.525488+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfplef.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 11500,
+    "last_seen": "2026-10-12T15:44:30.525488+00:00"
   }
 }
