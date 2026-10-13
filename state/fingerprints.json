@@ -2535,5 +2535,45 @@
     "last_ta": "2028-08-15",
     "last_price": 48770,
     "last_seen": "2026-10-13T11:56:08.736121+00:00"
+  },
+  "fiat|ducato 1.9td|1998|elektro|280": {
+    "first_seen": "2026-10-13T19:22:19.519705+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdkigg.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-06-30",
+    "last_price": 10000,
+    "last_seen": "2026-10-13T19:22:19.519705+00:00"
+  },
+  "cupra|born|2022|elektro|45": {
+    "first_seen": "2026-10-13T19:22:19.519705+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cefoni.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22800,
+    "last_seen": "2026-10-13T19:22:19.519705+00:00"
+  },
+  "byd|sealion 7|2025|elektro|8": {
+    "first_seen": "2026-10-13T19:22:19.519705+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnxbl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 45990,
+    "last_seen": "2026-10-13T19:22:19.519705+00:00"
+  },
+  "byd|sea lion 7|2026|elektro|0": {
+    "first_seen": "2026-10-13T19:22:19.519705+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxjxfe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 54990,
+    "last_seen": "2026-10-13T19:22:19.519705+00:00"
   }
 }
