@@ -809,8 +809,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 75000,
-    "last_seen": "2026-09-15T21:29:53.617656+00:00"
+    "last_price": 71390,
+    "last_seen": "2026-10-14T07:47:24.339879+00:00"
   },
   "nissan|leaf|2013|elektro|118": {
     "first_seen": "2026-09-16T11:49:28.987725+00:00",
@@ -2575,5 +2575,15 @@
     "last_ta": null,
     "last_price": 54990,
     "last_seen": "2026-10-13T19:22:19.519705+00:00"
+  },
+  "skywell|et5|2023|elektro|15": {
+    "first_seen": "2026-10-14T07:47:24.339879+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdnbfl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22500,
+    "last_seen": "2026-10-14T07:47:24.339879+00:00"
   }
 }
