@@ -2626,5 +2626,45 @@
     "last_ta": null,
     "last_price": 13000,
     "last_seen": "2026-10-14T22:23:02.234487+00:00"
+  },
+  "mg|mg 4|2026|elektro|7": {
+    "first_seen": "2026-10-15T11:43:37.099638+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdjocm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 14900,
+    "last_seen": "2026-10-15T11:43:37.099638+00:00"
+  },
+  "skywell|et5|2023|elektro|14": {
+    "first_seen": "2026-10-15T11:43:37.099638+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cceopb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22000,
+    "last_seen": "2026-10-15T11:43:37.099638+00:00"
+  },
+  "audi|q8 e-tron|2024|elektro|61": {
+    "first_seen": "2026-10-15T11:43:37.099638+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnpmo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 49000,
+    "last_seen": "2026-10-15T11:43:37.099638+00:00"
+  },
+  "toyota|rav 4|2026|2.5h|0": {
+    "first_seen": "2026-10-15T11:43:37.099638+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/toyota/rav-4/cddfxl.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-12-31",
+    "last_price": 46550,
+    "last_seen": "2026-10-15T11:43:37.099638+00:00"
   }
 }
