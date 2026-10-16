@@ -2716,5 +2716,35 @@
     "last_ta": "2027-07-31",
     "last_price": 28400,
     "last_seen": "2026-10-16T07:19:52.014876+00:00"
+  },
+  "vw|id. 3|2020|elektro|95": {
+    "first_seen": "2026-10-16T12:32:47.246742+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cclmll.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18700,
+    "last_seen": "2026-10-16T12:32:47.246742+00:00"
+  },
+  "bmv|ix|2021|elektro|90": {
+    "first_seen": "2026-10-16T12:32:47.246742+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddedg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 39000,
+    "last_seen": "2026-10-16T12:32:47.246742+00:00"
+  },
+  "karma|revero|2022|plug-in|32": {
+    "first_seen": "2026-10-16T12:32:47.246742+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfjofm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 54900,
+    "last_seen": "2026-10-16T12:32:47.246742+00:00"
   }
 }
