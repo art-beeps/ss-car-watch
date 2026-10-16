@@ -2746,5 +2746,15 @@
     "last_ta": null,
     "last_price": 54900,
     "last_seen": "2026-10-16T17:31:21.360552+00:00"
+  },
+  "bmw|ix40 m paket|2023|elektro|79": {
+    "first_seen": "2026-10-16T21:22:36.175193+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbdnpp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28300,
+    "last_seen": "2026-10-16T21:22:36.175193+00:00"
   }
 }
