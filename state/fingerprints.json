@@ -1060,8 +1060,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 42100,
-    "last_seen": "2026-09-18T22:40:02.785074+00:00"
+    "last_price": 39990,
+    "last_seen": "2026-10-17T09:29:14.563360+00:00"
   },
   "voyah|free|2023|elektro|44": {
     "first_seen": "2026-09-19T06:00:49.786685+00:00",
@@ -1703,8 +1703,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 42500,
-    "last_seen": "2026-09-25T18:43:49.407118+00:00"
+    "last_price": 41900,
+    "last_seen": "2026-10-17T09:29:14.563360+00:00"
   },
   "mitsubishi|i-miev|2012|elektro|119": {
     "first_seen": "2026-09-25T22:30:33.683051+00:00",
@@ -2766,5 +2766,25 @@
     "last_ta": null,
     "last_price": 27900,
     "last_seen": "2026-10-17T04:40:51.528594+00:00"
+  },
+  "vw|up|2021|elektro|115": {
+    "first_seen": "2026-10-17T09:29:14.563360+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbiide.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 8500,
+    "last_seen": "2026-10-17T09:29:14.563360+00:00"
+  },
+  "cita|marka|2025|2.0h|1": {
+    "first_seen": "2026-10-17T09:29:14.563360+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/cgifgn.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-10-31",
+    "last_price": 83500,
+    "last_seen": "2026-10-17T09:29:14.563360+00:00"
   }
 }
