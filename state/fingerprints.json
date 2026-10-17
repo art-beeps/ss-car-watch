@@ -2805,7 +2805,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 11800,
-    "last_seen": "2026-10-17T13:48:14.840458+00:00"
+    "last_seen": "2026-10-17T17:18:51.580440+00:00"
   },
   "opel|corsa|2023|elektro|85": {
     "first_seen": "2026-10-17T13:48:14.840458+00:00",
@@ -2825,6 +2825,6 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 24490,
-    "last_seen": "2026-10-17T13:48:14.840458+00:00"
+    "last_seen": "2026-10-17T17:18:51.580440+00:00"
   }
 }
