@@ -2786,5 +2786,45 @@
     "last_ta": "2028-10-31",
     "last_price": 83500,
     "last_seen": "2026-10-17T09:29:14.563360+00:00"
+  },
+  "nissan|leaf|2012|elektro|210": {
+    "first_seen": "2026-10-17T13:48:14.840458+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxehdx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 4300,
+    "last_seen": "2026-10-17T13:48:14.840458+00:00"
+  },
+  "nissan|leaf|2019|elektro|171": {
+    "first_seen": "2026-10-17T13:48:14.840458+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfpoe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 11800,
+    "last_seen": "2026-10-17T13:48:14.840458+00:00"
+  },
+  "opel|corsa|2023|elektro|85": {
+    "first_seen": "2026-10-17T13:48:14.840458+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblhhf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 12000,
+    "last_seen": "2026-10-17T13:48:14.840458+00:00"
+  },
+  "volkswagen|id4|2020|elektro|128": {
+    "first_seen": "2026-10-17T13:48:14.840458+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpdkc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24490,
+    "last_seen": "2026-10-17T13:48:14.840458+00:00"
   }
 }
