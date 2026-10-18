@@ -1619,12 +1619,13 @@
   "byd|atto 2|2025|elektro|2": {
     "first_seen": "2026-09-24T19:18:11.784856+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbeilo.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbeilo.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnomb.html"
     ],
     "had_valid_ta": true,
-    "last_ta": "2028-05-23",
+    "last_ta": "2028-05-22",
     "last_price": 31300,
-    "last_seen": "2026-09-24T19:18:11.784856+00:00"
+    "last_seen": "2026-10-18T18:12:29.298746+00:00"
   },
   "bmw|i3|2018|elektro|170": {
     "first_seen": "2026-09-25T13:56:16.935183+00:00",
@@ -2826,5 +2827,15 @@
     "last_ta": null,
     "last_price": 24490,
     "last_seen": "2026-10-17T17:18:51.580440+00:00"
+  },
+  "bmw|i5|2025|elektro|27": {
+    "first_seen": "2026-10-18T18:12:29.298746+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpfij.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 47950,
+    "last_seen": "2026-10-18T18:12:29.298746+00:00"
   }
 }
