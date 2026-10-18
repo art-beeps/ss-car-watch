@@ -1625,7 +1625,7 @@
     "had_valid_ta": true,
     "last_ta": "2028-05-22",
     "last_price": 31300,
-    "last_seen": "2026-10-18T18:12:29.298746+00:00"
+    "last_seen": "2026-10-18T20:54:04.672576+00:00"
   },
   "bmw|i3|2018|elektro|170": {
     "first_seen": "2026-09-25T13:56:16.935183+00:00",
@@ -2837,5 +2837,15 @@
     "last_ta": null,
     "last_price": 47950,
     "last_seen": "2026-10-18T18:12:29.298746+00:00"
+  },
+  "tesla|3 performance|2019|elektro|92": {
+    "first_seen": "2026-10-18T20:54:04.672576+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccjncx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24300,
+    "last_seen": "2026-10-18T20:54:04.672576+00:00"
   }
 }
