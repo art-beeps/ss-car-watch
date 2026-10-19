@@ -560,7 +560,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 43000,
-    "last_seen": "2026-10-19T01:24:29.344120+00:00"
+    "last_seen": "2026-10-19T06:24:26.687827+00:00"
   },
   "tesla|s|2017|elektro|149": {
     "first_seen": "2026-09-13T18:14:44.560781+00:00",
@@ -1548,12 +1548,13 @@
   "toyota|c-hr|2026|2.0h|1": {
     "first_seen": "2026-09-24T10:12:16.595823+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/toyota/c-hr/cebxle.html"
+      "https://www.ss.lv/msg/lv/transport/cars/toyota/c-hr/cebxle.html",
+      "https://www.ss.lv/msg/lv/transport/cars/toyota/c-hr/cgdcbg.html"
     ],
     "had_valid_ta": true,
-    "last_ta": "2028-09-30",
-    "last_price": 42990,
-    "last_seen": "2026-09-24T10:12:16.595823+00:00"
+    "last_ta": "2028-12-31",
+    "last_price": 39990,
+    "last_seen": "2026-10-19T06:24:26.687827+00:00"
   },
   "mitsubishi|i-miev|2012|elektro|118": {
     "first_seen": "2026-09-24T15:15:51.928209+00:00",
@@ -2847,5 +2848,15 @@
     "last_ta": null,
     "last_price": 24300,
     "last_seen": "2026-10-18T20:54:04.672576+00:00"
+  },
+  "auxus|type 2|2025|elektro|0": {
+    "first_seen": "2026-10-19T06:24:26.687827+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmokk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 70,
+    "last_seen": "2026-10-19T06:24:26.687827+00:00"
   }
 }
