@@ -1975,8 +1975,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 8950,
-    "last_seen": "2026-10-19T13:44:31.058135+00:00"
+    "last_price": 8850,
+    "last_seen": "2026-10-19T20:00:26.506013+00:00"
   },
   "tesla|model y|2023|elektro|130": {
     "first_seen": "2026-09-30T19:29:00.247327+00:00",
@@ -2878,5 +2878,15 @@
     "last_ta": null,
     "last_price": 22000,
     "last_seen": "2026-10-19T13:44:31.058135+00:00"
+  },
+  "nissan|ariya|2024|elektro|54": {
+    "first_seen": "2026-10-19T20:00:26.506013+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccgehx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29900,
+    "last_seen": "2026-10-19T20:00:26.506013+00:00"
   }
 }
