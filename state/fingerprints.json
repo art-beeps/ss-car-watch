@@ -488,8 +488,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 21000,
-    "last_seen": "2026-09-28T15:38:07.819404+00:00"
+    "last_price": 20450,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
   },
   "bmw|i4|2022|elektro|153": {
     "first_seen": "2026-09-12T17:16:26.309665+00:00",
@@ -2672,12 +2672,13 @@
   "renault|zoe|2014|elektro|205": {
     "first_seen": "2026-10-15T17:10:31.235273+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxggx.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdxggx.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpdkp.html"
     ],
-    "had_valid_ta": false,
-    "last_ta": null,
-    "last_price": 5500,
-    "last_seen": "2026-10-15T17:10:31.235273+00:00"
+    "had_valid_ta": true,
+    "last_ta": "2027-05-14",
+    "last_price": 5250,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
   },
   "volkswagen|id. 4 pro|2021|elektro|89": {
     "first_seen": "2026-10-15T17:10:31.235273+00:00",
@@ -2888,5 +2889,65 @@
     "last_ta": null,
     "last_price": 29900,
     "last_seen": "2026-10-19T20:00:26.506013+00:00"
+  },
+  "vw|up|2014|elektro|161": {
+    "first_seen": "2026-10-20T10:10:54.697955+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdgiex.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 5000,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
+  },
+  "peugeot|ion|2018|elektro|75": {
+    "first_seen": "2026-10-20T10:10:54.697955+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkbkc.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-01-31",
+    "last_price": 5850,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
+  },
+  "volkswagen|id4 pro|2021|elektro|174": {
+    "first_seen": "2026-10-20T10:10:54.697955+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccgxmp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19900,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
+  },
+  "gwm|ora funky 400|2024|elektro|12": {
+    "first_seen": "2026-10-20T10:10:54.697955+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxiljc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22000,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
+  },
+  "skywell|et5|2023|elektro|9": {
+    "first_seen": "2026-10-20T10:10:54.697955+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblhec.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 23000,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
+  },
+  "mercedes|benz eqb 300|2023|elektro|89": {
+    "first_seen": "2026-10-20T10:10:54.697955+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfxmcg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 37500,
+    "last_seen": "2026-10-20T10:10:54.697955+00:00"
   }
 }
