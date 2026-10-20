@@ -2960,5 +2960,15 @@
     "last_ta": null,
     "last_price": 27990,
     "last_seen": "2026-10-20T15:11:48.816515+00:00"
+  },
+  "nissan|ariya|2022|elektro|29": {
+    "first_seen": "2026-10-20T22:26:28.739685+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmibg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28700,
+    "last_seen": "2026-10-20T22:26:28.739685+00:00"
   }
 }
