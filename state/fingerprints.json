@@ -1170,8 +1170,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 27100,
-    "last_seen": "2026-09-20T12:29:14.578326+00:00"
+    "last_price": 26100,
+    "last_seen": "2026-10-20T15:11:48.816515+00:00"
   },
   "peugeot|e-208|2020|elektro|115": {
     "first_seen": "2026-09-20T16:52:43.672856+00:00",
@@ -2225,8 +2225,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 21790,
-    "last_seen": "2026-10-06T10:32:00.231917+00:00"
+    "last_price": 20990,
+    "last_seen": "2026-10-20T15:11:48.816515+00:00"
   },
   "volkswagen|id3|2020|elektro|113": {
     "first_seen": "2026-10-06T17:17:15.571707+00:00",
@@ -2949,5 +2949,16 @@
     "last_ta": null,
     "last_price": 37500,
     "last_seen": "2026-10-20T10:10:54.697955+00:00"
+  },
+  "byd|atto 3|2023|elektro|30": {
+    "first_seen": "2026-10-20T15:11:48.816515+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxijln.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbpdcd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 27990,
+    "last_seen": "2026-10-20T15:11:48.816515+00:00"
   }
 }
