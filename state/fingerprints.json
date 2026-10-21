@@ -1246,12 +1246,13 @@
   "lexus|rx|2025|2.5h|12": {
     "first_seen": "2026-09-21T14:20:00.012197+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/lexus/rx/ccipgp.html"
+      "https://www.ss.lv/msg/lv/transport/cars/lexus/rx/ccipgp.html",
+      "https://www.ss.lv/msg/lv/transport/cars/lexus/rx/cdmoll.html"
     ],
     "had_valid_ta": true,
     "last_ta": "2028-04-30",
     "last_price": 79900,
-    "last_seen": "2026-09-21T14:20:00.012197+00:00"
+    "last_seen": "2026-10-21T13:56:16.681936+00:00"
   },
   "audi|a4|2000|2.5d|365": {
     "first_seen": "2026-09-21T14:20:00.012197+00:00",
@@ -2576,8 +2577,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 54990,
-    "last_seen": "2026-10-13T19:22:19.519705+00:00"
+    "last_price": 52990,
+    "last_seen": "2026-10-21T13:56:16.681936+00:00"
   },
   "skywell|et5|2023|elektro|15": {
     "first_seen": "2026-10-14T07:47:24.339879+00:00",
@@ -2657,8 +2658,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 49000,
-    "last_seen": "2026-10-15T11:43:37.099638+00:00"
+    "last_price": 47000,
+    "last_seen": "2026-10-21T13:56:16.681936+00:00"
   },
   "toyota|rav 4|2026|2.5h|0": {
     "first_seen": "2026-10-15T11:43:37.099638+00:00",
@@ -3001,5 +3002,25 @@
     "last_ta": null,
     "last_price": 35500,
     "last_seen": "2026-10-21T07:48:26.765398+00:00"
+  },
+  "jaguar|i-pace|2018|elektro|168": {
+    "first_seen": "2026-10-21T13:56:16.681936+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdgncx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17200,
+    "last_seen": "2026-10-21T13:56:16.681936+00:00"
+  },
+  "jaguar|i-pace|2019|elektro|108": {
+    "first_seen": "2026-10-21T13:56:16.681936+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddmmc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18950,
+    "last_seen": "2026-10-21T13:56:16.681936+00:00"
   }
 }
