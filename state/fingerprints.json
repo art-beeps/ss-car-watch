@@ -1316,12 +1316,13 @@
   "toyota|c-hr|2026|2.0h|0": {
     "first_seen": "2026-09-21T19:34:29.827790+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/toyota/c-hr/cblmjh.html"
+      "https://www.ss.lv/msg/lv/transport/cars/toyota/c-hr/cblmjh.html",
+      "https://www.ss.lv/msg/lv/transport/cars/toyota/c-hr/boopcg.html"
     ],
     "had_valid_ta": true,
-    "last_ta": "2028-06-30",
-    "last_price": 42990,
-    "last_seen": "2026-09-21T19:34:29.827790+00:00"
+    "last_ta": "2028-12-31",
+    "last_price": 37990,
+    "last_seen": "2026-10-21T07:48:26.765398+00:00"
   },
   "vw|id5 gtx|2023|elektro|108": {
     "first_seen": "2026-09-22T07:47:20.823154+00:00",
@@ -2970,5 +2971,35 @@
     "last_ta": null,
     "last_price": 28700,
     "last_seen": "2026-10-21T01:42:13.561233+00:00"
+  },
+  "nissan|leaf|2016|elektro|60": {
+    "first_seen": "2026-10-21T07:48:26.765398+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cefojf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 5550,
+    "last_seen": "2026-10-21T07:48:26.765398+00:00"
+  },
+  "mercedes|benz eqb 300 4matic|2023|elektro|81": {
+    "first_seen": "2026-10-21T07:48:26.765398+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccefeh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 31000,
+    "last_seen": "2026-10-21T07:48:26.765398+00:00"
+  },
+  "bmw|i4|2023|elektro|111": {
+    "first_seen": "2026-10-21T07:48:26.765398+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccfilk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 35500,
+    "last_seen": "2026-10-21T07:48:26.765398+00:00"
   }
 }
