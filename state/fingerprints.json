@@ -226,8 +226,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 8750,
-    "last_seen": "2026-09-24T19:18:11.784856+00:00"
+    "last_price": 8600,
+    "last_seen": "2026-10-21T18:45:11.914788+00:00"
   },
   "audi|e-tron|2019|elektro|150": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
@@ -1977,8 +1977,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 8850,
-    "last_seen": "2026-10-19T20:00:26.506013+00:00"
+    "last_price": 7950,
+    "last_seen": "2026-10-21T18:45:11.914788+00:00"
   },
   "tesla|model y|2023|elektro|130": {
     "first_seen": "2026-09-30T19:29:00.247327+00:00",
@@ -1988,7 +1988,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 32990,
-    "last_seen": "2026-09-30T19:29:00.247327+00:00"
+    "last_seen": "2026-10-21T18:45:11.914788+00:00"
   },
   "vw|e-golf|2015|elektro|140": {
     "first_seen": "2026-10-01T06:09:23.057285+00:00",
@@ -3022,5 +3022,25 @@
     "last_ta": null,
     "last_price": 18950,
     "last_seen": "2026-10-21T13:56:16.681936+00:00"
+  },
+  "vw|e-up!|2020|elektro|99": {
+    "first_seen": "2026-10-21T18:45:11.914788+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chxffc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10690,
+    "last_seen": "2026-10-21T18:45:11.914788+00:00"
+  },
+  "volvo|xc 70|2006|2.4d|402": {
+    "first_seen": "2026-10-21T18:45:11.914788+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/volvo/xc70/amndg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 400,
+    "last_seen": "2026-10-21T18:45:11.914788+00:00"
   }
 }
