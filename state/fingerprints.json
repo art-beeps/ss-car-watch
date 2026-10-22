@@ -3094,5 +3094,25 @@
     "last_ta": null,
     "last_price": 33000,
     "last_seen": "2026-10-22T13:54:39.345331+00:00"
+  },
+  "tesla|model 3|2021|elektro|101": {
+    "first_seen": "2026-10-22T18:38:21.097274+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chxfon.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 26995,
+    "last_seen": "2026-10-22T18:38:21.097274+00:00"
+  },
+  "volkswagen|id 4 gtx|2023|elektro|99": {
+    "first_seen": "2026-10-22T18:38:21.097274+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chxgxg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29900,
+    "last_seen": "2026-10-22T18:38:21.097274+00:00"
   }
 }
