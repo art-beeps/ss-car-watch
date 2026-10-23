@@ -3114,5 +3114,15 @@
     "last_ta": null,
     "last_price": 29900,
     "last_seen": "2026-10-22T18:38:21.097274+00:00"
+  },
+  "bmw|ix 40|2022|elektro|75": {
+    "first_seen": "2026-10-23T07:41:54.852152+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchmkp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 50000,
+    "last_seen": "2026-10-23T07:41:54.852152+00:00"
   }
 }
