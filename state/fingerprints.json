@@ -670,8 +670,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 30000,
-    "last_seen": "2026-09-14T23:13:04.432394+00:00"
+    "last_price": 29000,
+    "last_seen": "2026-10-24T18:14:10.138925+00:00"
   },
   "dacia|spring|2021|elektro|62": {
     "first_seen": "2026-09-15T07:52:33.455585+00:00",
