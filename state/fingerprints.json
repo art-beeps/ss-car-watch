@@ -3175,5 +3175,25 @@
     "last_ta": "2028-10-31",
     "last_price": 30800,
     "last_seen": "2026-10-25T11:46:27.337099+00:00"
+  },
+  "bmw|i3s|2019|elektro|110": {
+    "first_seen": "2026-10-25T16:34:47.176222+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmnem.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 17000,
+    "last_seen": "2026-10-25T16:34:47.176222+00:00"
+  },
+  "mercedes|benz eqe 350+|2022|elektro|148": {
+    "first_seen": "2026-10-25T16:34:47.176222+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxbljm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 41990,
+    "last_seen": "2026-10-25T16:34:47.176222+00:00"
   }
 }
