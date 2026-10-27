@@ -3255,5 +3255,35 @@
     "last_ta": null,
     "last_price": 33990,
     "last_seen": "2026-10-27T10:41:42.648530+00:00"
+  },
+  "gwm|ora pro|2023|elektro|20": {
+    "first_seen": "2026-10-27T16:44:04.544243+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbolfe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18950,
+    "last_seen": "2026-10-27T16:44:04.544243+00:00"
+  },
+  "kia|ev6|2022|elektro|119": {
+    "first_seen": "2026-10-27T16:44:04.544243+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxblkn.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24400,
+    "last_seen": "2026-10-27T16:44:04.544243+00:00"
+  },
+  "hyundai|ioniq 5|2022|elektro|52": {
+    "first_seen": "2026-10-27T16:44:04.544243+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblgmg.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-08-31",
+    "last_price": 29800,
+    "last_seen": "2026-10-27T16:44:04.544243+00:00"
   }
 }
