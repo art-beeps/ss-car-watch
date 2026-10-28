@@ -1272,8 +1272,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 7100,
-    "last_seen": "2026-09-21T19:34:29.827790+00:00"
+    "last_price": 6000,
+    "last_seen": "2026-10-28T19:39:58.339589+00:00"
   },
   "tesla|model 3|2020|elektro|200": {
     "first_seen": "2026-09-21T19:34:29.827790+00:00",
@@ -3346,5 +3346,35 @@
     "last_ta": "2028-12-31",
     "last_price": 28900,
     "last_seen": "2026-10-28T14:07:13.030640+00:00"
+  },
+  "fiat|500e|2013|elektro|52": {
+    "first_seen": "2026-10-28T19:39:58.339589+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdhomi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 7500,
+    "last_seen": "2026-10-28T19:39:58.339589+00:00"
+  },
+  "volkswagen|id 4|2023|elektro|40": {
+    "first_seen": "2026-10-28T19:39:58.339589+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnjxl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 30000,
+    "last_seen": "2026-10-28T19:39:58.339589+00:00"
+  },
+  "bmw|i4|2023|elektro|60": {
+    "first_seen": "2026-10-28T19:39:58.339589+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bpoppb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 45990,
+    "last_seen": "2026-10-28T19:39:58.339589+00:00"
   }
 }
