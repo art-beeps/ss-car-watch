@@ -2969,12 +2969,13 @@
   "nissan|ariya|2022|elektro|29": {
     "first_seen": "2026-10-20T22:26:28.739685+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmibg.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmibg.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbilko.html"
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 28700,
-    "last_seen": "2026-10-21T01:42:13.561233+00:00"
+    "last_price": 34600,
+    "last_seen": "2026-10-28T14:07:13.030640+00:00"
   },
   "nissan|leaf|2016|elektro|60": {
     "first_seen": "2026-10-21T07:48:26.765398+00:00",
@@ -3153,8 +3154,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 19900,
-    "last_seen": "2026-10-24T11:16:19.322899+00:00"
+    "last_price": 19700,
+    "last_seen": "2026-10-28T14:07:13.030640+00:00"
   },
   "bmw|730|2017|elektro|220": {
     "first_seen": "2026-10-25T11:46:27.337099+00:00",
@@ -3305,5 +3306,45 @@
     "last_ta": "2028-07-31",
     "last_price": 16000,
     "last_seen": "2026-10-27T21:23:26.084843+00:00"
+  },
+  "hyundai|kona|2018|elektro|117": {
+    "first_seen": "2026-10-28T14:07:13.030640+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccocho.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18500,
+    "last_seen": "2026-10-28T14:07:13.030640+00:00"
+  },
+  "gwm|ora|2023|elektro|49": {
+    "first_seen": "2026-10-28T14:07:13.030640+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbnopx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 20500,
+    "last_seen": "2026-10-28T14:07:13.030640+00:00"
+  },
+  "rivian|r1s|2023|elektro|30": {
+    "first_seen": "2026-10-28T14:07:13.030640+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbijef.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 59990,
+    "last_seen": "2026-10-28T14:07:13.030640+00:00"
+  },
+  "cita|marka|2025|1.5h|19": {
+    "first_seen": "2026-10-28T14:07:13.030640+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/bpcmmk.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-12-31",
+    "last_price": 28900,
+    "last_seen": "2026-10-28T14:07:13.030640+00:00"
   }
 }
