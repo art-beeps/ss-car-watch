@@ -3416,5 +3416,35 @@
     "last_ta": null,
     "last_price": 62000,
     "last_seen": "2026-10-29T13:20:06.952460+00:00"
+  },
+  "tesla|model 3|2020|elektro|73": {
+    "first_seen": "2026-10-29T19:01:06.374096+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chxkcl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 26900,
+    "last_seen": "2026-10-29T19:01:06.374096+00:00"
+  },
+  "mercedes|eqc 400 4matic|2022|elektro|63": {
+    "first_seen": "2026-10-29T19:01:06.374096+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfpmfh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 32999,
+    "last_seen": "2026-10-29T19:01:06.374096+00:00"
+  },
+  "volkswagen|id. buzz gtx|2025|elektro|70": {
+    "first_seen": "2026-10-29T19:01:06.374096+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chxkee.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 59900,
+    "last_seen": "2026-10-29T19:01:06.374096+00:00"
   }
 }
