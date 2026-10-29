@@ -36,8 +36,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 69990,
-    "last_seen": "2026-09-09T01:17:37.251051+00:00"
+    "last_price": 59990,
+    "last_seen": "2026-10-29T13:20:06.952460+00:00"
   },
   "cita|marka|2025|1.5h|15": {
     "first_seen": "2026-09-09T01:17:37.251051+00:00",
@@ -3396,5 +3396,25 @@
     "last_ta": null,
     "last_price": 69990,
     "last_seen": "2026-10-29T06:00:28.471403+00:00"
+  },
+  "mercedes-benz|eqb 300 4matic|2022|elektro|60": {
+    "first_seen": "2026-10-29T13:20:06.952460+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdikdf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 32500,
+    "last_seen": "2026-10-29T13:20:06.952460+00:00"
+  },
+  "bmw|i5|2024|elektro|72": {
+    "first_seen": "2026-10-29T13:20:06.952460+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkmnd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 62000,
+    "last_seen": "2026-10-29T13:20:06.952460+00:00"
   }
 }
