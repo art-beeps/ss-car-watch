@@ -2882,8 +2882,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 22000,
-    "last_seen": "2026-10-19T13:44:31.058135+00:00"
+    "last_price": 21000,
+    "last_seen": "2026-10-30T16:43:57.452917+00:00"
   },
   "nissan|ariya|2024|elektro|54": {
     "first_seen": "2026-10-19T20:00:26.506013+00:00",
@@ -3466,5 +3466,55 @@
     "last_ta": null,
     "last_price": 58500,
     "last_seen": "2026-10-30T10:13:49.435134+00:00"
+  },
+  "renault|zoe|2014|elektro|17": {
+    "first_seen": "2026-10-30T16:43:57.452917+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmmjj.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 5000,
+    "last_seen": "2026-10-30T16:43:57.452917+00:00"
+  },
+  "dong|feng seres 3|2021|elektro|65": {
+    "first_seen": "2026-10-30T16:43:57.452917+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cckjbo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 14750,
+    "last_seen": "2026-10-30T16:43:57.452917+00:00"
+  },
+  "bmw|ix40|2023|elektro|37": {
+    "first_seen": "2026-10-30T16:43:57.452917+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chxlbn.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 44200,
+    "last_seen": "2026-10-30T16:43:57.452917+00:00"
+  },
+  "bmw|i7 60 m-sport|2024|elektro|37": {
+    "first_seen": "2026-10-30T16:43:57.452917+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdhhpo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 91960,
+    "last_seen": "2026-10-30T16:43:57.452917+00:00"
+  },
+  "volvo|citi|2025|1.5h|9": {
+    "first_seen": "2026-10-30T16:43:57.452917+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/volvo/another/ghoxd.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-12-31",
+    "last_price": 29900,
+    "last_seen": "2026-10-30T16:43:57.452917+00:00"
   }
 }
