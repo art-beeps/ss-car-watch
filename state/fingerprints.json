@@ -3516,5 +3516,15 @@
     "last_ta": "2028-12-31",
     "last_price": 29900,
     "last_seen": "2026-10-30T16:43:57.452917+00:00"
+  },
+  "hyundai|kona|2019|elektro|154": {
+    "first_seen": "2026-10-30T21:36:16.099892+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccioll.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 14850,
+    "last_seen": "2026-10-30T21:36:16.099892+00:00"
   }
 }
