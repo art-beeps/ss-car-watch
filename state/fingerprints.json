@@ -2802,8 +2802,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 4400,
-    "last_seen": "2026-10-25T11:46:27.337099+00:00"
+    "last_price": 3950,
+    "last_seen": "2026-11-01T20:36:43.758911+00:00"
   },
   "nissan|leaf|2019|elektro|171": {
     "first_seen": "2026-10-17T13:48:14.840458+00:00",
