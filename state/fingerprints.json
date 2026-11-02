@@ -253,12 +253,13 @@
   "cita|marka|2026|1.5h|0": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/others/cgclld.html"
+      "https://www.ss.lv/msg/lv/transport/cars/others/cgclld.html",
+      "https://www.ss.lv/msg/lv/transport/cars/others/bpjjp.html"
     ],
     "had_valid_ta": true,
-    "last_ta": "2028-11-30",
-    "last_price": 39990,
-    "last_seen": "2026-09-10T11:31:26.153772+00:00"
+    "last_ta": "2028-12-31",
+    "last_price": 41090,
+    "last_seen": "2026-11-02T18:31:46.717695+00:00"
   },
   "mg|mg4|2024|elektro|21": {
     "first_seen": "2026-09-10T16:31:43.282801+00:00",
@@ -2661,8 +2662,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 47000,
-    "last_seen": "2026-10-21T13:56:16.681936+00:00"
+    "last_price": 46000,
+    "last_seen": "2026-11-02T18:31:46.717695+00:00"
   },
   "toyota|rav 4|2026|2.5h|0": {
     "first_seen": "2026-10-15T11:43:37.099638+00:00",
@@ -3587,5 +3588,35 @@
     "last_ta": null,
     "last_price": 29900,
     "last_seen": "2026-11-02T07:45:58.662648+00:00"
+  },
+  "nissan|leaf|2020|elektro|70": {
+    "first_seen": "2026-11-02T18:31:46.717695+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bpoook.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 12300,
+    "last_seen": "2026-11-02T18:31:46.717695+00:00"
+  },
+  "opel|mokka|2022|elektro|38": {
+    "first_seen": "2026-11-02T18:31:46.717695+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bmknlo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18400,
+    "last_seen": "2026-11-02T18:31:46.717695+00:00"
+  },
+  "škoda|enyaq 80|2021|elektro|178": {
+    "first_seen": "2026-11-02T18:31:46.717695+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjcmf.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21500,
+    "last_seen": "2026-11-02T18:31:46.717695+00:00"
   }
 }
