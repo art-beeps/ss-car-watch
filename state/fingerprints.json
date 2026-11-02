@@ -3244,8 +3244,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 22700,
-    "last_seen": "2026-10-26T20:01:36.238914+00:00"
+    "last_price": 21500,
+    "last_seen": "2026-11-02T07:45:58.662648+00:00"
   },
   "forthing|friday 400|2026|elektro|0": {
     "first_seen": "2026-10-27T10:41:42.648530+00:00",
@@ -3567,5 +3567,25 @@
     "last_ta": "2028-09-18",
     "last_price": 22545,
     "last_seen": "2026-11-01T16:10:25.752513+00:00"
+  },
+  "skywell|be11|2023|elektro|3": {
+    "first_seen": "2026-11-02T07:45:58.662648+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cffcng.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24000,
+    "last_seen": "2026-11-02T07:45:58.662648+00:00"
+  },
+  "gwm|ora+ plus|2025|elektro|0": {
+    "first_seen": "2026-11-02T07:45:58.662648+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkbkk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29900,
+    "last_seen": "2026-11-02T07:45:58.662648+00:00"
   }
 }
