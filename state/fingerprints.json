@@ -1741,8 +1741,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 10900,
-    "last_seen": "2026-10-12T15:44:30.525488+00:00"
+    "last_price": 10700,
+    "last_seen": "2026-11-03T01:39:59.178338+00:00"
   },
   "podpoint|type1|2021|elektro|10": {
     "first_seen": "2026-09-27T14:05:58.892944+00:00",
@@ -3607,7 +3607,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 18400,
-    "last_seen": "2026-11-02T18:31:46.717695+00:00"
+    "last_seen": "2026-11-03T01:39:59.178338+00:00"
   },
   "škoda|enyaq 80|2021|elektro|178": {
     "first_seen": "2026-11-02T18:31:46.717695+00:00",
@@ -3618,5 +3618,15 @@
     "last_ta": null,
     "last_price": 21500,
     "last_seen": "2026-11-02T18:31:46.717695+00:00"
+  },
+  "volkswagen|e golf 7|2018|elektro|115": {
+    "first_seen": "2026-11-03T01:39:59.178338+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmpie.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 1000,
+    "last_seen": "2026-11-03T01:39:59.178338+00:00"
   }
 }
