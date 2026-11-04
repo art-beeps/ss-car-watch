@@ -2248,12 +2248,13 @@
   "cita|marka|2026|1.5h|15": {
     "first_seen": "2026-10-06T17:17:15.571707+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/others/cgifhd.html"
+      "https://www.ss.lv/msg/lv/transport/cars/others/cgifhd.html",
+      "https://www.ss.lv/msg/lv/transport/cars/others/bpckcf.html"
     ],
     "had_valid_ta": true,
-    "last_ta": "2028-12-31",
-    "last_price": 35840,
-    "last_seen": "2026-10-06T17:17:15.571707+00:00"
+    "last_ta": "2029-01-31",
+    "last_price": 34990,
+    "last_seen": "2026-11-04T21:58:22.163060+00:00"
   },
   "renault|citi|2025|1.2h|24": {
     "first_seen": "2026-10-06T21:43:31.776499+00:00",
@@ -3326,8 +3327,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 20500,
-    "last_seen": "2026-10-28T14:07:13.030640+00:00"
+    "last_price": 19950,
+    "last_seen": "2026-11-04T21:58:22.163060+00:00"
   },
   "rivian|r1s|2023|elektro|30": {
     "first_seen": "2026-10-28T14:07:13.030640+00:00",
@@ -3679,5 +3680,35 @@
     "last_ta": "2028-09-30",
     "last_price": 40900,
     "last_seen": "2026-11-04T15:31:51.889904+00:00"
+  },
+  "kia|eniro|2021|elektro|121": {
+    "first_seen": "2026-11-04T21:58:22.163060+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkfcc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22000,
+    "last_seen": "2026-11-04T21:58:22.163060+00:00"
+  },
+  "fiat|e-ducato|2024|elektro|34": {
+    "first_seen": "2026-11-04T21:58:22.163060+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkffi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28000,
+    "last_seen": "2026-11-04T21:58:22.163060+00:00"
+  },
+  "audi|a6 e-tron quattro sb|2025|elektro|74": {
+    "first_seen": "2026-11-04T21:58:22.163060+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cchmob.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 54000,
+    "last_seen": "2026-11-04T21:58:22.163060+00:00"
   }
 }
