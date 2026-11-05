@@ -2273,8 +2273,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 89900,
-    "last_seen": "2026-10-07T08:51:57.507569+00:00"
+    "last_price": 84900,
+    "last_seen": "2026-11-05T18:50:20.271423+00:00"
   },
   "toyota|c-hr|2025|2.0h|41": {
     "first_seen": "2026-10-07T08:51:57.507569+00:00",
@@ -2915,8 +2915,8 @@
     ],
     "had_valid_ta": true,
     "last_ta": "2028-01-31",
-    "last_price": 5850,
-    "last_seen": "2026-10-20T10:10:54.697955+00:00"
+    "last_price": 6450,
+    "last_seen": "2026-11-05T18:50:20.271423+00:00"
   },
   "volkswagen|id4 pro|2021|elektro|174": {
     "first_seen": "2026-10-20T10:10:54.697955+00:00",
@@ -2977,8 +2977,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 34600,
-    "last_seen": "2026-10-28T14:07:13.030640+00:00"
+    "last_price": 33600,
+    "last_seen": "2026-11-05T18:50:20.271423+00:00"
   },
   "nissan|leaf|2016|elektro|60": {
     "first_seen": "2026-10-21T07:48:26.765398+00:00",
@@ -3750,5 +3750,15 @@
     "last_ta": null,
     "last_price": 47830,
     "last_seen": "2026-11-05T11:11:36.907447+00:00"
+  },
+  "citroen|c5|2024|plug-in|0": {
+    "first_seen": "2026-11-05T18:50:20.271423+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/citroen/c5/cgigke.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-03-31",
+    "last_price": 29000,
+    "last_seen": "2026-11-05T18:50:20.271423+00:00"
   }
 }
