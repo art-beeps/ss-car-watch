@@ -3710,5 +3710,45 @@
     "last_ta": null,
     "last_price": 54000,
     "last_seen": "2026-11-04T21:58:22.163060+00:00"
+  },
+  "bmw|i3|2015|elektro|105": {
+    "first_seen": "2026-11-05T11:11:36.907447+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjjix.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 12900,
+    "last_seen": "2026-11-05T11:11:36.907447+00:00"
+  },
+  "kia|e-niro 64kwh|2020|elektro|108": {
+    "first_seen": "2026-11-05T11:11:36.907447+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cexlne.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19000,
+    "last_seen": "2026-11-05T11:11:36.907447+00:00"
+  },
+  "cupra|born|2022|elektro|60": {
+    "first_seen": "2026-11-05T11:11:36.907447+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdndxi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22500,
+    "last_seen": "2026-11-05T11:11:36.907447+00:00"
+  },
+  "volkswagen|id. 4 pro 4mot|2026|elektro|0": {
+    "first_seen": "2026-11-05T11:11:36.907447+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cdmjnm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 47830,
+    "last_seen": "2026-11-05T11:11:36.907447+00:00"
   }
 }
