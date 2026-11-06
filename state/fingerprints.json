@@ -3770,5 +3770,25 @@
     "last_ta": null,
     "last_price": 37700,
     "last_seen": "2026-11-06T00:24:46.459847+00:00"
+  },
+  "volkswagen|e-crafter|2020|elektro|118": {
+    "first_seen": "2026-11-06T15:11:50.345496+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmixo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 13000,
+    "last_seen": "2026-11-06T15:11:50.345496+00:00"
+  },
+  "vw|id. 5|2022|elektro|62": {
+    "first_seen": "2026-11-06T15:11:50.345496+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkmmo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 32900,
+    "last_seen": "2026-11-06T15:11:50.345496+00:00"
   }
 }
