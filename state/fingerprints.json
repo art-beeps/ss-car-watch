@@ -3790,5 +3790,25 @@
     "last_ta": null,
     "last_price": 32900,
     "last_seen": "2026-11-06T15:11:50.345496+00:00"
+  },
+  "tesla|model s75d|2017|elektro|139": {
+    "first_seen": "2026-11-07T18:52:22.626939+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkjio.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 18900,
+    "last_seen": "2026-11-07T18:52:22.626939+00:00"
+  },
+  "elaris|beo skywell et5|2024|elektro|0": {
+    "first_seen": "2026-11-07T18:52:22.626939+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccipgj.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29040,
+    "last_seen": "2026-11-07T18:52:22.626939+00:00"
   }
 }
