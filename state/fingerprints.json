@@ -3810,5 +3810,35 @@
     "last_ta": null,
     "last_price": 29040,
     "last_seen": "2026-11-07T18:52:22.626939+00:00"
+  },
+  "hyundai|ioniq|2021|elektro|136": {
+    "first_seen": "2026-11-08T10:34:56.645268+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbolfd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 14000,
+    "last_seen": "2026-11-08T10:34:56.645268+00:00"
+  },
+  "tesla|model 3|2021|elektro|103": {
+    "first_seen": "2026-11-08T10:34:56.645268+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccmpjc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 27000,
+    "last_seen": "2026-11-08T10:34:56.645268+00:00"
+  },
+  "skoda|enyaq|2022|elektro|104": {
+    "first_seen": "2026-11-08T10:34:56.645268+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfbne.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 27900,
+    "last_seen": "2026-11-08T10:34:56.645268+00:00"
   }
 }
