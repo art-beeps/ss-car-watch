@@ -3870,5 +3870,15 @@
     "last_ta": null,
     "last_price": 38115,
     "last_seen": "2026-11-08T17:07:38.420691+00:00"
+  },
+  "tesla|x|2018|elektro|208": {
+    "first_seen": "2026-11-08T21:14:35.059440+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cffxie.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22000,
+    "last_seen": "2026-11-08T21:14:35.059440+00:00"
   }
 }
