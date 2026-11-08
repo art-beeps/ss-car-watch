@@ -2685,8 +2685,8 @@
     ],
     "had_valid_ta": true,
     "last_ta": "2027-05-14",
-    "last_price": 4850,
-    "last_seen": "2026-11-03T17:54:45.384303+00:00"
+    "last_price": 4500,
+    "last_seen": "2026-11-08T17:07:38.420691+00:00"
   },
   "volkswagen|id. 4 pro|2021|elektro|89": {
     "first_seen": "2026-10-15T17:10:31.235273+00:00",
@@ -3840,5 +3840,35 @@
     "last_ta": null,
     "last_price": 27900,
     "last_seen": "2026-11-08T10:34:56.645268+00:00"
+  },
+  "opel|korsa|2020|elektro|46": {
+    "first_seen": "2026-11-08T17:07:38.420691+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbiibm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 13500,
+    "last_seen": "2026-11-08T17:07:38.420691+00:00"
+  },
+  "skywell|et5|2023|elektro|6": {
+    "first_seen": "2026-11-08T17:07:38.420691+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfjnfj.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24000,
+    "last_seen": "2026-11-08T17:07:38.420691+00:00"
+  },
+  "tesla|y long range|2023|elektro|70": {
+    "first_seen": "2026-11-08T17:07:38.420691+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfcbi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 38115,
+    "last_seen": "2026-11-08T17:07:38.420691+00:00"
   }
 }
