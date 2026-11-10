@@ -3970,5 +3970,25 @@
     "last_ta": null,
     "last_price": 69990,
     "last_seen": "2026-11-09T18:55:48.271423+00:00"
+  },
+  "bmw|i3|2019|elektro|88": {
+    "first_seen": "2026-11-10T02:16:11.929081+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ceeoho.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 14900,
+    "last_seen": "2026-11-10T02:16:11.929081+00:00"
+  },
+  "mini|cooper se 3door hatch|2024|elektro|56": {
+    "first_seen": "2026-11-10T02:16:11.929081+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddxnd.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 21500,
+    "last_seen": "2026-11-10T02:16:11.929081+00:00"
   }
 }
