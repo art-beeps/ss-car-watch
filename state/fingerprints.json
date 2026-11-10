@@ -4070,5 +4070,15 @@
     "last_ta": "2028-04-30",
     "last_price": 44900,
     "last_seen": "2026-11-10T17:58:05.475981+00:00"
+  },
+  "audi|e-tron 50|2020|elektro|123": {
+    "first_seen": "2026-11-10T23:32:49.556769+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccegxl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 25500,
+    "last_seen": "2026-11-10T23:32:49.556769+00:00"
   }
 }
