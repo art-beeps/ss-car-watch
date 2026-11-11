@@ -237,8 +237,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 24700,
-    "last_seen": "2026-09-10T11:31:26.153772+00:00"
+    "last_price": 23500,
+    "last_seen": "2026-11-11T15:26:06.317688+00:00"
   },
   "mercedes|eqc|2020|elektro|215": {
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
@@ -2650,12 +2650,13 @@
   "skywell|et5|2023|elektro|14": {
     "first_seen": "2026-10-15T11:43:37.099638+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cceopb.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cceopb.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cekbxx.html"
     ],
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 22000,
-    "last_seen": "2026-10-15T11:43:37.099638+00:00"
+    "last_seen": "2026-11-11T15:26:06.317688+00:00"
   },
   "audi|q8 e-tron|2024|elektro|61": {
     "first_seen": "2026-10-15T11:43:37.099638+00:00",
@@ -4080,5 +4081,15 @@
     "last_ta": null,
     "last_price": 25500,
     "last_seen": "2026-11-10T23:32:49.556769+00:00"
+  },
+  "vw|id. 5 pro|2022|elektro|62": {
+    "first_seen": "2026-11-11T15:26:06.317688+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfinn.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 32900,
+    "last_seen": "2026-11-11T15:26:06.317688+00:00"
   }
 }
