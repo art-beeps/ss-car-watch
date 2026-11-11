@@ -4091,5 +4091,15 @@
     "last_ta": null,
     "last_price": 32900,
     "last_seen": "2026-11-11T15:26:06.317688+00:00"
+  },
+  "škoda|enyaq|2022|elektro|82": {
+    "first_seen": "2026-11-11T22:49:28.528854+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbxnb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 32200,
+    "last_seen": "2026-11-11T22:49:28.528854+00:00"
   }
 }
