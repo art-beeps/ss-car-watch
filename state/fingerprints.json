@@ -254,12 +254,13 @@
     "first_seen": "2026-09-10T11:31:26.153772+00:00",
     "urls": [
       "https://www.ss.lv/msg/lv/transport/cars/others/cgclld.html",
-      "https://www.ss.lv/msg/lv/transport/cars/others/bpjjp.html"
+      "https://www.ss.lv/msg/lv/transport/cars/others/bpjjp.html",
+      "https://www.ss.lv/msg/lv/transport/cars/others/bpbnkh.html"
     ],
     "had_valid_ta": true,
-    "last_ta": "2028-12-31",
-    "last_price": 41090,
-    "last_seen": "2026-11-02T18:31:46.717695+00:00"
+    "last_ta": "2029-01-31",
+    "last_price": 59990,
+    "last_seen": "2026-11-12T12:56:37.112566+00:00"
   },
   "mg|mg4|2024|elektro|21": {
     "first_seen": "2026-09-10T16:31:43.282801+00:00",
@@ -4101,5 +4102,15 @@
     "last_ta": null,
     "last_price": 32200,
     "last_seen": "2026-11-11T22:49:28.528854+00:00"
+  },
+  "renault|citi|2026|1.2h|0": {
+    "first_seen": "2026-11-12T12:56:37.112566+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/renault/another/cefenp.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2029-01-31",
+    "last_price": 51100,
+    "last_seen": "2026-11-12T12:56:37.112566+00:00"
   }
 }
