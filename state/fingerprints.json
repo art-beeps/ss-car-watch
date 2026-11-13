@@ -792,8 +792,8 @@
     ],
     "had_valid_ta": true,
     "last_ta": "2028-08-31",
-    "last_price": 44900,
-    "last_seen": "2026-09-15T18:17:22.316942+00:00"
+    "last_price": 44500,
+    "last_seen": "2026-11-13T17:52:53.019632+00:00"
   },
   "mg|mg4|2023|elektro|65": {
     "first_seen": "2026-09-15T21:29:53.617656+00:00",
@@ -1520,8 +1520,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 29000,
-    "last_seen": "2026-10-19T13:44:31.058135+00:00"
+    "last_price": 28000,
+    "last_seen": "2026-11-13T17:52:53.019632+00:00"
   },
   "maxus|mifa9|2024|elektro|30": {
     "first_seen": "2026-09-23T20:30:09.503949+00:00",
@@ -3039,8 +3039,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 10690,
-    "last_seen": "2026-10-21T18:45:11.914788+00:00"
+    "last_price": 10490,
+    "last_seen": "2026-11-13T17:52:53.019632+00:00"
   },
   "volvo|xc 70|2006|2.4d|402": {
     "first_seen": "2026-10-21T18:45:11.914788+00:00",
@@ -4172,5 +4172,45 @@
     "last_ta": null,
     "last_price": 60900,
     "last_seen": "2026-11-13T09:43:43.487322+00:00"
+  },
+  "dong|feng seres 3|2022|elektro|59": {
+    "first_seen": "2026-11-13T17:52:53.019632+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cckjbo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15450,
+    "last_seen": "2026-11-13T17:52:53.019632+00:00"
+  },
+  "gwm|ora|2024|elektro|63": {
+    "first_seen": "2026-11-13T17:52:53.019632+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbcbm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15700,
+    "last_seen": "2026-11-13T17:52:53.019632+00:00"
+  },
+  "bmw|ix3 m sport|2024|elektro|17": {
+    "first_seen": "2026-11-13T17:52:53.019632+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbcbi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 54990,
+    "last_seen": "2026-11-13T17:52:53.019632+00:00"
+  },
+  "bmw|i5 m60|2025|elektro|30": {
+    "first_seen": "2026-11-13T17:52:53.019632+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbcbg.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 78990,
+    "last_seen": "2026-11-13T17:52:53.019632+00:00"
   }
 }
