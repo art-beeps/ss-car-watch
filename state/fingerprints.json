@@ -4122,5 +4122,25 @@
     "last_ta": null,
     "last_price": 20500,
     "last_seen": "2026-11-12T20:56:18.541277+00:00"
+  },
+  "mercedes|benz eqb350 4matic|2022|elektro|72": {
+    "first_seen": "2026-11-13T01:57:12.192722+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbbhl.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 37500,
+    "last_seen": "2026-11-13T01:57:12.192722+00:00"
+  },
+  "bmw|ix1|2026|elektro|11": {
+    "first_seen": "2026-11-13T01:57:12.192722+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbbib.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 37500,
+    "last_seen": "2026-11-13T01:57:12.192722+00:00"
   }
 }
