@@ -3780,8 +3780,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 13000,
-    "last_seen": "2026-11-06T20:56:44.864269+00:00"
+    "last_price": 12500,
+    "last_seen": "2026-11-13T09:43:43.487322+00:00"
   },
   "vw|id. 5|2022|elektro|62": {
     "first_seen": "2026-11-06T15:11:50.345496+00:00",
@@ -4131,7 +4131,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 37500,
-    "last_seen": "2026-11-13T01:57:12.192722+00:00"
+    "last_seen": "2026-11-13T09:43:43.487322+00:00"
   },
   "bmw|ix1|2026|elektro|11": {
     "first_seen": "2026-11-13T01:57:12.192722+00:00",
@@ -4141,6 +4141,36 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 37500,
-    "last_seen": "2026-11-13T01:57:12.192722+00:00"
+    "last_seen": "2026-11-13T09:43:43.487322+00:00"
+  },
+  "byd|atto 2|2025|elektro|16": {
+    "first_seen": "2026-11-13T09:43:43.487322+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjkgi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 30500,
+    "last_seen": "2026-11-13T09:43:43.487322+00:00"
+  },
+  "byd|seal u dm-i|2026|plug-in|0": {
+    "first_seen": "2026-11-13T09:43:43.487322+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkcdp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 36200,
+    "last_seen": "2026-11-13T09:43:43.487322+00:00"
+  },
+  "bmw|ix 50|2023|elektro|98": {
+    "first_seen": "2026-11-13T09:43:43.487322+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblfoc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 60900,
+    "last_seen": "2026-11-13T09:43:43.487322+00:00"
   }
 }
