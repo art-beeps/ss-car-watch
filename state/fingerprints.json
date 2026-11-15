@@ -4242,5 +4242,35 @@
     "last_ta": null,
     "last_price": 39900,
     "last_seen": "2026-11-14T19:15:37.469608+00:00"
+  },
+  "opel|corsa|2023|elektro|90": {
+    "first_seen": "2026-11-15T11:14:10.279928+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cblhhf.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-01-10",
+    "last_price": 11000,
+    "last_seen": "2026-11-15T11:14:10.279928+00:00"
+  },
+  "škoda|enyaq|2021|elektro|221": {
+    "first_seen": "2026-11-15T11:14:10.279928+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbckd.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-06-21",
+    "last_price": 20600,
+    "last_seen": "2026-11-15T11:14:10.279928+00:00"
+  },
+  "škoda|enyaq 80|2022|elektro|79": {
+    "first_seen": "2026-11-15T11:14:10.279928+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cecxge.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 31950,
+    "last_seen": "2026-11-15T11:14:10.279928+00:00"
   }
 }
