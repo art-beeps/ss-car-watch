@@ -4282,5 +4282,25 @@
     "last_ta": null,
     "last_price": 19900,
     "last_seen": "2026-11-16T11:44:47.617262+00:00"
+  },
+  "nissan|ariya|2023|elektro|90": {
+    "first_seen": "2026-11-16T22:19:43.303764+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbdcp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28945,
+    "last_seen": "2026-11-16T22:19:43.303764+00:00"
+  },
+  "bmw|ix 40xdrive|2023|elektro|61": {
+    "first_seen": "2026-11-16T22:19:43.303764+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbikoi.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 42555,
+    "last_seen": "2026-11-16T22:19:43.303764+00:00"
   }
 }
