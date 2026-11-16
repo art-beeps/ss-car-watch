@@ -3189,8 +3189,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 17000,
-    "last_seen": "2026-10-25T16:34:47.176222+00:00"
+    "last_price": 16500,
+    "last_seen": "2026-11-16T11:44:47.617262+00:00"
   },
   "mercedes|benz eqe 350+|2022|elektro|148": {
     "first_seen": "2026-10-25T16:34:47.176222+00:00",
@@ -3249,8 +3249,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 21500,
-    "last_seen": "2026-11-02T07:45:58.662648+00:00"
+    "last_price": 20300,
+    "last_seen": "2026-11-16T11:44:47.617262+00:00"
   },
   "forthing|friday 400|2026|elektro|0": {
     "first_seen": "2026-10-27T10:41:42.648530+00:00",
@@ -4272,5 +4272,15 @@
     "last_ta": null,
     "last_price": 31950,
     "last_seen": "2026-11-15T11:14:10.279928+00:00"
+  },
+  "mini|cooper se|2022|elektro|58": {
+    "first_seen": "2026-11-16T11:44:47.617262+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfjono.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19900,
+    "last_seen": "2026-11-16T11:44:47.617262+00:00"
   }
 }
