@@ -4302,5 +4302,15 @@
     "last_ta": null,
     "last_price": 42555,
     "last_seen": "2026-11-16T22:19:43.303764+00:00"
+  },
+  "tesla|model s|2018|elektro|109": {
+    "first_seen": "2026-11-17T04:36:52.184052+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cckexc.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28990,
+    "last_seen": "2026-11-17T04:36:52.184052+00:00"
   }
 }
