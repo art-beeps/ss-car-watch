@@ -3980,8 +3980,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 14900,
-    "last_seen": "2026-11-10T02:16:11.929081+00:00"
+    "last_price": 14200,
+    "last_seen": "2026-11-17T14:40:02.843046+00:00"
   },
   "mini|cooper se 3door hatch|2024|elektro|56": {
     "first_seen": "2026-11-10T02:16:11.929081+00:00",
@@ -4312,5 +4312,45 @@
     "last_ta": null,
     "last_price": 28990,
     "last_seen": "2026-11-17T04:36:52.184052+00:00"
+  },
+  "nissan|leaf|2022|elektro|16": {
+    "first_seen": "2026-11-17T14:40:02.843046+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbdig.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19600,
+    "last_seen": "2026-11-17T14:40:02.843046+00:00"
+  },
+  "skywell|et5|2023|elektro|3": {
+    "first_seen": "2026-11-17T14:40:02.843046+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnpih.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 25000,
+    "last_seen": "2026-11-17T14:40:02.843046+00:00"
+  },
+  "tesla|model 3|2021|elektro|87": {
+    "first_seen": "2026-11-17T14:40:02.843046+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfdplp.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28400,
+    "last_seen": "2026-11-17T14:40:02.843046+00:00"
+  },
+  "volkswagen|tayron|2025|1.5h|59": {
+    "first_seen": "2026-11-17T14:40:02.843046+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/volkswagen/tayron/chbdkb.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-04-30",
+    "last_price": 34950,
+    "last_seen": "2026-11-17T14:40:02.843046+00:00"
   }
 }
