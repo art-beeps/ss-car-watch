@@ -4372,5 +4372,25 @@
     "last_ta": null,
     "last_price": 28490,
     "last_seen": "2026-11-17T22:59:15.230356+00:00"
+  },
+  "volkswagen|id 3|2023|elektro|57": {
+    "first_seen": "2026-11-18T14:17:51.409339+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbdnx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22700,
+    "last_seen": "2026-11-18T14:17:51.409339+00:00"
+  },
+  "volkswagen|id. 5 pro|2022|elektro|130": {
+    "first_seen": "2026-11-18T14:17:51.409339+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbdnk.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 29990,
+    "last_seen": "2026-11-18T14:17:51.409339+00:00"
   }
 }
