@@ -4338,10 +4338,10 @@
     "urls": [
       "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cfdplp.html"
     ],
-    "had_valid_ta": false,
-    "last_ta": null,
-    "last_price": 28400,
-    "last_seen": "2026-11-17T14:40:02.843046+00:00"
+    "had_valid_ta": true,
+    "last_ta": "2028-06-30",
+    "last_price": 27800,
+    "last_seen": "2026-11-19T22:17:27.505418+00:00"
   },
   "volkswagen|tayron|2025|1.5h|59": {
     "first_seen": "2026-11-17T14:40:02.843046+00:00",
@@ -4422,5 +4422,15 @@
     "last_ta": "2027-09-30",
     "last_price": 37900,
     "last_seen": "2026-11-19T03:41:02.863651+00:00"
+  },
+  "citroen|e-c4|2023|elektro|66": {
+    "first_seen": "2026-11-19T22:17:27.505418+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbejm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 19199,
+    "last_seen": "2026-11-19T22:17:27.505418+00:00"
   }
 }
