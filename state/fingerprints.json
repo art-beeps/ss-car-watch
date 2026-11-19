@@ -4412,5 +4412,15 @@
     "last_ta": null,
     "last_price": 21300,
     "last_seen": "2026-11-18T22:07:49.886679+00:00"
+  },
+  "nissan|ariya|2023|elektro|86": {
+    "first_seen": "2026-11-19T03:41:02.863651+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxmoeb.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-09-30",
+    "last_price": 37900,
+    "last_seen": "2026-11-19T03:41:02.863651+00:00"
   }
 }
