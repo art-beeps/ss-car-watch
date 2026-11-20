@@ -4147,12 +4147,13 @@
   "byd|atto 2|2025|elektro|16": {
     "first_seen": "2026-11-13T09:43:43.487322+00:00",
     "urls": [
-      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjkgi.html"
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjkgi.html",
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbjcxc.html"
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 30500,
-    "last_seen": "2026-11-13T09:43:43.487322+00:00"
+    "last_price": 29800,
+    "last_seen": "2026-11-20T21:17:37.953860+00:00"
   },
   "byd|seal u dm-i|2026|plug-in|0": {
     "first_seen": "2026-11-13T09:43:43.487322+00:00",
@@ -4453,5 +4454,25 @@
     "last_ta": null,
     "last_price": 17700,
     "last_seen": "2026-11-20T13:11:52.133566+00:00"
+  },
+  "nissan|leaf|2019|elektro|173": {
+    "first_seen": "2026-11-20T21:17:37.953860+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbfpoe.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 10700,
+    "last_seen": "2026-11-20T21:17:37.953860+00:00"
+  },
+  "elaris|skywell beo et5|2023|elektro|9": {
+    "first_seen": "2026-11-20T21:17:37.953860+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/chbfdh.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22990,
+    "last_seen": "2026-11-20T21:17:37.953860+00:00"
   }
 }
