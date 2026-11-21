@@ -2234,8 +2234,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 20990,
-    "last_seen": "2026-10-20T15:11:48.816515+00:00"
+    "last_price": 20490,
+    "last_seen": "2026-11-21T11:25:21.472959+00:00"
   },
   "volkswagen|id3|2020|elektro|113": {
     "first_seen": "2026-10-06T17:17:15.571707+00:00",
@@ -2466,7 +2466,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 23000,
-    "last_seen": "2026-10-11T09:03:37.727819+00:00"
+    "last_seen": "2026-11-21T11:25:21.472959+00:00"
   },
   "audi|e-tron|2021|elektro|64": {
     "first_seen": "2026-10-11T15:48:31.832283+00:00",
@@ -3250,8 +3250,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 20300,
-    "last_seen": "2026-11-16T11:44:47.617262+00:00"
+    "last_price": 20700,
+    "last_seen": "2026-11-21T11:25:21.472959+00:00"
   },
   "forthing|friday 400|2026|elektro|0": {
     "first_seen": "2026-10-27T10:41:42.648530+00:00",
@@ -3841,8 +3841,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 27900,
-    "last_seen": "2026-11-08T10:34:56.645268+00:00"
+    "last_price": 27300,
+    "last_seen": "2026-11-21T11:25:21.472959+00:00"
   },
   "opel|korsa|2020|elektro|46": {
     "first_seen": "2026-11-08T17:07:38.420691+00:00",
@@ -4474,5 +4474,25 @@
     "last_ta": null,
     "last_price": 22990,
     "last_seen": "2026-11-20T21:17:37.953860+00:00"
+  },
+  "renault|zoe|2020|elektro|79": {
+    "first_seen": "2026-11-21T11:25:21.472959+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cekcgb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 13000,
+    "last_seen": "2026-11-21T11:25:21.472959+00:00"
+  },
+  "cita|marka|2025|1.5|19": {
+    "first_seen": "2026-11-21T11:25:21.472959+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/cggpec.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-12-31",
+    "last_price": 28900,
+    "last_seen": "2026-11-21T11:25:21.472959+00:00"
   }
 }
