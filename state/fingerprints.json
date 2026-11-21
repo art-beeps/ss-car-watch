@@ -3360,8 +3360,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 7500,
-    "last_seen": "2026-10-28T19:39:58.339589+00:00"
+    "last_price": 6680,
+    "last_seen": "2026-11-21T19:29:24.445191+00:00"
   },
   "volkswagen|id 4|2023|elektro|40": {
     "first_seen": "2026-10-28T19:39:58.339589+00:00",
@@ -3621,8 +3621,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 21500,
-    "last_seen": "2026-11-02T18:31:46.717695+00:00"
+    "last_price": 20300,
+    "last_seen": "2026-11-21T19:29:24.445191+00:00"
   },
   "volkswagen|e golf 7|2018|elektro|115": {
     "first_seen": "2026-11-03T01:39:59.178338+00:00",
@@ -3721,8 +3721,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 12900,
-    "last_seen": "2026-11-05T11:11:36.907447+00:00"
+    "last_price": 12600,
+    "last_seen": "2026-11-21T19:29:24.445191+00:00"
   },
   "kia|e-niro 64kwh|2020|elektro|108": {
     "first_seen": "2026-11-05T11:11:36.907447+00:00",
@@ -4494,5 +4494,15 @@
     "last_ta": "2028-12-31",
     "last_price": 28900,
     "last_seen": "2026-11-21T11:25:21.472959+00:00"
+  },
+  "volkswagen|id4|2022|elektro|78": {
+    "first_seen": "2026-11-21T19:29:24.445191+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccefin.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 25000,
+    "last_seen": "2026-11-21T19:29:24.445191+00:00"
   }
 }
