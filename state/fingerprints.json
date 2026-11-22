@@ -1745,7 +1745,7 @@
     "had_valid_ta": false,
     "last_ta": null,
     "last_price": 10700,
-    "last_seen": "2026-11-03T01:39:59.178338+00:00"
+    "last_seen": "2026-11-22T16:26:24.854250+00:00"
   },
   "podpoint|type1|2021|elektro|10": {
     "first_seen": "2026-09-27T14:05:58.892944+00:00",
@@ -3180,8 +3180,8 @@
     ],
     "had_valid_ta": true,
     "last_ta": "2028-10-31",
-    "last_price": 30800,
-    "last_seen": "2026-10-25T11:46:27.337099+00:00"
+    "last_price": 33800,
+    "last_seen": "2026-11-22T16:26:24.854250+00:00"
   },
   "bmw|i3s|2019|elektro|110": {
     "first_seen": "2026-10-25T16:34:47.176222+00:00",
@@ -4504,5 +4504,25 @@
     "last_ta": null,
     "last_price": 25000,
     "last_seen": "2026-11-21T19:29:24.445191+00:00"
+  },
+  "nissan|leaf|2020|elektro|71": {
+    "first_seen": "2026-11-22T16:26:24.854250+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbkffx.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 12900,
+    "last_seen": "2026-11-22T16:26:24.854250+00:00"
+  },
+  "bmw|i3|2019|elektro|95": {
+    "first_seen": "2026-11-22T16:26:24.854250+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxikjm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 15900,
+    "last_seen": "2026-11-22T16:26:24.854250+00:00"
   }
 }
