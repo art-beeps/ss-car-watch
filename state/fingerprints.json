@@ -1744,8 +1744,8 @@
     ],
     "had_valid_ta": false,
     "last_ta": null,
-    "last_price": 10700,
-    "last_seen": "2026-11-22T16:26:24.854250+00:00"
+    "last_price": 10400,
+    "last_seen": "2026-11-22T22:34:04.712747+00:00"
   },
   "podpoint|type1|2021|elektro|10": {
     "first_seen": "2026-09-27T14:05:58.892944+00:00",
@@ -4524,5 +4524,15 @@
     "last_ta": null,
     "last_price": 15900,
     "last_seen": "2026-11-22T16:26:24.854250+00:00"
+  },
+  "maxus|mifa9|2023|elektro|32": {
+    "first_seen": "2026-11-22T22:34:04.712747+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cxnglo.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 42000,
+    "last_seen": "2026-11-22T22:34:04.712747+00:00"
   }
 }
