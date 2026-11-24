@@ -4564,5 +4564,25 @@
     "last_ta": null,
     "last_price": 21500,
     "last_seen": "2026-11-23T14:56:52.609258+00:00"
+  },
+  "mg|zs ev|2021|elektro|92": {
+    "first_seen": "2026-11-24T02:21:34.672169+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbinln.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 14777,
+    "last_seen": "2026-11-24T02:21:34.672169+00:00"
+  },
+  "mercedes|eqa 250|2022|elektro|53": {
+    "first_seen": "2026-11-24T02:21:34.672169+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cbmmod.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 28600,
+    "last_seen": "2026-11-24T02:21:34.672169+00:00"
   }
 }
