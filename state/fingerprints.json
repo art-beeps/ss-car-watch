@@ -4584,5 +4584,55 @@
     "last_ta": null,
     "last_price": 28600,
     "last_seen": "2026-11-24T02:21:34.672169+00:00"
+  },
+  "seat|mii|2021|elektro|123": {
+    "first_seen": "2026-11-24T23:06:28.525780+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ccimko.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 5700,
+    "last_seen": "2026-11-24T23:06:28.525780+00:00"
+  },
+  "kia|niro|2023|elektro|159": {
+    "first_seen": "2026-11-24T23:06:28.525780+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cciblb.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 22000,
+    "last_seen": "2026-11-24T23:06:28.525780+00:00"
+  },
+  "audi|e-tron|2020|elektro|90": {
+    "first_seen": "2026-11-24T23:06:28.525780+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/cddbel.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24900,
+    "last_seen": "2026-11-24T23:06:28.525780+00:00"
+  },
+  "byd|dolphin surf|2025|elektro|2": {
+    "first_seen": "2026-11-24T23:06:28.525780+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/bnjifm.html"
+    ],
+    "had_valid_ta": false,
+    "last_ta": null,
+    "last_price": 24950,
+    "last_seen": "2026-11-24T23:06:28.525780+00:00"
+  },
+  "renault|4 e-tech|2026|elektro|6": {
+    "first_seen": "2026-11-24T23:06:28.525780+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/electric-cars/ceccxj.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-02-17",
+    "last_price": 34400,
+    "last_seen": "2026-11-24T23:06:28.525780+00:00"
   }
 }
