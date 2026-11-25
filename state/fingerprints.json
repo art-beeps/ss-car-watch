@@ -4634,5 +4634,15 @@
     "last_ta": "2027-02-17",
     "last_price": 34400,
     "last_seen": "2026-11-24T23:06:28.525780+00:00"
+  },
+  "cita|marka|2025|1.5h|34": {
+    "first_seen": "2026-11-25T17:25:51.055362+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/others/cgkpdh.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2028-04-30",
+    "last_price": 31500,
+    "last_seen": "2026-11-25T17:25:51.055362+00:00"
   }
 }
