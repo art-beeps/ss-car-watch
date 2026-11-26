@@ -4644,5 +4644,15 @@
     "last_ta": "2028-04-30",
     "last_price": 31500,
     "last_seen": "2026-11-25T17:25:51.055362+00:00"
+  },
+  "volkswagen|tayron|2025|1.5h|46": {
+    "first_seen": "2026-11-26T20:16:58.970599+00:00",
+    "urls": [
+      "https://www.ss.lv/msg/lv/transport/cars/volkswagen/tayron/chbice.html"
+    ],
+    "had_valid_ta": true,
+    "last_ta": "2027-11-30",
+    "last_price": 47000,
+    "last_seen": "2026-11-26T20:16:58.970599+00:00"
   }
 }
